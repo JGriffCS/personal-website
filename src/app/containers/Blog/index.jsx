@@ -1,0 +1,108 @@
+import React from 'react';
+
+import BlogPost from '../../components/BlogPost';
+import BlogNavigator from '../../components/BlogNavigator';
+
+const testPosts = [
+  {
+    id: 1,
+    createdDate: new Date(),
+    content: "I am the first blog post!",
+    tags: [
+      {
+        name: 'Game Dev',
+        color: 'white',
+        background: 'darkblue',
+      },
+    ],
+    title: "Blog Post 1",
+  },
+  {
+    id: 2,
+    createdDate: new Date(),
+    content: "I am the second blog post!",
+    tags: [
+      {
+        name: 'Game Dev',
+        color: 'white',
+        background: 'darkblue',
+      },
+    ],
+    title: "Blog Post 2",
+  },
+  {
+    id: 3,
+    createdDate: new Date(),
+    content: "I am the third blog post!",
+    tags: [
+      {
+        name: 'Game Dev',
+        color: 'white',
+        background: 'darkblue',
+      },
+    ],
+    title: "Blog Post 3",
+  },
+  {
+    id: 4,
+    createdDate: new Date(),
+    content: "I am the fourth blog post!",
+    tags: [
+      {
+        name: 'Game Dev',
+        color: 'white',
+        background: 'darkblue',
+      },
+    ],
+    title: "Blog Post 4",
+  },
+  {
+    id: 5,
+    createdDate: new Date(),
+    content: "I am the fifth blog post!",
+    tags: [
+      {
+        name: 'Game Dev',
+        color: 'white',
+        background: 'darkblue',
+      },
+    ],
+    title: "Blog Post 5",
+  },
+  {
+    id: 6,
+    createdDate: new Date(),
+    content: "I am the sixth blog post!",
+    tags: [
+      {
+        name: 'Game Dev',
+        color: 'white',
+        background: 'darkblue',
+      },
+    ],
+    title: "Blog Post 6",
+  },
+];
+
+class Blog extends React.Component {
+  render() {
+    return (
+      <div className="blog-container">
+        <div className="posts-container">
+          {
+            testPosts.map((post, idx) => {
+              return (
+                <BlogPost key={idx} post={post}></BlogPost>
+              );
+            })
+          }
+        </div>
+        <div className="navigator-container">
+          <BlogNavigator></BlogNavigator>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default Blog;
