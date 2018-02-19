@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/client/index.js',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -14,18 +14,11 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/client/index.html',
       filename: 'index.html',
       inject: 'body'
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
   ],
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       {

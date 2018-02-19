@@ -1,13 +1,13 @@
 import React from 'react';
 
-import BlogPost from '../../components/BlogPost';
-import BlogNavigator from '../../components/BlogNavigator';
+import BlogPost from '../../components/BlogPost/index';
+import BlogNavigator from '../../components/BlogNavigator/index';
 
 const testPosts = [
   {
     id: 1,
     createdDate: new Date(),
-    content: "I am the first blog post!",
+    content: "I am the first blog post! I am particularly long in order to see how this whole thing goes. Also I should really see if I can get HTML to work in here. I <strong>mean</strong>, there's definitely a way to do that I think sooooo.",
     tags: [
       {
         name: 'Game Dev',
@@ -92,7 +92,12 @@ class Blog extends React.Component {
           {
             testPosts.map((post, idx) => {
               return (
-                <BlogPost key={idx} post={post}></BlogPost>
+                <div>
+                  <BlogPost key={idx} post={post}></BlogPost>
+                  {
+                    idx !== (testPosts.length - 1) ? <hr /> : ""
+                  }
+                </div>
               );
             })
           }

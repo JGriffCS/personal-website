@@ -1,0 +1,12 @@
+@import "variables";
+
+@import "components/Header/header.styles";
+@import "components/Layout/styles";
+@import "containers/Blog/styles";
+
+// TODO: Perhaps a top level contains and components index to import here
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}

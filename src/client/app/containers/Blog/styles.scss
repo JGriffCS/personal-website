@@ -1,0 +1,42 @@
+.blog-container {
+  padding: 20px;
+
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.posts-container {
+  float: left;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  box-sizing: border-box;
+  border: 1px solid #022735;
+  padding: 20px;
+}
+
+.navigator-container {
+  float: right;
+  display: none;
+  vertical-align: top;
+  border: 1px solid #022735;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+@media (min-width: $jg-device-width-tablet) {
+  .posts-container {
+    width: 75%;
+  }
+
+  .navigator-container {
+    width: 20%;
+    display: block;
+  }
+}
