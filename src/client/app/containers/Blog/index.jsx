@@ -1,7 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 
 import BlogPost from '../../components/BlogPost/index';
 import BlogNavigator from '../../components/BlogNavigator/index';
+
+axios.get('/test').then(response => console.log(response));
 
 const testPosts = [
   {
