@@ -1,25 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import BlogPost from '../../components/BlogPost/index';
 import BlogNavigator from '../../components/BlogNavigator/index';
 
-let testPosts = [];
-
-axios.get('/blogposts').then(response => testPosts = response.data || []);
-
 class Blog extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      blogPosts: [],
+    };
+  }
+
+  componentDidMount() {
+    console.log('hell');
+    axios.get('/blogposts').then(response => this.setState({ blogPosts: response.data }));
+  }
+
   render() {
+    const { blogPosts } = this.state;
+
     return (
       <div className="blog-container">
         <div className="posts-container">
           {
-            testPosts.map((post, idx) => {
+            blogPosts.map((post, idx) => {
+              console.log(post);
               return (
                 <div>
                   <BlogPost key={idx} post={post}></BlogPost>
                   {
-                    idx !== (testPosts.length - 1) ? <hr /> : ""
+                    idx !== (blogPosts.length - 1) ? <hr /> : ""
                   }
                 </div>
               );
@@ -34,4 +47,10 @@ class Blog extends React.Component {
   }
 }
 
-export default Blog;
+function mapStateToProps(state) {
+  return {
+    blogPosts: state.blogPosts,
+  };
+}
+
+export default connect(mapStateToProps)(Blog);

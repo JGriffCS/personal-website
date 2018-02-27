@@ -8,11 +8,15 @@ const initialState = {
   blogPosts: [],
 };
 
+const reducers = combineReducers({
+  blogPosts: (state = []) => state,
+});
+
 const createStoreWithMiddleware = compose(
   applyMiddleware(thunk)
 )(createStore);
 
-const store = createStoreWithMiddleware(() => null, initialState);
+const store = createStoreWithMiddleware(reducers, initialState);
 
 import App from './app/App';
 
