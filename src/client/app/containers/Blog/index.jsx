@@ -1,32 +1,32 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { setBlogPosts } from '../../actions/blogPosts';
 
 import BlogPost from '../../components/BlogPost/index';
 import BlogNavigator from '../../components/BlogNavigator/index';
 
 class Blog extends React.Component {
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
 
-    this.state = {
-      blogPosts: [],
-    };
+    console.log(this.props);
   }
 
   componentDidMount() {
-    console.log('hell');
-    axios.get('/blogposts').then(response => this.setState({ blogPosts: response.data }));
+    axios.get('/blogposts').then(response => this.props.dispatch(setBlogPosts(response.data)));
   }
 
   render() {
-    const { blogPosts } = this.state;
-
+    const { blogPosts } = this.props;
+    console.log (blogPosts);
     return (
       <div className="blog-container">
         <div className="posts-container">
           {
-            blogPosts.map((post, idx) => {
+            (blogPosts || []).map((post, idx) => {
               console.log(post);
               return (
                 <div>

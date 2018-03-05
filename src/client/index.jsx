@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
+import { blogPosts } from './app/reducers/blogPosts';
+
 const initialState = {
   blogPosts: [],
 };
 
 const reducers = combineReducers({
-  blogPosts: (state = []) => state,
+  blogPosts,
 });
 
 const createStoreWithMiddleware = compose(
