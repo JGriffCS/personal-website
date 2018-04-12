@@ -19,6 +19,7 @@ module.exports = {
       inject: 'body'
     }),
   ],
+  watch: true,
   module: {
     rules: [
       {
