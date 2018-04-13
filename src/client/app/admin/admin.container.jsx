@@ -1,8 +1,13 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+
+import AdminDashboard from './dashboard/dashboard.component';
+import WatchSomething from './watch/watch.component';
 
 class Admin extends React.Component {
   constructor (props, state) {
     super(props, state);
+    console.log(props);
 
     // TODO: Obviously these need better names. Also they should come from redux or an api call
     this.state = {
@@ -24,45 +29,8 @@ class Admin extends React.Component {
     // Swap out components based on click with a breadcrumb to get back to main selections
     return (
       <div className="admin-container">
-        <h1>State your purpose!</h1>
-        <div className="category-options">
-          <div className="category">
-            <div className="title">Ask Something</div>
-            <div className="visual">
-              <i className="fas fa-comment-dots"></i>
-            </div>
-          </div>
-          <div className="category">
-            <div className="title">Learn Something</div>
-            <div className="visual">
-              <i className="fas fa-book"></i>
-            </div>
-          </div>
-          <div className="category">
-            <div className="title">Practice Something</div>
-            <div className="visual">
-              <i className="fas fa-keyboard"></i>
-            </div>
-          </div>
-          <div className="category">
-            <div className="title">Watch Something</div>
-            <div className="visual">
-              <i className="fas fa-tv"></i>
-            </div>
-          </div>
-          <div className="category">
-            <div className="title">Manage Blog</div>
-            <div className="visual">
-              <i className="fas fa-rss"></i>
-            </div>
-          </div>
-          <div className="category">
-            <div className="title">News</div>
-            <div className="visual">
-              <i className="fas fa-newspaper"></i>
-            </div>
-          </div>
-        </div>
+        <Route exact path={this.props.match.path} component={AdminDashboard} />
+        <Route path={`${this.props.match.path}/watch`} component={WatchSomething} />
       </div>
     );
   }
