@@ -14,7 +14,6 @@ class AdminDashboard extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <h1>State your purpose!</h1>
         <div className="category-options">
           <div className="category">
             <div className="title">Ask Something</div>

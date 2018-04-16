@@ -1,0 +1,25 @@
+.breadcrumb-container {
+  padding: 25px;
+
+  .breadcrumb a {
+    color: #007bff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumb {
+    color: #6c757d;
+  }
+
+  .divider {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: $jg-device-width-mobile) {
+  .breadcrumb-container {
+    padding-left: 10px;
+  }
+}

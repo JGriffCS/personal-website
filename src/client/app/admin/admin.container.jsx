@@ -2,7 +2,13 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import AdminDashboard from './dashboard/dashboard.component';
+import Breadcrumbs from './shared/breadcrumbs/breadcrumbs.component';
 import WatchSomething from './watch/watch.component';
+
+const adminRoutes = [
+  { path: '/admin', name: 'Dashboard' },
+  { path: '/admin/watch', name: 'Watch Something' }
+];
 
 class Admin extends React.Component {
   constructor (props, state) {
@@ -29,6 +35,7 @@ class Admin extends React.Component {
     // Swap out components based on click with a breadcrumb to get back to main selections
     return (
       <div className="admin-container">
+        <Breadcrumbs routes={adminRoutes} />
         <Route exact path={this.props.match.path} component={AdminDashboard} />
         <Route path={`${this.props.match.path}/watch`} component={WatchSomething} />
       </div>

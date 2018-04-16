@@ -1,4 +1,5 @@
 @import 'shared/action-item/action-item.styles';
+@import 'shared/breadcrumbs/breadcrumbs.styles';
 
 // TODO: Maybe desktop first would be more concise?
 .admin-container {
@@ -7,6 +8,10 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+
+    a {
+      width: 100%;
+    }
   }
 
   .category {
