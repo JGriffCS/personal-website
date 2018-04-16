@@ -48,6 +48,10 @@
 
 @media (min-width: $jg-device-width-mobile) {
   .admin-container {
+    .category-options a {
+      width: auto;
+    }
+    
     .category {
       // Fits nicely on desktop and scales down well with screen size
       width: calc((#{$jg-max-content-width} - 145px) / 4);
