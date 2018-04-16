@@ -24,6 +24,5 @@ app.listen(3000); //listens on port 3000 -> http://localhost:3000/
 app.get('/blogposts', require('./routes/blog_posts.js')({ conn }));
 
 app.get('*', (req, res) => {
-  console.log(path.resolve(__dirname + './../../dist/index.html'));
   res.sendFile(path.resolve(__dirname + './../../dist/index.html'));
 });

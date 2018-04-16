@@ -3,12 +3,12 @@ import React from 'react';
 class ActionItem extends React.Component {
   render () {
     return (
-      <a href={this.props.item.link}>
-        <div className="action-item">
+      <a className="action-item" href={this.props.item.link}>
+        <div>
           <div>
             <img src={`https://logo.clearbit.com/${this.props.item.imageUrl}?s=128`} />
           </div>
-          <div>{this.props.item.name}</div>
+          <div className="action-item-title">{this.props.item.name}</div>
         </div>
       </a>
     );
