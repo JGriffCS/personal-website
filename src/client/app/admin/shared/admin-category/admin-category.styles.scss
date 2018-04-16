@@ -1,0 +1,72 @@
+// TODO: Maybe desktop first would be more concise?
+.category-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  a {
+    width: 100%;
+  }
+}
+
+.category {
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid black;
+  cursor: pointer;
+
+  & > div {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100px;
+  }
+
+  .title {
+    float: right;
+    width: 75%;
+    font-size: 1.25em;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+
+  .visual {
+    width: 25%;
+    float: left;
+    font-size: 48px;
+  }
+}
+
+
+@media (min-width: $jg-device-width-mobile) {
+  .category-options a {
+    width: auto;
+  }
+
+  .category {
+    // Fits nicely on desktop and scales down well with screen size
+    width: calc((#{$jg-max-content-width} - 145px) / 4);
+    height: calc((#{$jg-max-content-width} - 145px) / 4);
+    margin: 6px;
+    border: 5px solid black;
+    border-radius: 20px;
+    text-align: center;
+
+    .title {
+      height: 35%;
+      float: none;
+      width: 100%;
+    }
+
+    .visual {
+      height: 65%;
+      font-size: 72px;
+      float: none;
+      width: 100%;
+    }
+  }
+}
