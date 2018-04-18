@@ -5,7 +5,7 @@ class ActionItem extends React.Component {
     return (
       <a className="action-item" href={this.props.item.link}>
         <div>
-          <div>
+          <div className="action-image-container">
             <img src={`https://logo.clearbit.com/${this.props.item.imageUrl}?s=128`} />
           </div>
           <div className="action-item-title">{this.props.item.name}</div>

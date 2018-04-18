@@ -4,11 +4,13 @@ import { Route } from 'react-router-dom';
 import AdminDashboard from './dashboard/dashboard.component';
 import AskSomething from './ask/ask.component';
 import Breadcrumbs from './shared/breadcrumbs/breadcrumbs.component';
+import LearnSomething from './learn/learn.component';
 import WatchSomething from './watch/watch.component';
 
 const adminRoutes = [
   { path: '/admin', name: 'Dashboard' },
   { path: '/admin/ask', name: 'Ask Something' },
+  { path: '/admin/learn', name: 'Learn Something' },
   { path: '/admin/watch', name: 'Watch Something' }
 ];
 
@@ -40,6 +42,7 @@ class Admin extends React.Component {
         <Breadcrumbs routes={adminRoutes} />
         <Route exact path={this.props.match.path} component={AdminDashboard} />
         <Route path={`${this.props.match.path}/ask`} component={AskSomething} />
+        <Route path={`${this.props.match.path}/learn`} component={LearnSomething} />
         <Route path={`${this.props.match.path}/watch`} component={WatchSomething} />
       </div>
     );
