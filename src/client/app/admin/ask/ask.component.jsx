@@ -8,7 +8,7 @@ class Ask extends React.Component {
     super(props);
 
     this.state = {
-      askables: [
+      sites: [
         { id: 1, name: 'Game Dev SE', imageUrl: 'gamedev.stackexchange.com', link: 'https://gamedev.stackexchange.com' },
         { id: 2, name: 'UX SE', imageUrl: 'ux.stackexchange.com', link: 'https://ux.stackexchange.com' },
         { id: 3, name: 'Workplace SE', imageUrl: 'workplace.stackexchange.com', link: 'https://workplace.stackexchange.com' },
@@ -20,9 +20,9 @@ class Ask extends React.Component {
     return (
       <div className="action-items-container">
         {
-          this.state.askables.map((askable) => {
+          this.state.sites.map((site) => {
             return (
-              <ActionItem item={askable} key={askable.id}></ActionItem>
+              <ActionItem item={site} key={site.id}></ActionItem>
             )
           })
         }

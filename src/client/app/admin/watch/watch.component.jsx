@@ -8,7 +8,7 @@ class Watch extends React.Component {
     super(props);
 
     this.state = {
-      watchables: [
+      sites: [
         { id: 1, name: 'Hulu', imageUrl: 'hulu.com', link: 'https://www.hulu.com' },
         { id: 2, name: 'Netflix', imageUrl: 'netflix.com', link: 'https://www.netflix.com' },
         { id: 3, name: 'Crunchyroll', imageUrl: 'crunchyroll.com', link: 'https://www.crunchyroll.com' },
@@ -21,9 +21,9 @@ class Watch extends React.Component {
     return (
       <div className="action-items-container">
         {
-          this.state.watchables.map((watchable) => {
+          this.state.sites.map((site) => {
             return (
-              <ActionItem item={watchable} key={watchable.id}></ActionItem>
+              <ActionItem item={site} key={site.id}></ActionItem>
             )
           })
         }

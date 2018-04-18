@@ -8,7 +8,7 @@ class Learn extends React.Component {
     super(props);
 
     this.state = {
-      learnables: [
+      sites: [
         { id: 1, name: 'Medium: Daily JS', imageUrl: 'medium.com', link: 'https://medium.com/dailyjs' },
         { id: 2, name: 'Echo JS', imageUrl: 'echojs.com', link: 'https://www.echojs.com' },
         { id: 3, name: 'quirksmode', imageUrl: 'quirksmode.org', link: 'https://www.quirksmode.org' },
@@ -25,9 +25,9 @@ class Learn extends React.Component {
     return (
       <div className="action-items-container">
         {
-          this.state.learnables.map((learnable) => {
+          this.sites.learnables.map((site) => {
             return (
-              <ActionItem item={learnable} key={learnable.id}></ActionItem>
+              <ActionItem item={site} key={site.id}></ActionItem>
             )
           })
         }
