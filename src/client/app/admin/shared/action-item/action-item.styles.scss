@@ -37,8 +37,10 @@
     .action-item-title {
       width: calc(100% - 200px);
       text-align: center;
-      line-height: 175px;
-      display: inline;
+      height: 175px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
