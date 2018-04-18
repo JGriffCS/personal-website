@@ -25,7 +25,7 @@ class Learn extends React.Component {
     return (
       <div className="action-items-container">
         {
-          this.sites.learnables.map((site) => {
+          this.state.sites.map((site) => {
             return (
               <ActionItem item={site} key={site.id}></ActionItem>
             )

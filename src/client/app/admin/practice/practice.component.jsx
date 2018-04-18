@@ -12,7 +12,8 @@ class Practice extends React.Component {
         { id: 1, name: 'CodePen', imageUrl: 'codepen.io', link: 'https://codepen.io/' },
         { id: 2, name: 'RegExr', imageUrl: 'regexr.com', link: 'https://regexr.com/' },
         { id: 3, name: 'Code Wars', imageUrl: 'codewars.com', link: 'https://www.codewars.com/' },
-        { id: 4, name: 'Decaffeinate', imageUrl: 'decaffeinate-project.org', link: 'https://decaffeinate-project.org/repl/' }
+        { id: 4, name: 'Decaffeinate', imageUrl: 'decaffeinate-project.org', link: 'https://decaffeinate-project.org/repl/' },
+        { id: 5, name: 'Github', imageUrl: 'github.com', link: 'https://github.com/' }
       ]
     }
   }
