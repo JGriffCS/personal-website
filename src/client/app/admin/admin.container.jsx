@@ -6,7 +6,7 @@ import AskSomething from './ask/ask.component';
 import Breadcrumbs from './shared/breadcrumbs/breadcrumbs.component';
 import LearnSomething from './learn/learn.component';
 import News from './news/news.component';
-import PracticeSomething from './practice/practice.component';
+import CodeSomething from './code/code.component';
 import WatchSomething from './watch/watch.component';
 
 const adminRoutes = [
@@ -14,7 +14,7 @@ const adminRoutes = [
   { path: '/admin/ask', name: 'Ask Something' },
   { path: '/admin/learn', name: 'Learn Something' },
   { path: '/admin/news', name: 'News' },
-  { path: '/admin/practice', name: 'Practice Something' },
+  { path: '/admin/code', name: 'Code Something' },
   { path: '/admin/watch', name: 'Watch Something' }
 ];
 
@@ -27,7 +27,7 @@ class Admin extends React.Component {
         <Route path={`${this.props.match.path}/ask`} component={AskSomething} />
         <Route path={`${this.props.match.path}/learn`} component={LearnSomething} />
         <Route path={`${this.props.match.path}/news`} component={News} />
-        <Route path={`${this.props.match.path}/practice`} component={PracticeSomething} />
+        <Route path={`${this.props.match.path}/code`} component={CodeSomething} />
         <Route path={`${this.props.match.path}/watch`} component={WatchSomething} />
       </div>
     );

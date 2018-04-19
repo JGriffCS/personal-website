@@ -3,7 +3,7 @@ import React from 'react';
 import ActionItem from '../shared/action-item/action-item.component';
 
 // TODO: What is a pure component?!?!
-class Practice extends React.Component {
+class Code extends React.Component {
   constructor (props) {
     super(props);
 
@@ -12,7 +12,7 @@ class Practice extends React.Component {
         { id: 1, name: 'CodePen', imageUrl: 'codepen.io', link: 'https://codepen.io/' },
         { id: 2, name: 'RegExr', imageUrl: 'regexr.com', link: 'https://regexr.com/' },
         { id: 3, name: 'Code Wars', imageUrl: 'codewars.com', link: 'https://www.codewars.com/' },
-        { id: 4, name: 'Decaffeinate', imageUrl: 'decaffeinate-project.org', link: 'https://decaffeinate-project.org/repl/' },
+        { id: 4, name: 'Decaffeinate', imageUrl: 'coffeescript.org', link: 'https://decaffeinate-project.org/repl/' },
         { id: 5, name: 'Github', imageUrl: 'github.com', link: 'https://github.com/' }
       ]
     }
@@ -32,4 +32,4 @@ class Practice extends React.Component {
   }
 }
 
-export default Practice;
+export default Code;

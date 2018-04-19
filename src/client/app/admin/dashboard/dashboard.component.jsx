@@ -11,7 +11,7 @@ class AdminDashboard extends React.Component {
       categories: [
         { id: 1, path: '/ask', title: 'Ask Something', icon: 'fa-comment-dots' },
         { id: 2, path: '/learn', title: 'Learn Something', icon: 'fa-book' },
-        { id: 3, path: '/practice', title: 'Practice Something', icon: 'fa-keyboard' },
+        { id: 3, path: '/code', title: 'Code Something', icon: 'fa-keyboard' },
         { id: 4, path: '/watch', title: 'Watch Something', icon: 'fa-tv' },
         { id: 5, path: '/blog', title: 'Manage Blog', icon: 'fa-rss' },
         { id: 6, path: '/news', title: 'News', icon: 'fa-newspaper' },
