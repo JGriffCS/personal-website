@@ -23,6 +23,8 @@ app.listen(3000); //listens on port 3000 -> http://localhost:3000/
 
 app.get('/blogposts', require('./routes/blog_posts.js')({ conn }));
 
+app.get('/admin/action_items/:type_id', require('./routes/admin_action_items.js')({ conn }));
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname + './../../dist/index.html'));
 });
