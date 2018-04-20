@@ -5,10 +5,10 @@ module.exports = (options = {}) => {
     sql = `
       SELECT *
       FROM AdminActionItems
-      WHERE TypeID = ${req.params.type_id}
+      WHERE TypeID = ?
     `;
 
-    conn.query(sql, (err, result) => {
+    conn.query(sql, [req.params.type_id], (err, result) => {
       if (err) next(err);
 
       res.json(result);

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import ActionItem from '../shared/action-item/action-item.component';
 
@@ -8,22 +9,21 @@ class Code extends React.Component {
     super(props);
 
     this.state = {
-      sites: [
-        { id: 1, name: 'CodePen', imageUrl: 'codepen.io', link: 'https://codepen.io/' },
-        { id: 2, name: 'RegExr', imageUrl: 'regexr.com', link: 'https://regexr.com/' },
-        { id: 3, name: 'Code Wars', imageUrl: 'codewars.com', link: 'https://www.codewars.com/' },
-        { id: 4, name: 'Decaffeinate', imageUrl: 'coffeescript.org', link: 'https://decaffeinate-project.org/repl/' },
-        { id: 5, name: 'Github', imageUrl: 'github.com', link: 'https://github.com/' }
-      ]
+      sites: []
     }
   }
+
+  componentDidMount () {
+    axios.get('/admin/action_items/4').then(resp => this.setState({ sites: resp.data }));
+  }
+
   render () {
     return (
       <div className="action-items-container">
         {
           this.state.sites.map((site) => {
             return (
-              <ActionItem item={site} key={site.id}></ActionItem>
+              <ActionItem item={site} key={site.ID}></ActionItem>
             )
           })
         }

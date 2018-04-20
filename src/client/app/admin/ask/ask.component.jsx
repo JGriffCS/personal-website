@@ -14,6 +14,7 @@ class Ask extends React.Component {
   }
 
   componentDidMount() {
+    // TODO: The id for action items needs to come from the props
     // axios.get('/blogposts').then(response => this.props.dispatch(setBlogPosts(response.data)));
     axios.get('/admin/action_items/5').then(resp => this.setState({ sites: resp.data }));
   }

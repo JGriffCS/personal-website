@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import ActionItem from '../shared/action-item/action-item.component';
 
@@ -8,19 +9,21 @@ class News extends React.Component {
     super(props);
 
     this.state = {
-      sites: [
-        { id: 1, name: 'CNN', imageUrl: 'cnn.com', link: 'https://edition.cnn.com/' },
-        { id: 2, name: 'Japan Today', imageUrl: 'japantoday.com', link: 'https://japantoday.com/' }
-      ]
+      sites: []
     }
   }
+
+  componentDidMount () {
+    axios.get('/admin/action_items/1').then(resp => this.setState({ sites: resp.data }));
+  }
+
   render () {
     return (
       <div className="action-items-container">
         {
           this.state.sites.map((site) => {
             return (
-              <ActionItem item={site} key={site.id}></ActionItem>
+              <ActionItem item={site} key={site.ID}></ActionItem>
             )
           })
         }
