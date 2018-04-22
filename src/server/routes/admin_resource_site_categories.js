@@ -4,7 +4,7 @@ module.exports = (options = {}) => {
   return (req, res, next) => {
     sql = `
       SELECT *
-      FROM AdminResourceSiteCategories
+      FROM admin_resource_site_categories
     `;
 
     conn.query(sql, (err, result) => {

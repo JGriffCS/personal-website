@@ -22,7 +22,7 @@ class Admin extends React.Component {
   componentDidMount () {
     axios.get('/admin/resource_site_categories').then(resp => {
       const categories = resp.data;
-      const resourceRoutes = categories.map(category => ({ path: `/admin/${category.Value}`, name: category.Name }));
+      const resourceRoutes = categories.map(category => ({ path: `/admin/${category.value}`, name: category.name }));
 
       this.setState((prevState) => {
         return {
@@ -41,7 +41,10 @@ class Admin extends React.Component {
         {
           this.state.categories.map((category) => {
             return (
-              <Route path={`${this.props.match.path}/${category.Value}`} render={() => <ResourceSites siteCategory={category.ID} />} />
+              <Route
+                key={category.id}
+                path={`${this.props.match.path}/${category.value}`}
+                render={() => <ResourceSites siteCategory={category.id} />} />
             )
           })
         }

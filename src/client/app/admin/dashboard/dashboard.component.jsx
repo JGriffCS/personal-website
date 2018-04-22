@@ -23,7 +23,7 @@ class AdminDashboard extends React.Component {
           {
             this.state.categories.map((category) => {
               return (
-                <AdminCategory key={category.ID} category={category} match={this.props.match} />
+                <AdminCategory key={category.id} category={category} match={this.props.match} />
               )
             })
           }

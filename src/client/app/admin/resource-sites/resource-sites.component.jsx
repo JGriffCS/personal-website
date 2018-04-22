@@ -23,7 +23,7 @@ class ResourceSites extends React.Component {
         {
           this.state.sites.map((site) => {
             return (
-              <ActionItem item={site} key={site.ID}></ActionItem>
+              <ActionItem item={site} key={site.id}></ActionItem>
             )
           })
         }
