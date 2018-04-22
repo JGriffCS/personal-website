@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import AdminCategory from '../dashboard-category/dashboard-category.component';
+import DashboardCategory from '../dashboard-category/dashboard-category.component';
 
-class AdminDashboard extends React.Component {
+class Dashboard extends React.Component {
   constructor (props) {
     super(props);
 
@@ -23,7 +24,7 @@ class AdminDashboard extends React.Component {
           {
             this.state.categories.map((category) => {
               return (
-                <AdminCategory key={category.id} category={category} match={this.props.match} />
+                <DashboardCategory key={category.id} category={category} match={this.props.match} />
               )
             })
           }
@@ -33,4 +34,10 @@ class AdminDashboard extends React.Component {
   }
 }
 
-export default AdminDashboard;
+Dashboard.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired
+  }).isRequired
+};
+
+export default Dashboard;

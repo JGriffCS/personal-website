@@ -1,9 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import axios from 'axios';
 
-import AdminDashboard from './dashboard/dashboard.component';
+import Dashboard from './dashboard/dashboard.component';
 import Breadcrumbs from '../shared/breadcrumbs/breadcrumbs.component';
 import ResourceSites from './resource-sites/resource-sites.component';
 
@@ -12,22 +13,20 @@ class Admin extends React.Component {
     super (props);
 
     this.state = {
-      adminRoutes: [
-        { path: '/admin', name: 'Dashboard' }
-      ],
-      categories: []
+      routes: [
+        { id: 0, path: this.props.match.path, name: 'Dashboard' }
+      ]
     };
   }
 
   componentDidMount () {
-    axios.get('/admin/resource_site_categories').then(resp => {
-      const categories = resp.data;
-      const resourceRoutes = categories.map(category => ({ path: `/admin/${category.value}`, name: category.name }));
+    axios.get('/admin/routes').then(resp => {
+      const routeInfo = resp.data;
+      const resourceRoutes = routeInfo.map(route => ({ id: route.id, path: `${this.props.match.path}/${route.value}`, name: route.name }));
 
       this.setState((prevState) => {
         return {
-          categories,
-          adminRoutes: [...prevState.adminRoutes, ...resourceRoutes]
+          routes: [...prevState.routes, ...resourceRoutes]
         }
       });
     });
@@ -36,15 +35,15 @@ class Admin extends React.Component {
   render() {
     return (
       <div className="admin-container">
-        <Breadcrumbs routes={this.state.adminRoutes} />
-        <Route exact path={this.props.match.path} component={AdminDashboard} />
+        <Breadcrumbs routes={this.state.routes} />
+        <Route exact path={this.props.match.path} component={Dashboard} />
         {
-          this.state.categories.map((category) => {
+          this.state.routes.map((route) => {
             return (
               <Route
-                key={category.id}
-                path={`${this.props.match.path}/${category.value}`}
-                render={() => <ResourceSites siteCategory={category.id} />} />
+                key={route.id}
+                path={route.path}
+                render={() => <ResourceSites siteCategory={route.id} />} />
             )
           })
         }
@@ -52,5 +51,11 @@ class Admin extends React.Component {
     );
   }
 }
+
+Admin.propTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default Admin;

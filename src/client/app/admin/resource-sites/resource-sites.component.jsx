@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import ActionItem from '../resource-site/resource-site.component';
+import ResourceSite from '../resource-site/resource-site.component';
 
 // TODO: What is a pure component?!?!
 class ResourceSites extends React.Component {
@@ -23,7 +24,7 @@ class ResourceSites extends React.Component {
         {
           this.state.sites.map((site) => {
             return (
-              <ActionItem item={site} key={site.id}></ActionItem>
+              <ResourceSite item={site} key={site.id}></ResourceSite>
             )
           })
         }
@@ -31,5 +32,9 @@ class ResourceSites extends React.Component {
     );
   }
 }
+
+ResourceSites.propTypes = {
+  siteCategory: PropTypes.number.isRequired
+};
 
 export default ResourceSites;
