@@ -4,8 +4,8 @@ module.exports = (options = {}) => {
   return (req, res, next) => {
     sql = `
       SELECT *
-      FROM AdminActionItems
-      WHERE TypeID = ?
+      FROM AdminResourceSites
+      WHERE SiteCategoryID = ?
     `;
 
     conn.query(sql, [req.params.type_id], (err, result) => {

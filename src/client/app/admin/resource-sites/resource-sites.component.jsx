@@ -4,7 +4,7 @@ import axios from 'axios';
 import ActionItem from '../shared/action-item/action-item.component';
 
 // TODO: What is a pure component?!?!
-class Ask extends React.Component {
+class ResourceSites extends React.Component {
   constructor (props) {
     super(props);
 
@@ -13,10 +13,8 @@ class Ask extends React.Component {
     }
   }
 
-  componentDidMount() {
-    // TODO: The id for action items needs to come from the props
-    // axios.get('/blogposts').then(response => this.props.dispatch(setBlogPosts(response.data)));
-    axios.get('/admin/action_items/5').then(resp => this.setState({ sites: resp.data }));
+  componentDidMount () {
+    axios.get(`/admin/resource_sites/${this.props.siteCategory}`).then(resp => this.setState({ sites: resp.data }));
   }
 
   render () {
@@ -34,4 +32,4 @@ class Ask extends React.Component {
   }
 }
 
-export default Ask;
+export default ResourceSites;

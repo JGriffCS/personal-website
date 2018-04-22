@@ -1,22 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 
-import AdminCategory from '../shared/admin-category/admin-category.component';
+import AdminCategory from '../shared/admin-dashboard-category/admin-dashboard-category.component';
 
 class AdminDashboard extends React.Component {
   constructor (props) {
     super(props);
 
-    // TODO: Obviously these need better names. Also they should come from redux or an api call
     this.state = {
-      categories: [
-        { id: 1, path: '/ask', title: 'Ask Something', icon: 'fa-comment-dots' },
-        { id: 2, path: '/learn', title: 'Learn Something', icon: 'fa-book' },
-        { id: 3, path: '/code', title: 'Code Something', icon: 'fa-keyboard' },
-        { id: 4, path: '/watch', title: 'Watch Something', icon: 'fa-tv' },
-        { id: 5, path: '/blog', title: 'Manage Blog', icon: 'fa-rss' },
-        { id: 6, path: '/news', title: 'News', icon: 'fa-newspaper' },
-      ]
+      categories: []
     };
+  }
+
+  componentDidMount () {
+    axios.get('/admin/resource_site_categories').then(resp => this.setState({ categories: resp.data }));
   }
 
   render () {
@@ -26,7 +23,7 @@ class AdminDashboard extends React.Component {
           {
             this.state.categories.map((category) => {
               return (
-                <AdminCategory key={category.id} category={category} match={this.props.match} />
+                <AdminCategory key={category.ID} category={category} match={this.props.match} />
               )
             })
           }

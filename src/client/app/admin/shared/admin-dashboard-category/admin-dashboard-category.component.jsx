@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 class AdminCategory extends React.Component {
   render () {
     return (
-      <Link to={`${this.props.match.url}${this.props.category.path}`}>
+      <Link to={`${this.props.match.url}/${this.props.category.Value}`}>
         <div className="category">
-          <div className="title">{this.props.category.title}</div>
+          <div className="title">{this.props.category.Name}</div>
           <div className="visual">
-            <i className={`fas ${this.props.category.icon}`}></i>
+            <i className={`fas ${this.props.category.Icon}`}></i>
           </div>
         </div>
       </Link>
@@ -19,9 +19,9 @@ class AdminCategory extends React.Component {
 
 AdminCategory.propTypes = {
   category: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired
+    Name: PropTypes.string.isRequired,
+    Icon: PropTypes.string.isRequired,
+    Value: PropTypes.string.isRequired
   }).isRequired,
   match: PropTypes.shape({
     url: PropTypes.string.isRequired
