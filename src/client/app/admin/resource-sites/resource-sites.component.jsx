@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import ActionItem from '../shared/action-item/action-item.component';
+import ActionItem from '../resource-site/resource-site.component';
 
 // TODO: What is a pure component?!?!
 class ResourceSites extends React.Component {
