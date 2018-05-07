@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { setBlogPosts } from '../../actions/blogPosts';
+import { setBlogPosts } from '../../../actions/blogPosts';
 
 import BlogPost from '../../components/BlogPost/index';
 import BlogNavigator from '../../components/BlogNavigator/index';

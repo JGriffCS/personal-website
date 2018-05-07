@@ -1,4 +1,4 @@
-import { SET_BLOG_POSTS } from '../constants/ActionTypes';
+import { SET_BLOG_POSTS } from '../constants/action-types/blog';
 
 export function setBlogPosts(posts) {
   return {

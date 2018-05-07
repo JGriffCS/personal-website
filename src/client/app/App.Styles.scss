@@ -1,9 +1,9 @@
 @import "variables";
 
 @import "admin/admin.styles";
-@import "components/Header/header.styles";
-@import "components/Layout/styles";
-@import "containers/Blog/styles";
+@import "public/components/Header/header.styles";
+@import "public/components/Layout/styles";
+@import "public/containers/Blog/styles";
 
 // TODO: Perhaps a top level contains and components index to import here
 

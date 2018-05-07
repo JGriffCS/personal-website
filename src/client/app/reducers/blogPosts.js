@@ -1,4 +1,4 @@
-import { SET_BLOG_POSTS } from '../constants/ActionTypes.js';
+import { SET_BLOG_POSTS } from '../constants/action-types/blog.js';
 
 export const blogPosts = (state = [], action) => {
   console.log(action);

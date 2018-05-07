@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Header from './components/Header/header.component.jsx';
-import Layout from './components/Layout/index';
-import Footer from './components/Footer/FooterComponent.jsx';
+import Header from './public/components/Header/header.component.jsx';
+import Layout from './public/components/Layout/index';
+import Footer from './public/components/Footer/FooterComponent.jsx';
 
-import Home from './containers/Home/index';
-import Blog from './containers/Blog/index';
-import Login from './containers/Login/index';
+import Home from './public/containers/Home/index';
+import Blog from './public/containers/Blog/index';
+import Login from './public/containers/Login/index';
 import Admin from './admin/admin.container';
 
 import './App.Styles.scss';
