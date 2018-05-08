@@ -2,7 +2,7 @@ module.exports = (options = {}) => {
   const { conn } = options;
 
   return (req, res, next) => {
-    sql = `
+    const sql = `
       SELECT *
       FROM admin_resource_site_categories
     `;
@@ -13,6 +13,6 @@ module.exports = (options = {}) => {
       res.json(result);
     });
   }
-}
+};
 
 

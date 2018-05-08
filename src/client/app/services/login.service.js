@@ -2,26 +2,16 @@ import axios from 'axios';
 
 import { authHeader } from '../helpers/auth-header';
 
-export const loginService = {
-  login,
-  logout
-};
-
 function login (username, password) {
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
-  };
 
-  return axios.post('/admin/authenticate', requestOptions).then(resp => {
+  return axios.post('/admin/login', { username, password }).then(resp => {
     console.log(resp);
 
-    if (!resp.ok) {
-      return Promise.reject(resp.statusText);
-    }
+    // if (!resp.ok) {
+    //   return Promise.reject(resp.statusText);
+    // }
 
-    return resp.json();
+    return resp;
   }).then(user => {
     if (user && user.token) {
       localStorage.setItem('user', JSON.stringify(user));
@@ -34,3 +24,8 @@ function login (username, password) {
 function logout () {
   localStorage.removeItem('user');
 }
+
+export const loginService = {
+  login,
+  logout
+};

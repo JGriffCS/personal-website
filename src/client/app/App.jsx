@@ -7,7 +7,7 @@ import Footer from './public/components/Footer/FooterComponent.jsx';
 
 import Home from './public/containers/Home/index';
 import Blog from './public/containers/Blog/index';
-import Login from './public/containers/Login/index';
+import Login from './admin/login/login.component';
 import Admin from './admin/admin.container';
 
 import './App.Styles.scss';
