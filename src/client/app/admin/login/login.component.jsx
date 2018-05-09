@@ -9,6 +9,7 @@ class Login extends React.Component {
   }
 
   componentDidMount () {
+    console.log('hi');
     loginService.login('jgriffcs_admin', 'jo!*aCL0z&7l2V0E#eMrP#%7i5lJal9aczFu').then((resp) => {
       console.log(resp);
     }, err => console.log(err));

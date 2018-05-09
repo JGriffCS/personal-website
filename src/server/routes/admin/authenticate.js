@@ -1,8 +1,7 @@
 module.exports = (options = {}) => {
-  const { conn } = options;
+  const { conn, jwt, secret } = options;
 
   return (req, res, next) => {
-    console.log(req);
     const sql = `
       SELECT *
       FROM users u
@@ -15,7 +14,14 @@ module.exports = (options = {}) => {
     conn.query(sql, [req.body.username, req.body.password], (err, result) => {
       if (err) next(err);
 
-      res.json(result);
+      if (result.length > 0) {
+        const [user] = result;
+        const token = jwt.sign({ user }, secret, { expiresIn: '10m' })
+
+        res.status(200).json({ token });
+      } else {
+        res.status(401).json({ msg: 'Cannot find username/password combination.' });
+      }
     });
   }
 };

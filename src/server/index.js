@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config')[env];
@@ -19,17 +20,18 @@ conn.connect((err) => {
   console.log("Connected!");
 });
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname +'./../../dist')); //serves the index.html
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/
 
-app.get('/blogposts', require('./routes/blog_posts.js')({ conn }));
+app.get('/api/blogposts', require('./routes/blog_posts.js')({ conn }));
 
-app.post('/admin/login', require('./routes/login.js')({ conn }));
+app.post('/api/admin/authenticate', require('./routes/admin/authenticate.js')({ conn, jwt, secret: config.secret }));
 
-app.get('/admin/routes', require('./routes/admin_routes.js')({ conn }));
-app.get('/admin/resource_site_categories', require('./routes/admin_resource_site_categories.js')({ conn }));
-app.get('/admin/resource_sites/:type_id', require('./routes/admin_resource_sites.js')({ conn }));
+app.get('/api/admin/routes', require('./routes/admin/routes.js')({ conn }));
+app.get('/api/admin/resource_site_categories', require('./routes/admin/resource_site_categories.js')({ conn }));
+app.get('/api/admin/resource_sites/:type_id', require('./routes/admin/resource_sites.js')({ conn }));
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname + './../../dist/index.html'));

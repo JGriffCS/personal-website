@@ -20,7 +20,7 @@ class Admin extends React.Component {
   }
 
   componentDidMount () {
-    axios.get('/admin/routes').then(resp => {
+    axios.get('/api/admin/routes').then(resp => {
       const routeInfo = resp.data;
       const resourceRoutes = routeInfo.map(route => ({ id: route.id, path: `${this.props.match.path}/${route.value}`, name: route.name }));
 

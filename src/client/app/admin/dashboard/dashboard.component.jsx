@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount () {
-    axios.get('/admin/resource_site_categories').then(resp => this.setState({ categories: resp.data }));
+    axios.get('/api/admin/resource_site_categories').then(resp => this.setState({ categories: resp.data }));
   }
 
   render () {
