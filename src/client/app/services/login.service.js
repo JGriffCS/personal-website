@@ -4,7 +4,7 @@ import { authHeader } from '../helpers/auth-header';
 
 function login (username, password) {
 
-  return axios.post('/api/admin/authenticate', { username, password }).then(resp => {
+  return axios.post('/api/authenticate', { username, password }).then(resp => {
     console.log(resp);
 
     // if (!resp.ok) {

@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config')[env];
 
+const authentication = require('./middleware/authentication');
+
 const app = express();
 const conn = mysql.createConnection({
   host: config.database.host,
@@ -20,6 +22,7 @@ conn.connect((err) => {
   console.log("Connected!");
 });
 
+app.use('/api/admin/*', authentication({ jwt, secret: config.secret }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname +'./../../dist')); //serves the index.html
@@ -27,7 +30,7 @@ app.listen(3000); //listens on port 3000 -> http://localhost:3000/
 
 app.get('/api/blogposts', require('./routes/blog_posts.js')({ conn }));
 
-app.post('/api/admin/authenticate', require('./routes/admin/authenticate.js')({ conn, jwt, secret: config.secret }));
+app.post('/api/authenticate', require('./routes/admin/authenticate.js')({ conn, jwt, secret: config.secret }));
 
 app.get('/api/admin/routes', require('./routes/admin/routes.js')({ conn }));
 app.get('/api/admin/resource_site_categories', require('./routes/admin/resource_site_categories.js')({ conn }));
