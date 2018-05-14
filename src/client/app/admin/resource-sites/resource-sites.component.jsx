@@ -15,7 +15,7 @@ class ResourceSites extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(resp => this.setState({ sites: resp.data }));
+    axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(resp => this.setState({ sites: resp.data }), err => console.log(err));
   }
 
   render () {

@@ -11,11 +11,7 @@ class Login extends React.Component {
   }
 
   componentDidMount () {
-    loginService.login('jgriffcs_admin', 'jo!*aCL0z&7l2V0E#eMrP#%7i5lJal9aczFu').then((resp) => {
-      localStorage.setItem('id_token', resp.data.token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${resp.data.token}`;
-      this.props.history.push('/admin');
-    }, err => console.log(err));
+
   }
 
   render () {

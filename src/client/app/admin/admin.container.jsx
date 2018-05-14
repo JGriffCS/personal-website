@@ -13,6 +13,7 @@ class Admin extends React.Component {
     super (props);
 
     this.state = {
+      ready: false,
       routes: [
         { id: 0, path: this.props.match.path, name: 'Dashboard' }
       ]
@@ -26,13 +27,23 @@ class Admin extends React.Component {
 
       this.setState((prevState) => {
         return {
+          ready: true,
           routes: [...prevState.routes, ...resourceRoutes]
         }
       });
+    }, err => {
+      if (err.response.status === 401) {
+        this.props.history.push('/login');
+      } else {
+        this.props.history.push('/');
+      }
     });
   }
 
   render() {
+    // Need a more elegant way to prevent child rendering before initial auth
+    if (!this.state.ready) return ("");
+
     return (
       <div className="admin-container">
         <Breadcrumbs routes={this.state.routes} />
