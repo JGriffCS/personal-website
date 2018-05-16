@@ -33,6 +33,9 @@ class Admin extends React.Component {
       });
     }, err => {
       if (err.response.status === 401) {
+        // In case an expired or invalid token exists
+        localStorage.removeItem('id_token');
+
         this.props.history.push('/login');
       } else {
         this.props.history.push('/');

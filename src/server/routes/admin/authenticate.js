@@ -16,7 +16,16 @@ module.exports = (options = {}) => {
 
       if (result.length > 0) {
         const [user] = result;
-        const token = jwt.sign({ user }, secret, { expiresIn: '10m' })
+        const token = jwt.sign({
+          id: user.id,
+          username: user.username,
+          permissions: {
+            delete: user.delete,
+            get: user.get,
+            post: user.post,
+            put: user.put
+          }
+        }, secret, { expiresIn: '10m' });
 
         res.status(200).json({ token });
       } else {
