@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 import { loginService } from '../../services/login.service';
 
@@ -16,6 +17,17 @@ class Login extends React.Component {
       username: "",
       password: ""
     };
+  }
+
+  componentDidMount () {
+    // If token is still valid, redirect from the login page
+    const token = localStorage.getItem('id_token');
+    if (token) {
+      const { exp } = jwtDecode(token);
+      if (exp > (new Date()).getTime() / 1000) {
+        this.props.history.push('/admin');
+      }
+    }
   }
 
   inputChange (e) {
