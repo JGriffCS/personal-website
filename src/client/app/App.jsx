@@ -12,7 +12,6 @@ import Admin from './admin/admin.container';
 
 import './App.Styles.scss';
 
-// Add Switch around routes
 export default class App extends React.Component {
   render() {
     return (

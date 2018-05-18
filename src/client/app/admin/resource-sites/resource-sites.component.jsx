@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import ResourceSite from '../resource-site/resource-site.component';
 
-// TODO: What is a pure component?!?!
 class ResourceSites extends React.Component {
   constructor (props) {
     super(props);
