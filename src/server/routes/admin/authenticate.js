@@ -11,6 +11,7 @@ module.exports = (options = {}) => {
       AND u.password = ?
     `;
 
+    // TODO: Is there any way to invalidate token when deleted manually from storage??
     conn.query(sql, [req.body.username, req.body.password], (err, result) => {
       if (err) next(err);
 
