@@ -5,6 +5,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 import { loginService } from '../../services/login.service';
+import Alert from '../../shared/alert/alert.component';
 
 class Login extends React.Component {
   constructor (props) {
@@ -15,7 +16,8 @@ class Login extends React.Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      error: null
     };
   }
 
@@ -45,7 +47,10 @@ class Login extends React.Component {
       localStorage.setItem('id_token', resp.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${resp.data.token}`;
       this.props.history.push('/admin');
-    }, err => console.log(err));
+    }, err => {
+      console.log(err);
+      this.setState({ error: err.message });
+    });
   }
 
   render () {
@@ -54,6 +59,11 @@ class Login extends React.Component {
         <div className="login-header">
           <h2>Admin Login</h2>
         </div>
+        {
+          this.state.error ?
+          <Alert type="error" message={this.state.error}/> :
+          ""
+        }
         <div className="login-form">
           <form onSubmit={this.login}>
             <input name="username" type="text" value={this.state.username} onChange={this.inputChange} />
