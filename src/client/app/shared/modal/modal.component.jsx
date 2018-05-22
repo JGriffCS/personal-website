@@ -50,12 +50,16 @@ class Modal extends React.Component {
   }
 
   render () {
-    return !this.state.isOpen ? null :
-      (
-        <div>
-          {this.props.children}
-        </div>
-      );
+    const modal = this.state.isOpen ? (
+      <div>
+        {this.props.children}
+      </div>
+    ) : null;
+
+    return ReactDOM.createPortal(
+      modal,
+      modalRoot
+    );
   }
 }
 
