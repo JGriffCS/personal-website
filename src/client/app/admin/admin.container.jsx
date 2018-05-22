@@ -8,6 +8,9 @@ import Dashboard from './dashboard/dashboard.component';
 import Breadcrumbs from '../shared/breadcrumbs/breadcrumbs.component';
 import ResourceSites from './resource-sites/resource-sites.component';
 
+import withModal from '../shared/modal/modal.component';
+import Alert from '../shared/alert/alert.component';
+
 class Admin extends React.Component {
   constructor (props) {
     super (props);
