@@ -51,8 +51,23 @@ class Modal extends React.Component {
 
   render () {
     const modal = this.state.isOpen ? (
-      <div>
-        {this.props.children}
+      <div className="modal-mask">
+        <div className="modal-wrapper">
+          <div className="modal-container">
+
+            <div className="modal-header">
+              { this.props.title }
+            </div>
+
+            <div className="modal-body">
+              { this.props.children }
+            </div>
+
+            <div className="modal-footer">
+              ????
+            </div>
+          </div>
+        </div>
       </div>
     ) : null;
 
