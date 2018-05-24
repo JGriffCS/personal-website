@@ -9,6 +9,7 @@ class Modal extends React.Component {
     super(props);
 
     this.handleOverlayClick = this.handleOverlayClick.bind(this);
+    this.requestClose = this.requestClose.bind(this);
 
     this.state = {
       isOpen: false,
@@ -56,7 +57,12 @@ class Modal extends React.Component {
           <div className="modal-container">
 
             <div className="modal-header">
-              { this.props.title }
+              <div className="modal-title">
+                { this.props.title }
+              </div>
+              <div className="modal-close" onClick={ this.requestClose }>
+                <i className="fa fa-times" onClick={ this.requestClose } />
+              </div>
             </div>
 
             <div className="modal-body">

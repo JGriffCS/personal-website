@@ -10,6 +10,7 @@ class Dashboard extends React.Component {
     super(props);
 
     this.openAddModal = this.openAddModal.bind(this);
+    this.closeAddModal = this.closeAddModal.bind(this);
 
     this.state = {
       categories: [],
@@ -37,6 +38,7 @@ class Dashboard extends React.Component {
     return (
       <React.Fragment>
         <Modal
+          title="Add Dashboard Component"
           isOpen={this.state.addModalOpen}
           onRequestClose={this.closeAddModal}>
           Test

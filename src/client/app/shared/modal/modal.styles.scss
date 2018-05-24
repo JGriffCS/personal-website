@@ -19,11 +19,37 @@
 .modal-container {
   max-width: 992px;
   margin: 0 auto;
-  padding: 20px 30px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all .3s ease;
+}
+
+.modal-header {
+  height: 48px;
+  line-height: 48px;
+  border-bottom: 1px solid #022735;
+
+  > div {
+    display: inline-block;
+  }
+}
+
+.modal-title {
+  width: calc(100% - 48px);
+  padding: 0 15px;
+  box-sizing: border-box;
+  font-size: 28px;
+}
+
+.modal-close {
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  text-align: center;
+  float: right;
+  border-left: 1px solid #022735;
 }
 
 .modal-body {
