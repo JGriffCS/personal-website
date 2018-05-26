@@ -51,35 +51,60 @@ class Modal extends React.Component {
   }
 
   render () {
-    const modal = this.state.isOpen ? (
-      <div className="modal-mask">
-        <div className="modal-wrapper">
-          <div className="modal-container">
+    const styles = !this.state.isOpen ? {
+      display: 'none'
+    } : {};
 
-            <div className="modal-header">
+    return (
+      <ModalWrapper>
+        <div className="modal-mask" style={styles}>
+          <div className="modal-wrapper">
+            <div className="modal-container">
+
+              <div className="modal-header">
               <div className="modal-title">
-                { this.props.title }
+              { this.props.title }
               </div>
               <div className="modal-close" onClick={ this.requestClose }>
-                <i className="fa fa-times" onClick={ this.requestClose } />
+              <i className="fa fa-times" onClick={ this.requestClose } />
               </div>
-            </div>
+              </div>
 
-            <div className="modal-body">
+              <div className="modal-body">
               { this.props.children }
-            </div>
+              </div>
 
-            <div className="modal-footer">
-              ????
+              <div className="modal-footer">
+                ????
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    ) : null;
+      </ModalWrapper>
+    )
+  }
+}
 
+class ModalWrapper extends React.Component {
+  constructor (props) {
+    super (props);
+
+    this.el = document.createElement('div');
+  }
+
+  componentDidMount () {
+    modalRoot.appendChild(this.el);
+  }
+
+  componentWillUnmount () {
+    console.log('hi');
+    modalRoot.removeChild(this.el);
+  }
+
+  render () {
     return ReactDOM.createPortal(
-      modal,
-      modalRoot
+      this.props.children,
+      this.el
     );
   }
 }
