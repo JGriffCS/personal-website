@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-const modalRoot = document.getElementById('modal');
+import ModalWrapper from './modal-wrapper.component';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -85,41 +84,9 @@ class Modal extends React.Component {
   }
 }
 
-class ModalWrapper extends React.Component {
-  constructor (props) {
-    super (props);
-
-    this.el = document.createElement('div');
-  }
-
-  componentDidMount () {
-    modalRoot.appendChild(this.el);
-  }
-
-  componentWillUnmount () {
-    console.log('hi');
-    modalRoot.removeChild(this.el);
-  }
-
-  render () {
-    return ReactDOM.createPortal(
-      this.props.children,
-      this.el
-    );
-  }
-}
-
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onRequestClose: PropTypes.func.isRequired
 };
 
 export default Modal;
-
-// const ModalPortal = () => {
-//
-// }
-//
-// module.exports = (ComposedComponent) => {
-//
-// }
