@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import DashboardCategory from '../dashboard-category/dashboard-category.component';
+import AddCategory from './add-category.component';
 import Modal from '../../shared/modal/modal.component';
 
 class Dashboard extends React.Component {
@@ -41,7 +42,7 @@ class Dashboard extends React.Component {
           title="Add Dashboard Component"
           isOpen={this.state.addModalOpen}
           onRequestClose={this.closeAddModal}>
-          Test
+          <AddCategory></AddCategory>
         </Modal>
         <div>
           <button onClick={this.openAddModal}>+ Add</button>

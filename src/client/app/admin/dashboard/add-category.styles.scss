@@ -1,0 +1,35 @@
+.add-category-container {
+
+}
+
+.add-category-form-container {
+  height: 220px;
+  float: left;
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+
+  label {
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    margin-top: 10px;
+  }
+
+  input {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+.add-category-preview {
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+
+  .category {
+    width: 220px;
+    margin: 0 auto;
+  }
+}
