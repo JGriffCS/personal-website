@@ -8,18 +8,13 @@
   width: 50%;
   display: inline-block;
   box-sizing: border-box;
-  text-align: center;
+  padding-left: 45px;
 
   label {
     font-weight: bold;
     font-size: 18px;
     display: block;
     margin-top: 10px;
-  }
-
-  input {
-    width: 75%;
-    margin: 0 auto;
   }
 }
 
