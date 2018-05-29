@@ -61,20 +61,24 @@ class Modal extends React.Component {
             <div className="modal-container">
 
               <div className="modal-header">
-              <div className="modal-title">
-              { this.props.title }
-              </div>
-              <div className="modal-close" onClick={ this.requestClose }>
-              <i className="fa fa-times" onClick={ this.requestClose } />
-              </div>
+                <div className="modal-title">
+                  { this.props.title }
+                </div>
+                <div className="modal-close" onClick={ this.requestClose }>
+                  <i className="fa fa-times" onClick={ this.requestClose } />
+                </div>
               </div>
 
               <div className="modal-body">
-              { this.props.children }
+                { this.props.children }
               </div>
 
               <div className="modal-footer">
-                ????
+                {this.props.onPrimaryAction ?
+                  <button>{this.props.primaryAction}</button> :
+                  ""
+                }
+                <button>{this.props.secondaryAction}</button>
               </div>
             </div>
           </div>
@@ -86,7 +90,16 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  onRequestClose: PropTypes.func.isRequired
+  onPrimaryAction: PropTypes.func,
+  onRequestClose: PropTypes.func.isRequired,
+  onSecondaryAction: PropTypes.func,
+  primaryAction: PropTypes.string,
+  secondaryAction: PropTypes.string,
+};
+
+Modal.defaultProps = {
+  primaryAction: 'Save',
+  secondaryAction: 'Close',
 };
 
 export default Modal;
