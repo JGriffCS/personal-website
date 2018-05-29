@@ -14,6 +14,7 @@
 
 .modal-wrapper {
   width: 100%;
+  padding: 10px;
 }
 
 .modal-container {
@@ -54,5 +55,13 @@
 
 .modal-body {
   margin: 20px 0;
+}
+
+.modal-footer {
+  height: 48px;
+  line-height: 48px;
+  border-top: 1px solid #022735;
+  text-align: right;
+  padding-right: 48px;
 }
 

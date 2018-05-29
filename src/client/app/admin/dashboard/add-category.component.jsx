@@ -24,7 +24,6 @@ class AddCategoryModal extends React.Component {
   }
 
   render () {
-    console.log(this.state);
     return (
       <div className="add-category-container">
         <div className="add-category-form-container">
