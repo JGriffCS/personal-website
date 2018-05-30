@@ -24,7 +24,6 @@ class Dashboard extends React.Component {
   }
 
   openModal () {
-    console.log('hellloooo');
     this.setState({
       modalOpen: true
     });

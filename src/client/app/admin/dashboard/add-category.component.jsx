@@ -26,7 +26,7 @@ class AddCategoryModal extends React.Component {
   }
 
   saveCategory () {
-    console.log('saving i guess');
+
   }
 
   render () {
