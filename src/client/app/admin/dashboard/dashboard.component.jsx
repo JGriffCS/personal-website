@@ -10,12 +10,12 @@ class Dashboard extends React.Component {
   constructor (props) {
     super(props);
 
-    this.openAddModal = this.openAddModal.bind(this);
-    this.closeAddModal = this.closeAddModal.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
 
     this.state = {
       categories: [],
-      addModalOpen: false
+      modalOpen: false
     };
   }
 
@@ -23,29 +23,25 @@ class Dashboard extends React.Component {
     axios.get('/api/admin/resource_site_categories').then(resp => this.setState({ categories: resp.data }), err => console.log(err));
   }
 
-  openAddModal () {
+  openModal () {
+    console.log('hellloooo');
     this.setState({
-      addModalOpen: true
+      modalOpen: true
     });
   }
 
-  closeAddModal () {
+  closeModal () {
     this.setState({
-      addModalOpen: false
+      modalOpen: false
     });
   }
 
   render () {
     return (
       <React.Fragment>
-        <Modal
-          title="Add Dashboard Component"
-          isOpen={this.state.addModalOpen}
-          onRequestClose={this.closeAddModal}>
-          <AddCategory></AddCategory>
-        </Modal>
+        <AddCategory isOpen={this.state.modalOpen} close={this.closeModal}></AddCategory>
         <div>
-          <button onClick={this.openAddModal}>+ Add</button>
+          <button onClick={this.openModal}>+ Add</button>
         </div>
         <div className="category-options">
           {
