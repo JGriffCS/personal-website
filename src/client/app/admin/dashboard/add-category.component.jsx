@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import Modal from '../../shared/modal/modal.component';
 
@@ -26,7 +27,15 @@ class AddCategoryModal extends React.Component {
   }
 
   saveCategory () {
+    const body = {
+      value: this.state.value,
+      name: this.state.name,
+      icon: this.state.icon,
+    };
 
+    axios.post('/api/admin/resource_site_categories', body).then(resp => {
+      console.log(resp);
+    });
   }
 
   render () {
@@ -36,7 +45,8 @@ class AddCategoryModal extends React.Component {
         title="Add Dashboard Component"
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
-        onPrimaryAction={this.saveCategory}>
+        onPrimaryAction={this.saveCategory}
+        onSecondaryAction={this.saveCategory}>
         <div className="add-category-container">
           <div className="add-category-form-container">
             <form onSubmit={this.saveCategory}>

@@ -31,9 +31,10 @@ app.listen(3000); //listens on port 3000 -> http://localhost:3000/
 app.get('/api/blogposts', require('./routes/blog_posts.js')({ conn }));
 
 app.post('/api/authenticate', require('./routes/admin/authenticate.js')({ conn, jwt, secret: config.secret }));
+app.post('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/post.js')({ conn }));
 
 app.get('/api/admin/routes', require('./routes/admin/routes.js')({ conn }));
-app.get('/api/admin/resource_site_categories', require('./routes/admin/resource_site_categories.js')({ conn }));
+app.get('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/get.js')({ conn }));
 app.get('/api/admin/resource_sites/:type_id', require('./routes/admin/resource_sites.js')({ conn }));
 
 app.get('*', (req, res) => {

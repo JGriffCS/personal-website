@@ -75,10 +75,18 @@ class Modal extends React.Component {
 
               <div className="modal-footer">
                 {this.props.onPrimaryAction ?
-                  <button className="btn btn-primary" onClick={this.props.onPrimaryAction}>{this.props.primaryAction}</button> :
+                  <button
+                    className="btn btn-primary"
+                    onClick={this.props.onPrimaryAction}>
+                    {this.props.primaryAction}
+                  </button> :
                   ""
                 }
-                <button className="btn btn-outline-secondary">{this.props.secondaryAction}</button>
+                <button
+                  className="btn btn-outline-secondary"
+                  onClick={this.props.onSecondaryAction || this.props.onRequestClose}>
+                  {this.props.secondaryAction}
+                </button>
               </div>
             </div>
           </div>
