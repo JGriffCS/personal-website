@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Alert from '../alert/alert.component';
 import ModalWrapper from './modal-wrapper.component';
 
 class Modal extends React.Component {
@@ -50,6 +51,7 @@ class Modal extends React.Component {
   }
 
   render () {
+    const { type, message } = alert
     const styles = !this.state.isOpen ? {
       display: 'none'
     } : {};
@@ -70,6 +72,7 @@ class Modal extends React.Component {
               </div>
 
               <div className="modal-body">
+                { this.props.alert ? <Alert type={this.props.alert.type} message={this.props.alert.message} /> : '' }
                 { this.props.children }
               </div>
 
@@ -85,7 +88,7 @@ class Modal extends React.Component {
                     onClick={this.props.onPrimaryAction}>
                     {this.props.primaryAction}
                   </button> :
-                  ""
+                  ''
                 }
               </div>
             </div>
@@ -97,6 +100,10 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
+  alert: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+  }),
   isOpen: PropTypes.bool.isRequired,
   onPrimaryAction: PropTypes.func,
   onRequestClose: PropTypes.func.isRequired,

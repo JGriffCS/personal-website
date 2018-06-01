@@ -12,6 +12,7 @@ class AddCategoryModal extends React.Component {
     this.saveCategory = this.saveCategory.bind(this);
 
     this.state = {
+      alert: null,
       name: '',
       value: '',
       icon: ''
@@ -22,7 +23,8 @@ class AddCategoryModal extends React.Component {
     const { name, value } = event.target;
 
     this.setState({
-      [name]: value
+      [name]: value,
+      alert: null,
     });
   }
 
@@ -35,8 +37,15 @@ class AddCategoryModal extends React.Component {
 
     axios.post('/api/admin/resource_site_categories', body).then(resp => {
       console.log(resp.data);
-    }, (err) => {
-      console.log(err);
+    }).catch((err) => {
+      const { data } = err.response;
+
+      this.setState({
+        alert: {
+          type: 'error',
+          message: data.msg,
+        }
+      });
     });
   }
 
@@ -45,6 +54,7 @@ class AddCategoryModal extends React.Component {
     return (
       <Modal
         title="Add Dashboard Component"
+        alert={this.state.alert}
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
         onPrimaryAction={this.saveCategory}
