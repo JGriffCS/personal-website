@@ -74,6 +74,11 @@ class Modal extends React.Component {
               </div>
 
               <div className="modal-footer">
+                <button
+                  className="btn btn-outline-secondary"
+                  onClick={this.props.onSecondaryAction || this.props.onRequestClose}>
+                  {this.props.secondaryAction}
+                </button>
                 {this.props.onPrimaryAction ?
                   <button
                     className="btn btn-primary"
@@ -82,11 +87,6 @@ class Modal extends React.Component {
                   </button> :
                   ""
                 }
-                <button
-                  className="btn btn-outline-secondary"
-                  onClick={this.props.onSecondaryAction || this.props.onRequestClose}>
-                  {this.props.secondaryAction}
-                </button>
               </div>
             </div>
           </div>

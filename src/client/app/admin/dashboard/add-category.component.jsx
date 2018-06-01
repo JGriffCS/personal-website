@@ -34,7 +34,9 @@ class AddCategoryModal extends React.Component {
     };
 
     axios.post('/api/admin/resource_site_categories', body).then(resp => {
-      console.log(resp);
+      console.log(resp.data);
+    }, (err) => {
+      console.log(err);
     });
   }
 
