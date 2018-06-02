@@ -50,15 +50,13 @@ class AddCategoryModal extends React.Component {
   }
 
   render () {
-    console.log(this.props.isOpen);
     return (
       <Modal
         title="Add Dashboard Component"
         alert={this.state.alert}
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
-        onPrimaryAction={this.saveCategory}
-        onSecondaryAction={this.saveCategory}>
+        onPrimaryAction={this.saveCategory}>
         <div className="add-category-container">
           <div className="add-category-form-container">
             <form onSubmit={this.saveCategory}>
