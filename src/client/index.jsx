@@ -8,6 +8,7 @@ import axios from 'axios';
 import { blogPosts } from './app/reducers/blogPosts';
 
 const initialState = {
+  adminDashboardCategories: [],
   blogPosts: [],
 };
 
