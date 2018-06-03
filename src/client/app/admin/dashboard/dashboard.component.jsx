@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import DashboardCategory from '../dashboard-category/dashboard-category.component';
 import AddCategory from './add-category.component';
-import Modal from '../../shared/modal/modal.component';
+
+import { initAdminDashboardCategories } from '../../actions/admin-dashboard-categories';
 
 class Dashboard extends React.Component {
   constructor (props) {
@@ -20,7 +23,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount () {
-    axios.get('/api/admin/resource_site_categories').then(resp => this.setState({ categories: resp.data }), err => console.log(err));
+    axios.get('/api/admin/resource_site_categories').then(resp => this.props.initAdminDashboardCategories(resp.data), err => console.log(err));
   }
 
   openModal () {
@@ -44,7 +47,7 @@ class Dashboard extends React.Component {
         </div>
         <div className="category-options">
           {
-            this.state.categories.map((category) => {
+            this.props.categories.map((category) => {
               return (
                 <DashboardCategory key={category.id} category={category} match={this.props.match} />
               )
@@ -62,4 +65,10 @@ Dashboard.propTypes = {
   }).isRequired
 };
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    categories: state.adminDashboardCategories
+  }
+};
+
+export default connect(mapStateToProps, dispatch => bindActionCreators({ initAdminDashboardCategories }, dispatch))(Dashboard);

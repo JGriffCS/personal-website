@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import axios from 'axios';
 
 import { blogPosts } from './app/reducers/blogPosts';
+import { adminDashboardCategories } from './app/reducers/admin-dashboard-categories';
 
 const initialState = {
   adminDashboardCategories: [],
@@ -13,6 +14,7 @@ const initialState = {
 };
 
 const reducers = combineReducers({
+  adminDashboardCategories,
   blogPosts,
 });
 
