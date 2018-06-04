@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { addAdminDashboardCategory } from '../../actions/admin-dashboard-categories';
 import Modal from '../../shared/modal/modal.component';
 
 class AddCategoryModal extends React.Component {
@@ -36,7 +39,7 @@ class AddCategoryModal extends React.Component {
     };
 
     axios.post('/api/admin/resource_site_categories', body).then(resp => {
-      console.log(resp.data);
+      this.props.addAdminDashboardCategory(resp.data[0]);
     }).catch((err) => {
       const { data } = err.response;
 
@@ -82,4 +85,4 @@ class AddCategoryModal extends React.Component {
   }
 }
 
-export default AddCategoryModal;
+export default connect(null, dispatch => bindActionCreators({ addAdminDashboardCategory }, dispatch))(AddCategoryModal);
