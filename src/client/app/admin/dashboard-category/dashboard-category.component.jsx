@@ -6,6 +6,9 @@ const DashboardCategory  = (props) => {
   return (
     <Link to={`${props.match.url}/${props.category.value}`}>
       <div className="category">
+        <div className="remove">
+          <i className="fas fa-trash-alt"></i>
+        </div>
         <div className="title">{props.category.name}</div>
         <div className="visual">
           <i className={`fas ${props.category.icon}`}></i>
