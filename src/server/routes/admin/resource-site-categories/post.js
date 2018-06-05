@@ -12,8 +12,8 @@ module.exports = (options = {}) => {
 
       conn.query('SELECT * FROM admin_resource_site_categories WHERE id = LAST_INSERT_ID() LIMIT 1', (err, result) => {
         if (err) res.json({ msg: err.sqlMessage });
-
-        if (result.data.length === 1) {
+        
+        if (result.length === 1) {
           res.status(200).json(result);
         } else {
           res.status(500).json({ msg: 'Something went wrong!' });
