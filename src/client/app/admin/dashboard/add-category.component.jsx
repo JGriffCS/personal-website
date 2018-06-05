@@ -18,7 +18,7 @@ class AddCategoryModal extends React.Component {
       alert: null,
       name: '',
       value: '',
-      icon: ''
+      icon: '',
     };
   }
 
@@ -40,6 +40,7 @@ class AddCategoryModal extends React.Component {
 
     axios.post('/api/admin/resource_site_categories', body).then(resp => {
       this.props.addAdminDashboardCategory(resp.data[0]);
+      this.props.close();
     }).catch((err) => {
       const { data } = err.response;
 
@@ -47,7 +48,7 @@ class AddCategoryModal extends React.Component {
         alert: {
           type: 'error',
           message: data.msg,
-        }
+        },
       });
     });
   }
@@ -55,7 +56,7 @@ class AddCategoryModal extends React.Component {
   render () {
     return (
       <Modal
-        title="Add Dashboard Component"
+        title="Add Dashboard Category"
         alert={this.state.alert}
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
@@ -84,5 +85,10 @@ class AddCategoryModal extends React.Component {
     );
   }
 }
+
+AddCategoryModal.propTypes = {
+  close: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+};
 
 export default connect(null, dispatch => bindActionCreators({ addAdminDashboardCategory }, dispatch))(AddCategoryModal);

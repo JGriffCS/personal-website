@@ -18,7 +18,7 @@ class Dashboard extends React.Component {
 
     this.state = {
       categories: [],
-      modalOpen: false
+      modalOpen: false,
     };
   }
 

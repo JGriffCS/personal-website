@@ -6,44 +6,63 @@ import { bindActionCreators } from 'redux';
 
 import { removeAdminDashboardCategory } from '../../actions/admin-dashboard-categories';
 
+import RemoveCategory from './remove-category.component';
+
 class DashboardCategory extends React.Component {
   constructor (props) {
     super(props);
 
-    this.removeCategory = this.removeCategory.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+    this.state = {
+      modalOpen: false,
+    };
   }
 
-  removeCategory (e) {
+  openModal (e) {
     e.preventDefault();
-    console.log(this.props);
+
+    this.setState({
+      modalOpen: true
+    });
+  }
+
+  closeModal () {
+    this.setState({
+      modalOpen: false
+    });
   }
 
   render () {
     return (
-      <Link to={`${this.props.match.url}/${this.props.category.value}`}>
-        <div className="category">
-          <div className="remove" onClick={this.removeCategory}>
-            <i className="fas fa-trash-alt"></i>
+      <React.Fragment>
+        <RemoveCategory category={this.props.category} isOpen={this.state.modalOpen} close={this.closeModal}></RemoveCategory>
+        <Link to={`${this.props.match.url}/${this.props.category.value}`}>
+          <div className="category">
+            <div className="remove" onClick={this.openModal}>
+              <i className="fas fa-trash-alt"></i>
+            </div>
+            <div className="title">{this.props.category.name}</div>
+            <div className="visual">
+              <i className={`fas ${this.props.category.icon}`}></i>
+            </div>
           </div>
-          <div className="title">{this.props.category.name}</div>
-          <div className="visual">
-            <i className={`fas ${this.props.category.icon}`}></i>
-          </div>
-        </div>
-      </Link>
+        </Link>
+      </React.Fragment>
     );
   }
 }
 
 DashboardCategory.propTypes = {
   category: PropTypes.shape({
-    name: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
   }).isRequired,
   match: PropTypes.shape({
-    url: PropTypes.string.isRequired
-  }).isRequired
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default connect(null, dispatch => bindActionCreators({ removeAdminDashboardCategory }, dispatch))(DashboardCategory);
