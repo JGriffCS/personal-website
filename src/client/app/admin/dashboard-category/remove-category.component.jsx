@@ -12,7 +12,7 @@ class RemoveCategoryModal extends React.Component {
     super(props);
 
     this.removeCategory = this.removeCategory.bind(this);
-    
+
     this.state = {
       alert: null,
     };
@@ -20,7 +20,7 @@ class RemoveCategoryModal extends React.Component {
 
   removeCategory () {
     axios.delete(`/api/admin/resource_site_categories/${this.props.category.id}`).then(resp => {
-
+      this.props.removeAdminDashboardCategory(this.props.category.id);
     }).catch((err) => {
       const { data } = err.response;
 
