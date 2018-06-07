@@ -33,6 +33,8 @@ app.get('/api/blogposts', require('./routes/blog_posts.js')({ conn }));
 app.post('/api/authenticate', require('./routes/admin/authenticate.js')({ conn, jwt, secret: config.secret }));
 app.post('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/post.js')({ conn }));
 
+app.delete('/api/admin/resource_site_categories/:categoryId', require('./routes/admin/resource-site-categories/delete.js')({ conn }))
+
 app.get('/api/admin/routes', require('./routes/admin/routes.js')({ conn }));
 app.get('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/get.js')({ conn }));
 app.get('/api/admin/resource_sites/:type_id', require('./routes/admin/resource_sites.js')({ conn }));
