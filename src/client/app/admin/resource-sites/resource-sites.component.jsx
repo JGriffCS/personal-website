@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import ResourceSite from '../resource-site/resource-site.component';
+import AddResourceSite from './add-resource-site.component';
 
 class ResourceSites extends React.Component {
   constructor (props) {
     super(props);
+
+    console.log(props);
 
     this.state = {
       sites: []
@@ -19,15 +22,18 @@ class ResourceSites extends React.Component {
 
   render () {
     return (
-      <div className="action-items-container">
-        {
-          this.state.sites.map((site) => {
-            return (
-              <ResourceSite item={site} key={site.id}></ResourceSite>
-            )
-          })
-        }
-      </div>
+      <React.Fragment>
+        <AddResourceSite id={this.props.siteCategory}></AddResourceSite>
+        <div className="action-items-container">
+          {
+            this.state.sites.map((site) => {
+              return (
+                <ResourceSite item={site} key={site.id}></ResourceSite>
+              )
+            })
+          }
+        </div>
+      </React.Fragment>
     );
   }
 }
