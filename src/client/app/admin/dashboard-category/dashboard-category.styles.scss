@@ -24,9 +24,8 @@
 
   .remove {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 22px;
+    right: 0;
+    font-size: 16px;
     color: #FF1408;
     height: 35px;
     width: 35px;
@@ -79,6 +78,9 @@
     .remove {
       opacity: 0;
       transition: opacity 0.3s;
+      top: 5px;
+      right: 5px;
+      font-size: 22px;
     }
 
     .title {
