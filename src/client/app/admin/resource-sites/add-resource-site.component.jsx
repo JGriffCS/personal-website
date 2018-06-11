@@ -65,7 +65,7 @@ class AddResourceSiteModal extends React.Component {
               <div className="action-image-container">
                 <img src={`https://logo.clearbit.com/${this.state.imageUrl}?s=128`} />
               </div>
-              <div className="action-item-title">{props.item.name}</div>
+              <div className="action-item-title">{this.state.name}</div>
             </div>
           </div>
       </Modal>
