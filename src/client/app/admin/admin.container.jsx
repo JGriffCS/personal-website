@@ -14,9 +14,7 @@ class Admin extends React.Component {
 
     this.state = {
       ready: false,
-      routes: [
-        { id: 0, path: this.props.match.path, name: 'Dashboard' }
-      ]
+      routes: []
     };
   }
 
@@ -53,8 +51,10 @@ class Admin extends React.Component {
         <Route exact path={this.props.match.path} component={Dashboard} />
         {
           this.state.routes.map((route) => {
+            console.log(route);
             return (
               <Route
+                exact
                 key={route.id}
                 path={route.path}
                 render={() => <ResourceSites siteCategory={route.id} />} />
