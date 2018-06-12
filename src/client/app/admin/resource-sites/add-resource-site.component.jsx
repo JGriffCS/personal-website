@@ -62,10 +62,12 @@ class AddResourceSiteModal extends React.Component {
               </form>
             </div>
             <div className="add-resource-site-preview">
-              <div className="action-image-container">
-                <img src={`https://logo.clearbit.com/${this.state.imageUrl}?s=128`} />
+              <div className="action-item">
+                <div className="action-image-container">
+                  <img src={`https://logo.clearbit.com/${this.state.imageUrl}?s=128`} />
+                </div>
+                <div className="action-item-title">{this.state.name}</div>
               </div>
-              <div className="action-item-title">{this.state.name}</div>
             </div>
           </div>
       </Modal>
