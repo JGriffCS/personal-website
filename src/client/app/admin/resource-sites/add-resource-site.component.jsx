@@ -19,11 +19,30 @@ class AddResourceSiteModal extends React.Component {
       name: '',
       imageUrl: '',
       link: '',
+      showImage: false,
     };
   }
 
   handleInputChange (event) {
     const { name, value } = event.target;
+
+    if (name === 'imageUrl') {
+      const preview = new Image();
+
+      preview.onload = () => {
+        this.setState({
+          showImage: true,
+        });
+      };
+
+      preview.onerror = () => {
+        this.setState({
+          showImage: false,
+        });
+      };
+
+      preview.src = `https://logo.clearbit.com/${value}`;
+    }
 
     this.setState({
       [name]: value,
@@ -64,7 +83,11 @@ class AddResourceSiteModal extends React.Component {
             <div className="add-resource-site-preview">
               <div className="action-item">
                 <div className="action-image-container">
-                  <img src={`https://logo.clearbit.com/${this.state.imageUrl}?s=128`} />
+                  {
+                    this.state.showImage ?
+                    <img src={`https://logo.clearbit.com/${this.state.imageUrl}?s=128`} /> :
+                    ''
+                  }
                 </div>
                 <div className="action-item-title">{this.state.name}</div>
               </div>
