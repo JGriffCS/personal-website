@@ -37,7 +37,7 @@ app.delete('/api/admin/resource_site_categories/:categoryId', require('./routes/
 
 app.get('/api/admin/routes', require('./routes/admin/routes.js')({ conn }));
 app.get('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/get.js')({ conn }));
-app.get('/api/admin/resource_sites/:type_id', require('./routes/admin/resource_sites.js')({ conn }));
+app.get('/api/admin/resource_sites/:type_id', require('./routes/admin/resource-sites/get.js')({ conn }));
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname + './../../dist/index.html'));

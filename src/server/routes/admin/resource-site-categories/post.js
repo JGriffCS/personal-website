@@ -1,5 +1,5 @@
 module.exports = (options = {}) => {
-  const { conn, jwt, secret } = options;
+  const { conn } = options;
 
   return (req, res, next) => {
     const sql = `
