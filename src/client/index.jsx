@@ -10,6 +10,7 @@ import { adminDashboardCategories } from './app/reducers/admin-dashboard-categor
 
 const initialState = {
   adminDashboardCategories: [],
+  adminResourceSites: [],
   blogPosts: [],
 };
 

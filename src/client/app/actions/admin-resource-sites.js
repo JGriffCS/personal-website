@@ -20,11 +20,11 @@ export function addAdminResourceSite(categoryId, site) {
   };
 }
 
-export function removeAdminResourceSite(categoryId, site) {
+export function removeAdminResourceSite(categoryId, siteId) {
   return {
     type: REMOVE_ADMIN_RESOURCE_SITE,
     categoryId,
-    site,
+    siteId,
   };
 }
 
