@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// TODO: Action import
+import { addAdminResourceSite } from '../../actions/admin-resource-sites';
 import Modal from '../../shared/modal/modal.component';
 
 class AddResourceSiteModal extends React.Component {
@@ -55,10 +55,22 @@ class AddResourceSiteModal extends React.Component {
       image_url: this.state.imageUrl,
       link: this.state.link,
       name: this.state.name,
-      site_category_id: this.props.categoryId,
+      site_category_id: this.props.id,
     };
 
-    // TODO: Axios Post
+    axios.post('/api/admin/resource_sites', body).then(resp => {
+      this.props.addAdminResourceSite(this.props.id, resp.data[0]);
+      this.props.close();
+    }).catch((err) => {
+      const { data } = err.response;
+
+      this.setState({
+        alert: {
+          type: 'error',
+          message: data.msg,
+        },
+      });
+    });
   }
 
   render () {
@@ -98,4 +110,10 @@ class AddResourceSiteModal extends React.Component {
   }
 }
 
-export default AddResourceSiteModal;
+AddResourceSiteModal.propTypes = {
+  close: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+};
+
+export default connect(null, dispatch => bindActionCreators({ addAdminResourceSite }, dispatch))(AddResourceSiteModal);

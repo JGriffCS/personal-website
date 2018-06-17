@@ -17,7 +17,7 @@ module.exports = (options = {}) => {
     conn.query(sql, values, (err) => {
       if (err) return res.status(500).send({ msg: err.sqlMessage });
 
-      conn.query('SELECT * FROM admin_resource_sites WHERE id = LAST_INSERT_ID() LIMIT !', (err, result) => {
+      conn.query('SELECT * FROM admin_resource_sites WHERE id = LAST_INSERT_ID() LIMIT 1', (err, result) => {
         if (err) res.json({ msg: err.sqlMessage });
 
         if (result.length === 1) {

@@ -32,6 +32,7 @@ app.get('/api/blogposts', require('./routes/blog_posts.js')({ conn }));
 
 app.post('/api/authenticate', require('./routes/admin/authenticate.js')({ conn, jwt, secret: config.secret }));
 app.post('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/post.js')({ conn }));
+app.post('/api/admin/resource_sites', require('./routes/admin/resource-sites/post.js')({ conn }));
 
 app.delete('/api/admin/resource_site_categories/:categoryId', require('./routes/admin/resource-site-categories/delete.js')({ conn }))
 
