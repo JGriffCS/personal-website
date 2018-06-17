@@ -45,9 +45,14 @@ class Admin extends React.Component {
     // Need a more elegant way to prevent child rendering before initial auth
     if (!this.state.ready) return ("");
 
+    const breadcrumbs = [
+      { id: 0, path: this.props.match.path, name: 'Dashboard' },
+      ...this.state.routes,
+    ];
+
     return (
       <div className="admin-container">
-        <Breadcrumbs routes={this.state.routes} />
+        <Breadcrumbs routes={breadcrumbs} />
         <Route exact path={this.props.match.path} component={Dashboard} />
         {
           this.state.routes.map((route) => {

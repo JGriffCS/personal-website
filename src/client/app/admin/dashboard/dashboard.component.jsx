@@ -17,13 +17,17 @@ class Dashboard extends React.Component {
     this.openModal = this.openModal.bind(this);
 
     this.state = {
-      categories: [],
       modalOpen: false,
     };
   }
 
   componentDidMount () {
-    axios.get('/api/admin/resource_site_categories').then(resp => this.props.initAdminDashboardCategories(resp.data), err => console.log(err));
+    // Because I'll be the only one using the admin section the local store should be a guaranteed source of truth
+    // once the initial network request has fetched the original data
+    console.log(this.props.categories);
+    if (this.props.categories.length === 0) {
+      axios.get('/api/admin/resource_site_categories').then(resp => this.props.initAdminDashboardCategories(resp.data), err => console.log(err));
+    }
   }
 
   openModal () {

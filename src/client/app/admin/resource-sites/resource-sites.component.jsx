@@ -23,9 +23,13 @@ class ResourceSites extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(resp =>
-      this.props.initAdminResourceSites(this.props.siteCategory, resp.data)
-    , err => console.log(err));
+    // Because I'll be the only one using the admin section the local store should be a guaranteed source of truth
+    // once the initial network request has fetched the original data
+    if (this.props.sites.length === 0) {
+      axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(resp =>
+        this.props.initAdminResourceSites(this.props.siteCategory, resp.data)
+      , err => console.log(err));
+    }
   }
 
   openModal () {
