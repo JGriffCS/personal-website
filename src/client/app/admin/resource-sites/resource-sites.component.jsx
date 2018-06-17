@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import ResourceSite from '../resource-site/resource-site.component';
 import AddResourceSite from './add-resource-site.component';
+
+import { initAdminResourceSites } from '../../actions/admin-resource-sites';
 
 class ResourceSites extends React.Component {
   constructor (props) {
@@ -19,7 +23,9 @@ class ResourceSites extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(resp => this.setState({ sites: resp.data }), err => console.log(err));
+    axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(resp =>
+      this.props.initAdminResourceSites(this.props.siteCategory, resp.data)
+    , err => console.log(err));
   }
 
   openModal () {
@@ -40,15 +46,15 @@ class ResourceSites extends React.Component {
         <AddResourceSite
           id={this.props.siteCategory}
           isOpen={this.state.modalOpen}
-          close={this.closeModal}></AddResourceSite>
+          close={this.closeModal} />
         <div>
           <button onClick={this.openModal}>+ Add</button>
         </div>
         <div className="action-items-container">
           {
-            this.state.sites.map((site) => {
+            this.props.sites.map((site) => {
               return (
-                <ResourceSite item={site} key={site.id}></ResourceSite>
+                <ResourceSite item={site} key={site.id} />
               )
             })
           }
@@ -62,4 +68,12 @@ ResourceSites.propTypes = {
   siteCategory: PropTypes.number.isRequired
 };
 
-export default ResourceSites;
+const mapStateToProps = (state, props) => {
+  console.log(props);
+  console.log(state);
+  return {
+    sites: state.adminResourceSites[props.siteCategory] || [],
+  };
+};
+
+export default connect(mapStateToProps, dispatch => bindActionCreators({ initAdminResourceSites }, dispatch))(ResourceSites);

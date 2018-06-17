@@ -46,5 +46,8 @@ export const adminResourceSites = (state = {}, action) => {
           },
         );
       }
+
+    default:
+      return state;
   }
 };

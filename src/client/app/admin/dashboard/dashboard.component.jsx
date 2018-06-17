@@ -67,7 +67,7 @@ Dashboard.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.adminDashboardCategories
+    categories: state.adminDashboardCategories,
   }
 };
 

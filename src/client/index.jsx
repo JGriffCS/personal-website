@@ -7,15 +7,17 @@ import axios from 'axios';
 
 import { blogPosts } from './app/reducers/blogPosts';
 import { adminDashboardCategories } from './app/reducers/admin-dashboard-categories';
+import { adminResourceSites } from './app/reducers/admin-resource-sites';
 
 const initialState = {
   adminDashboardCategories: [],
-  adminResourceSites: [],
+  adminResourceSites: {},
   blogPosts: [],
 };
 
 const reducers = combineReducers({
   adminDashboardCategories,
+  adminResourceSites,
   blogPosts,
 });
 
