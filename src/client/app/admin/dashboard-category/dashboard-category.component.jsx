@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
-import { removeAdminDashboardCategory } from '../../actions/admin-dashboard-categories';
 
 import RemoveCategory from './remove-category.component';
 
@@ -24,28 +20,28 @@ class DashboardCategory extends React.Component {
     e.preventDefault();
 
     this.setState({
-      modalOpen: true
+      modalOpen: true,
     });
   }
 
   closeModal () {
     this.setState({
-      modalOpen: false
+      modalOpen: false,
     });
   }
 
   render () {
     return (
       <React.Fragment>
-        <RemoveCategory category={this.props.category} isOpen={this.state.modalOpen} close={this.closeModal}></RemoveCategory>
+        <RemoveCategory category={this.props.category} isOpen={this.state.modalOpen} close={this.closeModal} />
         <Link to={`${this.props.match.url}/${this.props.category.value}`}>
           <div className="category">
             <div className="remove" onClick={this.openModal}>
-              <i className="fas fa-trash-alt"></i>
+              <i className="fas fa-trash-alt" />
             </div>
             <div className="title">{this.props.category.name}</div>
             <div className="visual">
-              <i className={`fas ${this.props.category.icon}`}></i>
+              <i className={`fas ${this.props.category.icon}`} />
             </div>
           </div>
         </Link>
@@ -65,4 +61,4 @@ DashboardCategory.propTypes = {
   }).isRequired,
 };
 
-export default connect(null, dispatch => bindActionCreators({ removeAdminDashboardCategory }, dispatch))(DashboardCategory);
+export default DashboardCategory;

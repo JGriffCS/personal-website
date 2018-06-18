@@ -51,7 +51,7 @@ class Modal extends React.Component {
   }
 
   render () {
-    const { type, message } = alert
+    const { type, message } = alert;
     const styles = !this.state.isOpen ? {
       display: 'none'
     } : {};

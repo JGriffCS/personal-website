@@ -40,14 +40,15 @@ class RemoveCategoryModal extends React.Component {
         alert={this.state.alert}
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
-        onPrimaryAction={this.removeCategory}>
+        onPrimaryAction={this.removeCategory}
+        primaryAction="Confirm">
         <div className="remove-category-container">
           <div className="confirmation-message">Permanently remove this category?</div>
           <div className="category-preview">
             <div className="category">
               <div className="title">{this.props.category.name}</div>
               <div className="visual">
-                <i className={`fas ${this.props.category.icon}`}></i>
+                <i className={`fas ${this.props.category.icon}`} />
               </div>
             </div>
           </div>

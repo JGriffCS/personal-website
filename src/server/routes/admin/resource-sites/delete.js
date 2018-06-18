@@ -3,11 +3,11 @@ module.exports = (options = {}) => {
 
   return (req, res, next) => {
     const sql = `
-      DELETE FROM admin_resource_site_categories
-      WHERE id = ?
+      DELETE FROM admin_resource_sites
+      WHERE id = ? 
     `;
 
-    conn.query(sql, [req.params.category_id], (err, result) => {
+    conn.query(sql, [req.params.site_id], (err, result) => {
       if (err) next(err);
 
       res.json(result);

@@ -34,7 +34,8 @@ app.post('/api/authenticate', require('./routes/admin/authenticate.js')({ conn, 
 app.post('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/post.js')({ conn }));
 app.post('/api/admin/resource_sites', require('./routes/admin/resource-sites/post.js')({ conn }));
 
-app.delete('/api/admin/resource_site_categories/:categoryId', require('./routes/admin/resource-site-categories/delete.js')({ conn }))
+app.delete('/api/admin/resource_site_categories/:category_id', require('./routes/admin/resource-site-categories/delete.js')({ conn }));
+app.delete('/api/admin/resource_sites/:site_id', require('./routes/admin/resource-sites/delete.js')({ conn }));
 
 app.get('/api/admin/routes', require('./routes/admin/routes.js')({ conn }));
 app.get('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/get.js')({ conn }));
