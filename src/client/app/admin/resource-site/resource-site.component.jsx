@@ -53,6 +53,7 @@ ResourceSite.propTypes = {
     image_url: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    site_category_id: PropTypes.number.isRequired,
   }).isRequired,
 };
 

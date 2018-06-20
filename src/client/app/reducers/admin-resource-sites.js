@@ -8,10 +8,11 @@ export const adminResourceSites = (state = {}, action) => {
   switch(action.type) {
     // Can only init the sites for a category if they haven't been so already
     case INIT_ADMIN_RESOURCE_SITES:
+      debugger;
       if (action.categoryId && !state[action.categoryId]) {
         return Object.assign(
           {},
-          ...state,
+          state,
           {
             [action.categoryId]: action.sites,
           },
@@ -24,7 +25,7 @@ export const adminResourceSites = (state = {}, action) => {
       if (action.categoryId) {
         return Object.assign(
           {},
-          ...state,
+          state,
           {
             [action.categoryId]: [...state[action.categoryId], action.site],
           },
@@ -35,17 +36,23 @@ export const adminResourceSites = (state = {}, action) => {
 
     case REMOVE_ADMIN_RESOURCE_SITE:
       if (action.categoryId) {
-        return Object.assign(
-          {},
-          ...state,
-          {
-            [action.categoryId]: [
-              ...state.slice(0, action.siteId),
-              ...state.slice(action.siteId + 1),
-            ],
-          },
-        );
+        const idx = state[action.categoryId].findIndex((item) => item.id === action.siteId);
+
+        if (idx > -1) {
+          return Object.assign(
+            {},
+            state,
+            {
+              [action.categoryId]: [
+                ...state[action.categoryId].slice(0, idx),
+                ...state[action.categoryId].slice(idx + 1),
+              ],
+            },
+          );
+        }
       }
+
+      return state;
 
     default:
       return state;

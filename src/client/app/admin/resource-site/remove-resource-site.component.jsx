@@ -11,6 +11,7 @@ class RemoveResourceSiteModal extends React.Component {
   constructor (props) {
     super(props);
 
+    console.log(this.props);
     this.removeResourceSite = this.removeResourceSite.bind(this);
 
     this.state = {
@@ -20,7 +21,7 @@ class RemoveResourceSiteModal extends React.Component {
 
   removeResourceSite () {
     axios.delete(`/api/admin/resource_sites/${this.props.item.id}`).then(resp => {
-      this.props.removeAdminResourceSite(this.props.item.id);
+      this.props.removeAdminResourceSite(this.props.item.site_category_id, this.props.item.id);
     }).catch((err) => {
       const { data } = err.response;
 
@@ -66,6 +67,7 @@ RemoveResourceSiteModal.propTypes = {
     image_url: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    site_category_id: PropTypes.number.isRequired,
   }).isRequired,
   close: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
