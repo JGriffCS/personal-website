@@ -27,4 +27,3 @@ export function removeAdminResourceSite(categoryId, siteId) {
     siteId,
   };
 }
-
