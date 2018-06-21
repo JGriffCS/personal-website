@@ -32,7 +32,6 @@ class ResourceSite extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <button onClick={this.openModal}>Test</button>
         <RemoveResourceSite item={this.props.item} isOpen={this.state.modalOpen} close={this.closeModal} />
         <a className="action-item" href={this.props.item.link}>
           <div>
