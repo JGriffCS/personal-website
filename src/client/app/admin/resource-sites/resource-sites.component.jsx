@@ -10,57 +10,57 @@ import AddResourceSite from './add-resource-site.component';
 import { initAdminResourceSites } from '../../actions/admin-resource-sites';
 
 class ResourceSites extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
 
     this.state = {
-      sites: [],
       modalOpen: false,
     };
   }
 
-  componentDidMount () {
-    // Because I'll be the only one using the admin section the local store should be a guaranteed source of truth
-    // once the initial network request has fetched the original data
+  componentDidMount() {
+    // Because I'll be the only one using the admin section the local store
+    // should be a guaranteed source of truth once the initial network request
+    // has fetched the original data
     if (this.props.sites.length === 0) {
-      axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(resp =>
-        this.props.initAdminResourceSites(this.props.siteCategory, resp.data)
-      , err => console.log(err));
+      axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(
+        resp => this.props.initAdminResourceSites(this.props.siteCategory, resp.data)
+        , err => console.log(err),
+      );
     }
   }
 
-  openModal () {
+  openModal() {
     this.setState({
       modalOpen: true,
     });
   }
 
-  closeModal () {
+  closeModal() {
     this.setState({
       modalOpen: false,
     });
   }
 
-  render () {
+  render() {
     return (
       <React.Fragment>
         <AddResourceSite
           id={this.props.siteCategory}
           isOpen={this.state.modalOpen}
-          close={this.closeModal} />
+          close={this.closeModal}
+        />
         <div>
           <button onClick={this.openModal}>+ Add</button>
         </div>
         <div className="action-items-container">
           {
-            this.props.sites.map((site) => {
-              return (
-                <ResourceSite item={site} key={site.id} />
-              )
-            })
+            this.props.sites.map(site => (
+              <ResourceSite item={site} key={site.id} />
+            ))
           }
         </div>
       </React.Fragment>
@@ -69,15 +69,22 @@ class ResourceSites extends React.Component {
 }
 
 ResourceSites.propTypes = {
-  siteCategory: PropTypes.number.isRequired
+  initAdminResourceSites: PropTypes.func.isRequired,
+  siteCategory: PropTypes.number.isRequired,
+  sites: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    image_url: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    site_category_id: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
-const mapStateToProps = (state, props) => {
-  console.log(props);
-  console.log(state);
-  return {
-    sites: state.adminResourceSites[props.siteCategory] || [],
-  };
-};
+const mapStateToProps = (state, props) => ({
+  sites: state.adminResourceSites[props.siteCategory] || [],
+});
 
-export default connect(mapStateToProps, dispatch => bindActionCreators({ initAdminResourceSites }, dispatch))(ResourceSites);
+export default connect(
+  mapStateToProps,
+  dispatch => bindActionCreators({ initAdminResourceSites }, dispatch)
+)(ResourceSites);
