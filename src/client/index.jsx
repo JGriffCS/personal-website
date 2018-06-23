@@ -6,8 +6,10 @@ import thunk from 'redux-thunk';
 import axios from 'axios';
 
 import { blogPosts } from './app/reducers/blogPosts';
-import { adminDashboardCategories } from './app/reducers/admin-dashboard-categories';
-import { adminResourceSites } from './app/reducers/admin-resource-sites';
+import adminDashboardCategories from './app/reducers/admin-dashboard-categories';
+import adminResourceSites from './app/reducers/admin-resource-sites';
+
+import App from './app/App';
 
 const initialState = {
   adminDashboardCategories: [],
@@ -21,23 +23,19 @@ const reducers = combineReducers({
   blogPosts,
 });
 
-const createStoreWithMiddleware = compose(
-  applyMiddleware(thunk)
-)(createStore);
+const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
 
 const store = createStoreWithMiddleware(reducers, initialState);
-
-import App from './app/App';
 
 // Set token if one is found
 const token = localStorage.getItem('id_token');
 if (token) {
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.querySelector('#root')
+  document.querySelector('#root'),
 );

@@ -16,13 +16,13 @@ class Modal extends React.Component {
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.isOpen) {
       this.open();
     }
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     if (this.props.isOpen && !prevProps.isOpen) {
       this.open();
     } else if (!this.props.isOpen && prevProps.isOpen) {
@@ -30,30 +30,29 @@ class Modal extends React.Component {
     }
   }
 
-  open () {
+  open() {
     this.setState({
-      isOpen: true
+      isOpen: true,
     });
   }
 
-  close () {
+  close() {
     this.setState({
-      isOpen: false
+      isOpen: false,
     });
   }
 
-  requestClose (event) {
+  requestClose(event) {
     this.props.onRequestClose(event);
   }
 
-  handleOverlayClick (event) {
+  handleOverlayClick(event) {
     this.requestClose(event);
   }
 
-  render () {
-    const { type, message } = alert;
+  render() {
     const styles = !this.state.isOpen ? {
-      display: 'none'
+      display: 'none',
     } : {};
 
     return (
@@ -66,8 +65,8 @@ class Modal extends React.Component {
                 <div className="modal-title">
                   { this.props.title }
                 </div>
-                <div className="modal-close" onClick={ this.requestClose }>
-                  <i className="fa fa-times" onClick={ this.requestClose } />
+                <div className="modal-close" onClick={this.requestClose}>
+                  <i className="fa fa-times" onClick={this.requestClose} />
                 </div>
               </div>
 
@@ -79,13 +78,15 @@ class Modal extends React.Component {
               <div className="modal-footer">
                 <button
                   className="btn btn-outline-secondary"
-                  onClick={this.props.onSecondaryAction || this.props.onRequestClose}>
+                  onClick={this.props.onSecondaryAction || this.props.onRequestClose}
+                >
                   {this.props.secondaryAction}
                 </button>
                 {this.props.onPrimaryAction ?
                   <button
                     className="btn btn-primary"
-                    onClick={this.props.onPrimaryAction}>
+                    onClick={this.props.onPrimaryAction}
+                  >
                     {this.props.primaryAction}
                   </button> :
                   ''
@@ -95,7 +96,7 @@ class Modal extends React.Component {
           </div>
         </div>
       </ModalWrapper>
-    )
+    );
   }
 }
 
@@ -104,17 +105,22 @@ Modal.propTypes = {
     type: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
   }),
+  children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onPrimaryAction: PropTypes.func,
   onRequestClose: PropTypes.func.isRequired,
   onSecondaryAction: PropTypes.func,
   primaryAction: PropTypes.string,
   secondaryAction: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 Modal.defaultProps = {
+  alert: {},
   primaryAction: 'Save',
   secondaryAction: 'Close',
+  onPrimaryAction: null,
+  onSecondaryAction: null,
 };
 
 export default Modal;

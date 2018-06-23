@@ -4,11 +4,10 @@ import {
   REMOVE_ADMIN_RESOURCE_SITE,
 } from '../constants/action-types';
 
-export const adminResourceSites = (state = {}, action) => {
-  switch(action.type) {
+export default (state = {}, action) => {
+  switch (action.type) {
     // Can only init the sites for a category if they haven't been so already
     case INIT_ADMIN_RESOURCE_SITES:
-      debugger;
       if (action.categoryId && !state[action.categoryId]) {
         return Object.assign(
           {},

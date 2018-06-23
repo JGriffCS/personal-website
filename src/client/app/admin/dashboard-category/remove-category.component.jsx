@@ -8,7 +8,7 @@ import { removeAdminDashboardCategory } from '../../actions/admin-dashboard-cate
 import Modal from '../../shared/modal/modal.component';
 
 class RemoveCategoryModal extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.removeCategory = this.removeCategory.bind(this);
@@ -18,8 +18,8 @@ class RemoveCategoryModal extends React.Component {
     };
   }
 
-  removeCategory () {
-    axios.delete(`/api/admin/resource_site_categories/${this.props.category.id}`).then(resp => {
+  removeCategory() {
+    axios.delete(`/api/admin/resource_site_categories/${this.props.category.id}`).then(() => {
       this.props.removeAdminDashboardCategory(this.props.category.id);
     }).catch((err) => {
       const { data } = err.response;
@@ -33,7 +33,7 @@ class RemoveCategoryModal extends React.Component {
     });
   }
 
-  render () {
+  render() {
     return (
       <Modal
         title="Remove Dashboard Category"
@@ -41,7 +41,8 @@ class RemoveCategoryModal extends React.Component {
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
         onPrimaryAction={this.removeCategory}
-        primaryAction="Confirm">
+        primaryAction="Confirm"
+      >
         <div className="remove-category-container">
           <div className="confirmation-message">Permanently remove this category?</div>
           <div className="category-preview">
@@ -67,6 +68,10 @@ RemoveCategoryModal.propTypes = {
   }).isRequired,
   close: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  removeAdminDashboardCategory: PropTypes.func.isRequired,
 };
 
-export default connect(null, dispatch => bindActionCreators({ removeAdminDashboardCategory }, dispatch))(RemoveCategoryModal);
+export default connect(
+  null,
+  dispatch => bindActionCreators({ removeAdminDashboardCategory }, dispatch),
+)(RemoveCategoryModal);

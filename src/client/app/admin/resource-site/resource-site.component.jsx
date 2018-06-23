@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import RemoveResourceSite from './remove-resource-site.component';
 
 class ResourceSite extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.openModal = this.openModal.bind(this);
@@ -15,7 +15,7 @@ class ResourceSite extends React.Component {
     };
   }
 
-  openModal (e) {
+  openModal(e) {
     e.preventDefault();
 
     this.setState({
@@ -23,16 +23,20 @@ class ResourceSite extends React.Component {
     });
   }
 
-  closeModal () {
+  closeModal() {
     this.setState({
       modalOpen: false,
     });
   }
 
-  render () {
+  render() {
     return (
       <React.Fragment>
-        <RemoveResourceSite item={this.props.item} isOpen={this.state.modalOpen} close={this.closeModal} />
+        <RemoveResourceSite
+          item={this.props.item}
+          isOpen={this.state.modalOpen}
+          close={this.closeModal}
+        />
         <a className="action-item" href={this.props.item.link}>
           <div>
             <div className="action-image-container">

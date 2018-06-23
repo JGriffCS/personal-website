@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import RemoveCategory from './remove-category.component';
 
 class DashboardCategory extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.openModal = this.openModal.bind(this);
@@ -16,7 +16,7 @@ class DashboardCategory extends React.Component {
     };
   }
 
-  openModal (e) {
+  openModal(e) {
     e.preventDefault();
 
     this.setState({
@@ -24,16 +24,20 @@ class DashboardCategory extends React.Component {
     });
   }
 
-  closeModal () {
+  closeModal() {
     this.setState({
       modalOpen: false,
     });
   }
 
-  render () {
+  render() {
     return (
       <React.Fragment>
-        <RemoveCategory category={this.props.category} isOpen={this.state.modalOpen} close={this.closeModal} />
+        <RemoveCategory
+          category={this.props.category}
+          isOpen={this.state.modalOpen}
+          close={this.closeModal}
+        />
         <Link to={`${this.props.match.url}/${this.props.category.value}`}>
           <div className="category">
             <div className="remove" onClick={this.openModal}>

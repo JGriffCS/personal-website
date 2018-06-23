@@ -8,10 +8,9 @@ import { removeAdminResourceSite } from '../../actions/admin-resource-sites';
 import Modal from '../../shared/modal/modal.component';
 
 class RemoveResourceSiteModal extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
-    console.log(this.props);
     this.removeResourceSite = this.removeResourceSite.bind(this);
 
     this.state = {
@@ -19,8 +18,8 @@ class RemoveResourceSiteModal extends React.Component {
     };
   }
 
-  removeResourceSite () {
-    axios.delete(`/api/admin/resource_sites/${this.props.item.id}`).then(resp => {
+  removeResourceSite() {
+    axios.delete(`/api/admin/resource_sites/${this.props.item.id}`).then(() => {
       this.props.removeAdminResourceSite(this.props.item.site_category_id, this.props.item.id);
     }).catch((err) => {
       const { data } = err.response;
@@ -34,7 +33,7 @@ class RemoveResourceSiteModal extends React.Component {
     });
   }
 
-  render () {
+  render() {
     return (
       <Modal
         title="Remove Resource Site"
@@ -42,7 +41,8 @@ class RemoveResourceSiteModal extends React.Component {
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
         onPrimaryAction={this.removeResourceSite}
-        primaryAction="Confirm">
+        primaryAction="Confirm"
+      >
         <div className="remove-resource-site-container">
           <div className="confirmation-message">Permanently remove this site?</div>
           <div className="resource-site-preview">
@@ -71,6 +71,10 @@ RemoveResourceSiteModal.propTypes = {
   }).isRequired,
   close: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  removeAdminResourceSite: PropTypes.func.isRequired,
 };
 
-export default connect(null, dispatch => bindActionCreators({ removeAdminResourceSite }, dispatch))(RemoveResourceSiteModal);
+export default connect(
+  null,
+  dispatch => bindActionCreators({ removeAdminResourceSite }, dispatch)
+)(RemoveResourceSiteModal);

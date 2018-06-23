@@ -1,18 +1,7 @@
 import axios from 'axios';
 
-import { authHeader } from '../helpers/auth-header';
-
-function login (username, password) {
-
-  return axios.post('/api/authenticate', { username, password }).then(resp => {
-    console.log(resp);
-
-    // if (!resp.ok) {
-    //   return Promise.reject(resp.statusText);
-    // }
-
-    return resp;
-  }).then(user => {
+function login(username, password) {
+  return axios.post('/api/authenticate', { username, password }).then((user) => {
     if (user && user.token) {
       localStorage.setItem('user', JSON.stringify(user));
     }
@@ -21,11 +10,11 @@ function login (username, password) {
   });
 }
 
-function logout () {
+function logout() {
   localStorage.removeItem('user');
 }
 
-export const loginService = {
+export default {
   login,
-  logout
+  logout,
 };

@@ -1,27 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
-import { loginService } from '../../services/login.service';
+import loginService from '../../services/login.service';
 import Alert from '../../shared/alert/alert.component';
 
 class Login extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.inputChange = this.inputChange.bind(this);
     this.login = this.login.bind(this);
 
     this.state = {
-      username: "",
-      password: "",
-      error: null
+      username: '',
+      password: '',
+      error: null,
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     // If token is still valid, redirect from the login page
     const token = localStorage.getItem('id_token');
     if (token) {
@@ -32,28 +31,27 @@ class Login extends React.Component {
     }
   }
 
-  inputChange (e) {
-    const target = e.target;
+  inputChange(e) {
+    const { target } = e;
 
     this.setState({
-      [target.name]: target.value
+      [target.name]: target.value,
     });
   }
 
-  login (e) {
+  login(e) {
     e.preventDefault();
 
     loginService.login(this.state.username, this.state.password).then((resp) => {
       localStorage.setItem('id_token', resp.data.token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${resp.data.token}`;
+      axios.defaults.headers.common.Authorization = `Bearer ${resp.data.token}`;
       this.props.history.push('/admin');
-    }, err => {
-      console.log(err);
+    }, (err) => {
       this.setState({ error: err.message });
     });
   }
 
-  render () {
+  render() {
     return (
       <div className="login-container">
         <div className="login-header">
@@ -61,8 +59,8 @@ class Login extends React.Component {
         </div>
         {
           this.state.error ?
-          <Alert type="error" message={this.state.error}/> :
-          ""
+            <Alert type="error" message={this.state.error} /> :
+            ''
         }
         <div className="login-form">
           <form onSubmit={this.login}>
@@ -75,5 +73,11 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Login;

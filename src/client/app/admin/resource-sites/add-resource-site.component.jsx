@@ -8,7 +8,7 @@ import { addAdminResourceSite } from '../../actions/admin-resource-sites';
 import Modal from '../../shared/modal/modal.component';
 
 class AddResourceSiteModal extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -23,7 +23,7 @@ class AddResourceSiteModal extends React.Component {
     };
   }
 
-  handleInputChange (event) {
+  handleInputChange(event) {
     const { name, value } = event.target;
 
     if (name === 'imageUrl') {
@@ -50,7 +50,7 @@ class AddResourceSiteModal extends React.Component {
     });
   }
 
-  saveResourceSite () {
+  saveResourceSite() {
     const body = {
       image_url: this.state.imageUrl,
       link: this.state.link,
@@ -58,7 +58,7 @@ class AddResourceSiteModal extends React.Component {
       site_category_id: this.props.id,
     };
 
-    axios.post('/api/admin/resource_sites', body).then(resp => {
+    axios.post('/api/admin/resource_sites', body).then((resp) => {
       this.props.addAdminResourceSite(this.props.id, resp.data[0]);
       this.props.close();
     }).catch((err) => {
@@ -73,47 +73,58 @@ class AddResourceSiteModal extends React.Component {
     });
   }
 
-  render () {
+  render() {
     return (
       <Modal
         title="Add Resource Site"
         alert={this.state.alert}
         isOpen={this.props.isOpen}
         onRequestClose={this.props.close}
-        onPrimaryAction={this.saveResourceSite}>
-          <div className="add-resource-site-container">
-            <div className="add-resource-site-form-container">
-              <form onSubmit={this.saveResourceSite}>
-                <label>Site Name:</label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleInputChange} />
-                <label>Website Url:</label>
-                <input type="text" name="link" value={this.state.link} onChange={this.handleInputChange} />
-                <label>Image Url:</label>
-                <input type="text" name="imageUrl" value={this.state.imageUrl} onChange={this.handleInputChange} />
-              </form>
-            </div>
-            <div className="add-resource-site-preview">
-              <div className="action-item">
-                <div className="action-image-container">
-                  {
-                    this.state.showImage ?
-                    <img src={`https://logo.clearbit.com/${this.state.imageUrl}?s=128`} /> :
-                    ''
-                  }
-                </div>
-                <div className="action-item-title">{this.state.name}</div>
+        onPrimaryAction={this.saveResourceSite}
+      >
+        <div className="add-resource-site-container">
+          <div className="add-resource-site-form-container">
+            <form onSubmit={this.saveResourceSite}>
+              <label htmlFor="name">
+                Site Name:
+                <input id="name" name="name" value={this.state.name} onChange={this.handleInputChange} type="text" />
+              </label>
+              <label htmlFor="link">
+                Website Url:
+                <input id="link" name="link" value={this.state.link} onChange={this.handleInputChange} type="text" />
+              </label>
+              <label htmlFor="imageUrl">
+                Image Url:
+                <input id="imageUrl" name="imageUrl" value={this.state.imageUrl} onChange={this.handleInputChange} type="text" />
+              </label>
+            </form>
+          </div>
+          <div className="add-resource-site-preview">
+            <div className="action-item">
+              <div className="action-image-container">
+                {
+                  this.state.showImage ?
+                  <img src={`https://logo.clearbit.com/${this.state.imageUrl}?s=128`} /> :
+                  ''
+                }
               </div>
+              <div className="action-item-title">{this.state.name}</div>
             </div>
           </div>
+        </div>
       </Modal>
-    )
+    );
   }
 }
 
 AddResourceSiteModal.propTypes = {
+  addAdminResourceSite: PropTypes.func.isRequired,
   close: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
 };
 
-export default connect(null, dispatch => bindActionCreators({ addAdminResourceSite }, dispatch))(AddResourceSiteModal);
+export default connect(
+  null,
+  dispatch => bindActionCreators({ addAdminResourceSite }, dispatch),
+)(AddResourceSiteModal);
