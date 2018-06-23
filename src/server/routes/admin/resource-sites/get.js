@@ -1,5 +1,5 @@
 module.exports = (options = {}) => {
-  const { conn } = options;
+  const { pool } = options;
 
   return (req, res, next) => {
     const sql = `
@@ -8,7 +8,7 @@ module.exports = (options = {}) => {
       WHERE site_category_id = ?
     `;
 
-    conn.query(sql, [req.params.type_id], (err, result) => {
+    pool.query(sql, [req.params.type_id], (err, result) => {
       if (err) next(err);
 
       res.json(result);

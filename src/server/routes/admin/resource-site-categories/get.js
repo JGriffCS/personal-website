@@ -1,5 +1,5 @@
 module.exports = (options = {}) => {
-  const { conn } = options;
+  const { pool } = options;
 
   return (req, res, next) => {
     const sql = `
@@ -7,7 +7,7 @@ module.exports = (options = {}) => {
       FROM admin_resource_site_categories
     `;
 
-    conn.query(sql, (err, result) => {
+    pool.query(sql, (err, result) => {
       if (err) next(err);
 
       res.json(result);

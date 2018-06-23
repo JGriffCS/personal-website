@@ -1,5 +1,5 @@
 module.exports = (options = {}) => {
-  const { conn } = options;
+  const { pool } = options;
 
   return (req, res, next) => {
     const sql = `
@@ -7,7 +7,7 @@ module.exports = (options = {}) => {
       WHERE id = ? 
     `;
 
-    conn.query(sql, [req.params.site_id], (err, result) => {
+    pool.query(sql, [req.params.site_id], (err, result) => {
       if (err) next(err);
 
       res.json(result);

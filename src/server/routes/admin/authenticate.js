@@ -1,5 +1,5 @@
 module.exports = (options = {}) => {
-  const { conn, jwt, secret } = options;
+  const { pool, jwt, secret } = options;
 
   return (req, res, next) => {
     const sql = `
@@ -12,7 +12,7 @@ module.exports = (options = {}) => {
     `;
 
     // TODO: Is there any way to invalidate token when deleted manually from storage??
-    conn.query(sql, [req.body.username, req.body.password], (err, result) => {
+    pool.query(sql, [req.body.username, req.body.password], (err, result) => {
       if (err) next(err);
 
       if (result.length > 0) {
