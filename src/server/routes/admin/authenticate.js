@@ -24,8 +24,8 @@ module.exports = (options = {}) => {
             delete: user.delete,
             get: user.get,
             post: user.post,
-            put: user.put
-          }
+            put: user.put,
+          },
         }, secret, { expiresIn: '10m' });
 
         res.status(200).json({ token });
@@ -33,5 +33,5 @@ module.exports = (options = {}) => {
         res.status(401).json({ msg: 'Cannot find username/password combination.' });
       }
     });
-  }
+  };
 };

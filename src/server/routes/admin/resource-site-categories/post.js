@@ -1,7 +1,7 @@
 module.exports = (options = {}) => {
   const { conn } = options;
 
-  return (req, res, next) => {
+  return (req, res) => {
     const sql = `
       INSERT INTO admin_resource_site_categories (value, name, icon) 
       VALUES (?, ?, ?)
@@ -20,5 +20,5 @@ module.exports = (options = {}) => {
         }
       });
     });
-  }
+  };
 };

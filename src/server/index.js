@@ -19,14 +19,13 @@ const conn = mysql.createConnection({
 
 conn.connect((err) => {
   if (err) throw err;
-  console.log("Connected!");
 });
 
 app.use('/api/admin/*', authentication({ jwt, secret: config.secret }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname +'./../../dist')); //serves the index.html
-app.listen(3000); //listens on port 3000 -> http://localhost:3000/
+app.use(express.static(path.join(__dirname, '..', '..', 'dist'))); // serves the index.html
+app.listen(3000); // listens on port 3000 -> http://localhost:3000/
 
 app.get('/api/blogposts', require('./routes/blog_posts.js')({ conn }));
 
@@ -42,5 +41,5 @@ app.get('/api/admin/resource_site_categories', require('./routes/admin/resource-
 app.get('/api/admin/resource_sites/:type_id', require('./routes/admin/resource-sites/get.js')({ conn }));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname + './../../dist/index.html'));
+  res.sendFile(path.resolve(__dirname, '..', '..', 'dist', 'index.html'));
 });

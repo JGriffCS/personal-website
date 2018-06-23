@@ -8,7 +8,7 @@ const getToken = (req) => {
   }
 
   return null;
-}
+};
 
 module.exports = (options = {}) => {
   const { jwt, secret } = options;
@@ -17,7 +17,7 @@ module.exports = (options = {}) => {
     const token = getToken(req);
 
     if (token) {
-      jwt.verify(token, secret, (err, resp) => {
+      jwt.verify(token, secret, (err) => {
         if (err) {
           res.status(401).send('Invalid Token');
         } else {
