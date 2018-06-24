@@ -51,23 +51,25 @@
 @media (min-width: $jg-device-width-mobile) {
   .category-options {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 220px);
-    justify-content: space-around;
-    grid-gap: 1rem;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, 50%);
 
     a {
       width: auto;
+
+      &:nth-child(odd) {
+        background-color: $jg-color-primary;
+      }
+
+      &:nth-child(even) {
+        background-color: $jg-color-secondary;
+      }
     }
   }
 
   .category {
-    // Fits nicely on desktop and scales down well with screen size
-    width: 100%;
     height: 220px;
-    border: 5px solid black;
-    border-radius: 20px;
     text-align: center;
+    color: $jg-text-color-secondary;
 
     &:hover {
       .remove {
@@ -96,5 +98,18 @@
       float: none;
       width: 100%;
     }
+  }
+}
+
+@media(min-width: $jg-device-width-tablet) {
+  .category-options {
+    grid-template-columns: repeat(auto-fill, 33.33%);
+  }
+}
+
+@media(min-width: $jg-device-width-desktop) {
+  .category-options {
+    grid-template-columns: repeat(auto-fill, 25%);
+    padding: 20px;
   }
 }
