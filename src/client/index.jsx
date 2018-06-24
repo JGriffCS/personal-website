@@ -33,6 +33,15 @@ if (token) {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
+axios.interceptors.response.use(
+  response => response,
+  (error) => {
+    if (error.response.status === 401) {
+      window.location.href = '/login';
+    }
+  },
+);
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
