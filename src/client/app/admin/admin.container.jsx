@@ -28,14 +28,7 @@ class Admin extends React.Component {
         routes: [...prevState.routes, ...resourceRoutes],
       }));
     }, (err) => {
-      if (err.response.status === 401) {
-        // In case an expired or invalid token exists
-        localStorage.removeItem('id_token');
-
-        this.props.history.push('/login');
-      } else {
-        this.props.history.push('/');
-      }
+      console.log(err);
     });
   }
 
