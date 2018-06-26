@@ -2,6 +2,14 @@
 .category-options {
   a {
     width: 100%;
+
+    &:nth-child(even) {
+      color: $jg-color-primary;
+    }
+
+    &:nth-child(odd) {
+      color: $jg-color-secondary;
+    }
   }
 }
 
@@ -26,7 +34,7 @@
     position: absolute;
     right: 0;
     font-size: 16px;
-    color: $jg-text-color-alternate;
+    //color: $jg-text-color-alternate;
     height: 35px;
     width: 35px;
   }
@@ -46,7 +54,6 @@
     font-size: 48px;
   }
 }
-
 
 @media (min-width: $jg-device-width-mobile) {
   .category-options {
@@ -72,6 +79,7 @@
     height: 250px;
     text-align: center;
     color: $jg-text-color-alternate;
+    border: none;
 
     &:hover {
       .remove {
@@ -141,6 +149,6 @@
   }
 
   .category {
-    height: 220px;
+    height: 230px;
   }
 }
