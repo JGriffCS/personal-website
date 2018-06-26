@@ -59,20 +59,23 @@ class DashboardCategory extends React.Component {
 
     let newControlState = null;
     let newTouchDiff = null;
-    const totalDiff = this.state.touchXDiff + diffX;
-    
-    if (diffX < 0 && this.state.showControls) { // If swiping left and controls shown
+
+    // Only update the state of the diff when swiping right and controls are hidden
+    // or when swiping left when controls are visible.
+    if (diffX < 0 && this.state.showControls) {
+      // If last swipe was in the other direction, reset the total swipe distance
+      const totalDiff = Math.min(this.state.touchXDiff, 0) + diffX;
+
       if (totalDiff < -60) {
         newControlState = false;
         newTouchDiff = 0;
       } else {
         newTouchDiff = totalDiff;
       }
-    } else if (diffX < 0 && !this.state.showControls) { // If swiping left and controls hidden
-      newTouchDiff = Math.max(totalDiff, 0);
-    } else if (diffX > 0 && this.state.showControls) { // If swiping right and controls shown
-      newTouchDiff = Math.min(totalDiff, 0);
-    } else if (diffX > 0 && !this.state.showControls) { // If swiping right and controls hidden
+    } else if (diffX > 0 && !this.state.showControls) {
+      // If last swipe was in the other direction, reset the total swipe distance
+      const totalDiff = Math.max(this.state.touchXDiff, 0) + diffX;
+
       if (totalDiff > 60) {
         newControlState = true;
         newTouchDiff = 0;
