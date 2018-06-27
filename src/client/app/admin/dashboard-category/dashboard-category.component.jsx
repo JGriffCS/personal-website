@@ -12,13 +12,13 @@ class DashboardCategory extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.touchStart = this.touchStart.bind(this);
     this.touchMove = this.touchMove.bind(this);
+    this.touchEnd = this.touchEnd.bind(this);
 
     this.state = {
       lastTouchX: null,
       lastTouchY: null,
       modalOpen: false,
-      showControls: false,
-      touchXDiff: 0,
+      slideX: 0,
     };
   }
 
@@ -40,7 +40,6 @@ class DashboardCategory extends React.Component {
     const touchObj = e.changedTouches[0];
 
     this.setState({
-      touchXDiff: 0,
       lastTouchX: touchObj.pageX,
       lastTouchY: touchObj.pageY,
     });
@@ -57,42 +56,41 @@ class DashboardCategory extends React.Component {
       return;
     }
 
-    let newControlState = null;
-    let newTouchDiff = null;
+    let newSlideX = null;
 
-    // Only update the state of the diff when swiping right and controls are hidden
-    // or when swiping left when controls are visible.
-    if (diffX < 0 && this.state.showControls) {
-      // If last swipe was in the other direction, reset the total swipe distance
-      const totalDiff = Math.min(this.state.touchXDiff, 0) + diffX;
-
-      if (totalDiff < -60) {
-        newControlState = false;
-        newTouchDiff = 0;
-      } else {
-        newTouchDiff = totalDiff;
-      }
-    } else if (diffX > 0 && !this.state.showControls) {
-      // If last swipe was in the other direction, reset the total swipe distance
-      const totalDiff = Math.max(this.state.touchXDiff, 0) + diffX;
-
-      if (totalDiff > 60) {
-        newControlState = true;
-        newTouchDiff = 0;
-      } else {
-        newTouchDiff = totalDiff;
-      }
+    // Only update swipe if it will adjust the visibility of the controls
+    if (diffX < 0 && this.state.slideX > 0) {
+      // If swiping left while controls are visible, slide as far as 0 (origin)
+      newSlideX = Math.max(this.state.slideX + diffX, 0);
+    } else if (diffX > 0 && this.state.slideX < 60) {
+      // If swiping right while controls aren't completely visible, slide as far as 60 (max)
+      newSlideX = Math.min(this.state.slideX + diffX, 60);
     }
 
     this.setState({
       lastTouchX: touchObj.pageX,
       lastTouchY: touchObj.pageY,
-      showControls: newControlState !== null ? newControlState : this.state.showControls,
-      touchXDiff: newTouchDiff !== null ? newTouchDiff : this.state.touchXDiff,
+      slideX: (newSlideX !== null ? newSlideX : this.state.slideX),
     });
   }
 
+  touchEnd() {
+    const { slideX } = this.state;
+
+    // On touch end, snap the controls to either completely hidden
+    // or completely visible depending on current state
+    if (slideX >= 30 && slideX < 60) {
+      this.setState({ slideX: 60 });
+    } else if (slideX < 30 && slideX > 0) {
+      this.setState({ slideX: 0 });
+    }
+  }
+
   render() {
+    const controlStyles = {
+      marginLeft: this.state.slideX,
+    };
+
     return (
       <React.Fragment>
         <RemoveCategory
@@ -105,9 +103,11 @@ class DashboardCategory extends React.Component {
             Hi!
           </div>
           <div
-            className={`category ${this.state.showControls ? 'show-controls' : ''}`}
+            className="category"
+            style={controlStyles}
             onTouchStart={this.touchStart}
             onTouchMove={this.touchMove}
+            onTouchEnd={this.touchEnd}
           >
             <div className="remove" onClick={this.openModal}>
               <i className="fas fa-trash-alt" />
