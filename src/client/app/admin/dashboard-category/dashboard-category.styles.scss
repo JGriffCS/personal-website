@@ -9,6 +9,7 @@
     background-color: $jg-color-primary;
     color: $jg-text-color-alternate;
     z-index: 0;
+    border-top: 1px solid #000;
   }
 
   a {
@@ -74,6 +75,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 50%);
 
+    .dashboard-category-mobile-options {
+      display:none;
+    }
+
     a {
       width: auto;
 
@@ -93,6 +98,7 @@
     height: 250px;
     text-align: center;
     color: $jg-text-color-alternate;
+    background-color: transparent;
     border: none;
 
     &:hover {
