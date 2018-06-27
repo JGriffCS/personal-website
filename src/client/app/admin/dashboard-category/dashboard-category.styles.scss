@@ -1,17 +1,40 @@
 // TODO: Maybe desktop first would be more concise?
 .category-options {
+  overflow-x: hidden;
+
+  .dashboard-category-mobile-options {
+    width: 60px;
+    height: 100px;
+    position: absolute;
+    background-color: $jg-color-primary;
+    color: $jg-text-color-alternate;
+    z-index: 0;
+    border-top: 1px solid #000;
+  }
+
   a {
     width: 100%;
+
+    &:nth-child(even) {
+      color: $jg-color-primary;
+    }
+
+    &:nth-child(odd) {
+      color: $jg-color-secondary;
+    }
   }
 }
 
 .category {
+  z-index: 1;
+  background-color: #FFF;
   box-sizing: border-box;
   width: 100%;
   height: 100px;
   border-top: 1px solid black;
   cursor: pointer;
   position: relative;
+  transition: all .3s;
 
   & > div {
     display: inline-block;
@@ -26,7 +49,7 @@
     position: absolute;
     right: 0;
     font-size: 16px;
-    color: #FF1408;
+    //color: $jg-text-color-alternate;
     height: 35px;
     width: 35px;
   }
@@ -47,27 +70,36 @@
   }
 }
 
-
 @media (min-width: $jg-device-width-mobile) {
   .category-options {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 220px);
-    justify-content: space-around;
-    grid-gap: 1rem;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, 50%);
+
+    .dashboard-category-mobile-options {
+      display:none;
+    }
 
     a {
       width: auto;
+
+      &:nth-child(4n),
+      &:nth-child(4n+1){
+        background-color: $jg-color-primary;
+      }
+
+      &:nth-child(4n+2),
+      &:nth-child(4n+3){
+        background-color: $jg-color-secondary;
+      }
     }
   }
 
   .category {
-    // Fits nicely on desktop and scales down well with screen size
-    width: 100%;
-    height: 220px;
-    border: 5px solid black;
-    border-radius: 20px;
+    height: 250px;
     text-align: center;
+    color: $jg-text-color-alternate;
+    background-color: transparent;
+    border: none;
 
     &:hover {
       .remove {
@@ -96,5 +128,47 @@
       float: none;
       width: 100%;
     }
+  }
+}
+
+@media(min-width: $jg-device-width-tablet) {
+  .category-options {
+    grid-template-columns: repeat(auto-fill, 33.33%);
+
+    a {
+      &:nth-child(odd) {
+        background-color: $jg-color-primary;
+      }
+
+      &:nth-child(even) {
+        background-color: $jg-color-secondary;
+      }
+    }
+  }
+}
+
+@media(min-width: $jg-device-width-desktop) {
+  .category-options {
+    grid-template-columns: repeat(auto-fill, 25%);
+    padding: 20px;
+
+    a {
+      &:nth-child(8n+1),
+      &:nth-child(8n+3),
+      &:nth-child(8n+6),
+      &:nth-child(8n) {
+        background-color: $jg-color-primary;
+      }
+      &:nth-child(8n+2),
+      &:nth-child(8n+4),
+      &:nth-child(8n+5),
+      &:nth-child(8n+7) {
+        background-color: $jg-color-secondary;
+      }
+    }
+  }
+
+  .category {
+    height: 230px;
   }
 }
