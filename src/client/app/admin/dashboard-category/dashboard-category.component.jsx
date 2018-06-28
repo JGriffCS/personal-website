@@ -10,6 +10,7 @@ class DashboardCategory extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.toggleRemovePrompt = this.toggleRemovePrompt.bind(this);
     this.touchStart = this.touchStart.bind(this);
     this.touchMove = this.touchMove.bind(this);
     this.touchEnd = this.touchEnd.bind(this);
@@ -18,6 +19,7 @@ class DashboardCategory extends React.Component {
       lastTouchX: null,
       lastTouchY: null,
       modalOpen: false,
+      showRemovePrompt: false,
       slideX: 0,
     };
   }
@@ -33,6 +35,12 @@ class DashboardCategory extends React.Component {
   closeModal() {
     this.setState({
       modalOpen: false,
+    });
+  }
+
+  toggleRemovePrompt() {
+    this.setState({
+      showRemovePrompt: !this.state.showRemovePrompt,
     });
   }
 
@@ -92,16 +100,20 @@ class DashboardCategory extends React.Component {
     };
 
     return (
-      <React.Fragment>
+      <div className="dashboard-category-container">
         <RemoveCategory
           category={this.props.category}
           isOpen={this.state.modalOpen}
           close={this.closeModal}
         />
-        <Link to={`${this.props.match.url}/${this.props.category.value}`}>
-          <div className="dashboard-category-mobile-options">
-            Hi!
+
+        <div className="dashboard-category-mobile-options">
+          <div className="remove" onClick={this.toggleRemovePrompt}>
+            <i className="fas fa-trash-alt" />
           </div>
+        </div>
+
+        <Link to={`${this.props.match.url}/${this.props.category.value}`}>
           <div
             className="category"
             style={controlStyles}
@@ -118,7 +130,21 @@ class DashboardCategory extends React.Component {
             </div>
           </div>
         </Link>
-      </React.Fragment>
+
+        <div className={`dashboard-category-remove ${this.state.showRemovePrompt ? 'visible' : ''}`}>
+          <div className="remove-message">
+            Remove Category?
+          </div>
+          <div className="remove-actions">
+            <button className="btn btn-small btn-primary">
+              Confirm
+            </button>
+            <button className="btn btn-small btn-outline-secondary" onClick={this.toggleRemovePrompt}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
     );
   }
 }

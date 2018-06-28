@@ -66,28 +66,33 @@ input {
   border-radius: .25rem;
 }
 
+.btn-small {
+  line-height: 1.1;
+  padding: 0.375rem;
+}
+
 .btn-primary {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  color: $jg-text-color-alternate;
+  background-color: $jg-color-primary;
+  border-color: $jg-color-primary;
 
   &:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    color: $jg-text-color-alternate;
+    background-color: lighten($jg-color-primary, 5%);
+    border-color: lighten($jg-color-primary, 5%);
   }
 }
 
 .btn-outline-primary {
-  color: #007bff;
+  color: $jg-color-primary;
   background-color: transparent;
   background-image: none;
-  border-color: #007bff;
+  border-color: $jg-color-primary;
 
   &:hover {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    color: $jg-text-color-alternate;
+    background-color: $jg-color-primary;
+    border-color: $jg-color-primary;
   }
 }
 

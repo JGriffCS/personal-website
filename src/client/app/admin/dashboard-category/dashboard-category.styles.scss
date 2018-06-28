@@ -2,7 +2,12 @@
 .category-options {
   overflow-x: hidden;
 
+  .dashboard-category-container {
+    position: relative;
+  }
+
   .dashboard-category-mobile-options {
+    box-sizing: border-box;
     width: 60px;
     height: 100px;
     position: absolute;
@@ -10,6 +15,40 @@
     color: $jg-text-color-alternate;
     z-index: 0;
     border-top: 1px solid #000;
+    text-align: center;
+
+    .remove {
+      font-size: 22px;
+      margin-top: 35px;
+    }
+  }
+
+  .dashboard-category-remove {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 100%;
+    transition: all .4s;
+    border-top: 1px solid black;
+    background: white;
+    box-sizing: border-box;
+
+    &.visible {
+      left: 0;
+    }
+
+    div {
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      line-height: 48px;
+    }
+
+    button {
+      margin: 10px;
+    }
   }
 
   a {
@@ -46,6 +85,7 @@
   }
 
   .remove {
+    display: none;
     position: absolute;
     right: 0;
     font-size: 16px;
@@ -108,6 +148,7 @@
     }
 
     .remove {
+      display: block;
       opacity: 0;
       transition: opacity 0.3s;
       top: 5px;
