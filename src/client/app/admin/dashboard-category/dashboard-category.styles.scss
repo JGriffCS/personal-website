@@ -1,5 +1,7 @@
 // TODO: Maybe desktop first would be more concise?
 .category-options {
+  overflow-x: hidden;
+
   .dashboard-category-container {
     position: relative;
   }
@@ -49,9 +51,8 @@
     }
   }
 
-  .dashboard-category-container {
+  a {
     width: 100%;
-    overflow-x: hidden;
 
     &:nth-child(even) {
       color: $jg-color-primary;
@@ -119,6 +120,7 @@
     }
 
     .dashboard-category-container {
+      overflow-x: hidden;
       width: auto;
 
       &:nth-child(4n),
