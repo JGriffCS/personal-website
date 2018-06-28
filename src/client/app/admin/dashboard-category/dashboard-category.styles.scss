@@ -1,7 +1,5 @@
 // TODO: Maybe desktop first would be more concise?
 .category-options {
-  overflow-x: hidden;
-
   .dashboard-category-container {
     position: relative;
   }
@@ -51,8 +49,9 @@
     }
   }
 
-  a {
+  .dashboard-category-container {
     width: 100%;
+    overflow-x: hidden;
 
     &:nth-child(even) {
       color: $jg-color-primary;
@@ -119,7 +118,7 @@
       display:none;
     }
 
-    a {
+    .dashboard-category-container {
       width: auto;
 
       &:nth-child(4n),
@@ -176,7 +175,7 @@
   .category-options {
     grid-template-columns: repeat(auto-fill, 33.33%);
 
-    a {
+    .dashboard-category-container {
       &:nth-child(odd) {
         background-color: $jg-color-primary;
       }
@@ -193,7 +192,7 @@
     grid-template-columns: repeat(auto-fill, 25%);
     padding: 20px;
 
-    a {
+    .dashboard-category-container {
       &:nth-child(8n+1),
       &:nth-child(8n+3),
       &:nth-child(8n+6),

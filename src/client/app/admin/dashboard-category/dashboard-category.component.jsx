@@ -38,7 +38,9 @@ class DashboardCategory extends React.Component {
     });
   }
 
-  toggleRemovePrompt() {
+  toggleRemovePrompt(e) {
+    e.preventDefault();
+
     this.setState({
       showRemovePrompt: !this.state.showRemovePrompt,
     });
@@ -121,7 +123,7 @@ class DashboardCategory extends React.Component {
             onTouchMove={this.touchMove}
             onTouchEnd={this.touchEnd}
           >
-            <div className="remove" onClick={this.openModal}>
+            <div className="remove" onClick={this.toggleRemovePrompt}>
               <i className="fas fa-trash-alt" />
             </div>
             <div className="title">{this.props.category.name}</div>
