@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { removeAdminDashboardCategory } from '../../actions/admin-dashboard-categories';
 
 import RemoveCategory from './remove-category.component';
 
@@ -10,12 +15,14 @@ class DashboardCategory extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.removeCategory = this.removeCategory.bind(this);
     this.toggleRemovePrompt = this.toggleRemovePrompt.bind(this);
     this.touchStart = this.touchStart.bind(this);
     this.touchMove = this.touchMove.bind(this);
     this.touchEnd = this.touchEnd.bind(this);
 
     this.state = {
+      alert: null,
       lastTouchX: null,
       lastTouchY: null,
       modalOpen: false,
@@ -35,6 +42,21 @@ class DashboardCategory extends React.Component {
   closeModal() {
     this.setState({
       modalOpen: false,
+    });
+  }
+
+  removeCategory() {
+    axios.delete(`/api/admin/resource_site_categories/${this.props.category.id}`).then(() => {
+      this.props.removeAdminDashboardCategory(this.props.category.id);
+    }).catch((err) => {
+      const { data } = err.response;
+
+      this.setState({
+        alert: {
+          type: 'error',
+          message: data.msg,
+        },
+      });
     });
   }
 
@@ -97,6 +119,7 @@ class DashboardCategory extends React.Component {
   }
 
   render() {
+    console.log(this.state.alert);
     const controlStyles = {
       marginLeft: this.state.slideX,
     };
@@ -138,7 +161,7 @@ class DashboardCategory extends React.Component {
             Remove Category?
           </div>
           <div className="remove-actions">
-            <button className="btn btn-small btn-primary">
+            <button className="btn btn-small btn-primary" onClick={this.removeCategory}>
               Confirm
             </button>
             <button className="btn btn-small btn-outline-secondary" onClick={this.toggleRemovePrompt}>
@@ -160,6 +183,10 @@ DashboardCategory.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
+  removeAdminDashboardCategory: PropTypes.func.isRequired,
 };
 
-export default DashboardCategory;
+export default connect(
+  null,
+  dispatch => bindActionCreators({ removeAdminDashboardCategory }, dispatch),
+)(DashboardCategory);
