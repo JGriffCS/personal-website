@@ -32,7 +32,7 @@
     left: 100%;
     transition: all .4s;
     border-top: 1px solid black;
-    background: white;
+    background-color: $jg-text-color-alternate;
     box-sizing: border-box;
 
     &.visible {
