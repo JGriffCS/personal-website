@@ -1,0 +1,15 @@
+.category-options {
+  overflow-x: hidden;
+}
+
+.add-btn-container {
+  margin-bottom: 15px;
+  padding-right: 20px;
+  text-align: right;
+
+  .btn {
+    border: 2px solid;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+}

@@ -46,8 +46,13 @@ class Dashboard extends React.Component {
     return (
       <React.Fragment>
         <AddCategory isOpen={this.state.modalOpen} close={this.closeModal} />
-        <div>
-          <button onClick={this.openModal}>+ Add</button>
+        <div className="add-btn-container">
+          <button
+            className="btn btn-outline-primary btn-small"
+            onClick={this.openModal}
+          >
+            <i className="fas fa-plus" /> Add Item
+          </button>
         </div>
         <div className="category-options">
           {

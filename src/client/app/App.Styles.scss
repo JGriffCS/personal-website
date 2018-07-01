@@ -3,6 +3,7 @@
 @import "admin/admin.styles";
 @import "admin/login/login.styles";
 @import "admin/dashboard/add-category.styles";
+@import "admin/dashboard/dashboard.styles.scss";
 @import "admin/dashboard-category/remove-category.styles";
 @import "admin/resource-sites/add-resource-site.styles";
 @import "admin/resource-site/remove-resource-site.styles";
@@ -11,6 +12,10 @@
 @import "public/components/Header/header.styles";
 @import "public/components/Layout/styles";
 @import "public/containers/Blog/styles";
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
