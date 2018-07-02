@@ -4,11 +4,6 @@
 
 .add-category-form-container {
   height: 220px;
-  float: left;
-  width: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  padding-left: 45px;
 
   label {
     font-weight: bold;
@@ -19,12 +14,36 @@
 }
 
 .add-category-preview {
-  width: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-
   .category {
-    width: 220px;
-    margin: 0 auto;
+    border-bottom: 1px solid black;
+    color: $jg-color-primary;
+  }
+}
+
+@media (min-width: $jg-device-width-mobile) {
+  .add-category-form-container {
+    float: left;
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 45px;
+
+    label {
+      font-weight: bold;
+      font-size: 18px;
+      display: block;
+      margin-top: 10px;
+    }
+  }
+
+  .add-category-preview {
+    width: 50%;
+    display: inline-block;
+
+    .category {
+      width: 220px;
+      margin: 0 auto;
+      border-bottom: none;
+    }
   }
 }
