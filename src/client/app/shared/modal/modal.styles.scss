@@ -71,3 +71,15 @@
   }
 }
 
+@media (min-width: $jg-device-width-mobile) {
+  .modal-footer {
+    padding-right: 7%;
+  }
+}
+
+@media (min-width: $jg-device-width-tablet) {
+  .modal-footer {
+    padding-right: 8%;
+  }
+}
+

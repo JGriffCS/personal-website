@@ -3,7 +3,7 @@
 }
 
 .add-category-form-container {
-  height: 220px;
+  height: 200px;
 
   label {
     font-weight: bold;
@@ -26,7 +26,8 @@
     width: 50%;
     display: inline-block;
     box-sizing: border-box;
-    padding-left: 45px;
+    padding-right: 25px;
+
 
     label {
       font-weight: bold;
@@ -42,8 +43,34 @@
 
     .category {
       width: 220px;
+      height: 220px;
       margin: 0 auto;
       border-bottom: none;
+      background-color: $jg-color-primary;
+      color: $jg-text-color-alternate;
+    }
+  }
+}
+
+@media (min-width: $jg-device-width-tablet) {
+  .add-category-form-container {
+    padding-left: 0;
+  }
+
+  .add-category-preview {
+
+  }
+}
+
+@media (min-width: $jg-device-width-tablet) {
+  .add-category-form-container {
+    padding-left: 45px;
+  }
+
+  .add-category-preview {
+    .category {
+      width: 250px;
+      height: 250px;
     }
   }
 }
