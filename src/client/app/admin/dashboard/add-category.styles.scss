@@ -21,26 +21,7 @@
 }
 
 @media (min-width: $jg-device-width-mobile) {
-  .add-category-form-container {
-    float: left;
-    width: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    padding-right: 25px;
-
-
-    label {
-      font-weight: bold;
-      font-size: 18px;
-      display: block;
-      margin-top: 10px;
-    }
-  }
-
   .add-category-preview {
-    width: 50%;
-    display: inline-block;
-
     .category {
       width: 220px;
       height: 220px;
@@ -52,19 +33,38 @@
   }
 }
 
-@media (min-width: $jg-device-width-tablet) {
+@media (min-width: 600px) {
   .add-category-form-container {
-    padding-left: 0;
+    float: left;
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-right: 25px;
   }
 
   .add-category-preview {
+    width: 50%;
+    display: inline-block;
 
+    .category {
+      float: right;
+      margin-right: 20px;
+    }
   }
 }
 
 @media (min-width: $jg-device-width-tablet) {
   .add-category-form-container {
-    padding-left: 45px;
+    width: 60%;
+  }
+
+  .add-category-preview {
+    width: 40%;
+  }
+}
+
+@media (min-width: $jg-device-width-tablet) {
+  .add-category-form-container {
   }
 
   .add-category-preview {
