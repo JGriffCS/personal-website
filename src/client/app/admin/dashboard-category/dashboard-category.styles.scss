@@ -112,6 +112,12 @@
       display:none;
     }
 
+    .dashboard-category-remove {
+      border: 1px solid $jg-color-primary;
+      height: 100%;
+      padding-top: 60px;
+    }
+
     .dashboard-category-container {
       overflow-x: hidden;
       width: auto;
