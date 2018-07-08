@@ -119,7 +119,6 @@ class DashboardCategory extends React.Component {
   }
 
   render() {
-    console.log(this.state.alert);
     const controlStyles = {
       marginLeft: this.state.slideX,
     };
