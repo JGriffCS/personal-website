@@ -98,7 +98,10 @@
   .visual {
     width: 25%;
     float: left;
-    font-size: 48px;
+
+    i {
+      font-size: 48px;
+    }
   }
 }
 
@@ -164,9 +167,12 @@
 
     .visual {
       height: 65%;
-      font-size: 72px;
       float: none;
       width: 100%;
+
+      i {
+        font-size: 72px;
+      }
     }
   }
 }

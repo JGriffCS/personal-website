@@ -83,7 +83,7 @@ class AddCategoryModal extends React.Component {
             <div className="category">
               <div className="title">{this.state.name}</div>
               <div className="visual">
-                <i className={`fas ${this.state.icon}`} />
+                <i className="material-icons">{this.state.icon}</i>
               </div>
             </div>
           </div>

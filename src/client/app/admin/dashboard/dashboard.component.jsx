@@ -51,7 +51,7 @@ class Dashboard extends React.Component {
             className="btn btn-outline-primary btn-small"
             onClick={this.openModal}
           >
-            <i className="fas fa-plus" /> Add Item
+            <i className="material-icons">add</i> Add Item
           </button>
         </div>
         <div className="category-options">

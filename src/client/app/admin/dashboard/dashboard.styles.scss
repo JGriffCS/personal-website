@@ -11,5 +11,12 @@
     border: 2px solid;
     border-radius: 10px;
     font-weight: bold;
+    display: inline-flex;
+    vertical-align: middle;
+    line-height: 1.5;
+
+    i {
+      margin-top: -1px;
+    }
   }
 }

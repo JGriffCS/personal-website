@@ -133,7 +133,7 @@ class DashboardCategory extends React.Component {
 
         <div className="dashboard-category-mobile-options">
           <div className="remove" onClick={this.toggleRemovePrompt}>
-            <i className="fas fa-trash-alt" />
+            <i className="material-icons">delete</i>
           </div>
         </div>
 
@@ -146,11 +146,11 @@ class DashboardCategory extends React.Component {
             onTouchEnd={this.touchEnd}
           >
             <div className="remove" onClick={this.toggleRemovePrompt}>
-              <i className="fas fa-trash-alt" />
+              <i className="material-icons">delete</i>
             </div>
             <div className="title">{this.props.category.name}</div>
             <div className="visual">
-              <i className={`fas ${this.props.category.icon}`} />
+              <i className="material-icons">{this.props.category.icon}</i>
             </div>
           </div>
         </Link>
