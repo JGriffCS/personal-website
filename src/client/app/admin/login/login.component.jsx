@@ -66,7 +66,7 @@ class Login extends React.Component {
           <form onSubmit={this.login}>
             <input name="username" type="text" value={this.state.username} onChange={this.inputChange} />
             <input name="password" type="password" value={this.state.password} onChange={this.inputChange} />
-            <input type="submit" className="login-submit" value="Login" />
+            <input type="submit" className="btn btn-primary login-submit" value="Login" />
           </form>
         </div>
       </div>

@@ -1,10 +1,11 @@
 .login-container {
+  color: $jg-text-color;
   width: 40%;
   min-width: 315px;
-  border: 1px solid black;
+  border: 1px solid $jg-color-gray-dark;
   border-radius: 15px;
   margin: 50px auto;
-  background: #eee;
+  background: $jg-color-gray;
   padding: 25px;
   box-sizing: border-box;
 
