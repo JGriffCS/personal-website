@@ -7,14 +7,10 @@ import { bindActionCreators } from 'redux';
 
 import { removeAdminDashboardCategory } from '../../actions/admin-dashboard-categories';
 
-import RemoveCategory from './remove-category.component';
-
 class DashboardCategory extends React.Component {
   constructor(props) {
     super(props);
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     this.removeCategory = this.removeCategory.bind(this);
     this.toggleRemovePrompt = this.toggleRemovePrompt.bind(this);
     this.touchStart = this.touchStart.bind(this);
@@ -22,41 +18,25 @@ class DashboardCategory extends React.Component {
     this.touchEnd = this.touchEnd.bind(this);
 
     this.state = {
-      alert: null,
       lastTouchX: null,
       lastTouchY: null,
-      modalOpen: false,
       showRemovePrompt: false,
       slideX: 0,
     };
   }
 
-  openModal(e) {
-    e.preventDefault();
-
-    this.setState({
-      modalOpen: true,
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      modalOpen: false,
-    });
-  }
-
   removeCategory() {
     axios.delete(`/api/admin/resource_site_categories/${this.props.category.id}`).then(() => {
       this.props.removeAdminDashboardCategory(this.props.category.id);
-    }).catch((err) => {
-      const { data } = err.response;
-
-      this.setState({
-        alert: {
-          type: 'error',
-          message: data.msg,
-        },
-      });
+    }).catch(() => {
+      // const { data } = err.response;
+      //
+      // this.setState({
+      //   alert: {
+      //     type: 'error',
+      //     message: data.msg,
+      //   },
+      // });
     });
   }
 
@@ -125,12 +105,6 @@ class DashboardCategory extends React.Component {
 
     return (
       <div className="dashboard-category-container">
-        <RemoveCategory
-          category={this.props.category}
-          isOpen={this.state.modalOpen}
-          close={this.closeModal}
-        />
-
         <div className="dashboard-category-mobile-options">
           <div className="remove" onClick={this.toggleRemovePrompt}>
             <i className="material-icons">delete</i>
