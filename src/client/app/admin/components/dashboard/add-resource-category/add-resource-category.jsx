@@ -4,10 +4,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addAdminDashboardCategory } from '../../actions/admin-dashboard-categories';
-import Modal from '../../shared/modal/modal.component';
+import { addAdminDashboardCategory } from '../../../../actions/admin-dashboard-categories';
+import Modal from '../../../../shared/modal/modal.component';
 
-class AddCategoryModal extends React.Component {
+class AddResourceCategory extends React.Component {
   constructor(props) {
     super(props);
 
@@ -80,7 +80,7 @@ class AddCategoryModal extends React.Component {
           </button>
         </div>
         <Modal
-          title="Add Dashboard Category"
+          title="Add Resource Category"
           alert={this.state.alert}
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
@@ -103,8 +103,8 @@ class AddCategoryModal extends React.Component {
                 </label>
               </form>
             </div>
-            <div className="add-category-preview">
-              <div className="category">
+            <div className="dashboard-item-preview">
+              <div className="dashboard-item">
                 <div className="title">{this.state.name}</div>
                 <div className="visual">
                   <i className="material-icons">{this.state.icon}</i>
@@ -118,11 +118,11 @@ class AddCategoryModal extends React.Component {
   }
 }
 
-AddCategoryModal.propTypes = {
+AddResourceCategory.propTypes = {
   addAdminDashboardCategory: PropTypes.func.isRequired,
 };
 
 export default connect(
   null,
   dispatch => bindActionCreators({ addAdminDashboardCategory }, dispatch),
-)(AddCategoryModal);
+)(AddResourceCategory);

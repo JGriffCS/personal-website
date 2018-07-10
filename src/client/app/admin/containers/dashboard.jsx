@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import AddCategory from '../dashboard/add-category.component';
+import AddResourceCategory from '../components/dashboard/add-resource-category/add-resource-category';
 import DashboardCategory from '../dashboard-item/dashboard-item.component';
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
 
@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <AddCategory />
+        <AddResourceCategory />
         <DashboardSection>
           {
             this.props.categories.map(category => (
