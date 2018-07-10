@@ -1,10 +1,10 @@
 // TODO: Maybe desktop first would be more concise?
-.category-options {
-  .dashboard-category-container {
+.dashboard-items-container {
+  .dashboard-item-wrapper {
     position: relative;
   }
 
-  .dashboard-category-mobile-options {
+  .dashboard-item-mobile-options {
     width: 60px;
     height: 100px;
     position: absolute;
@@ -20,7 +20,7 @@
     }
   }
 
-  .dashboard-category-remove {
+  .dashboard-item-remove {
     width: 100%;
     height: 100px;
     position: absolute;
@@ -60,7 +60,7 @@
   }
 }
 
-.category {
+.dashboard-item {
   z-index: 1;
   background-color: #FFF;
   width: 100%;
@@ -106,21 +106,21 @@
 }
 
 @media (min-width: $jg-device-width-mobile) {
-  .category-options {
+  .dashboard-items-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 50%);
 
-    .dashboard-category-mobile-options {
+    .dashboard-item-mobile-options {
       display:none;
     }
 
-    .dashboard-category-remove {
+    .dashboard-item-remove {
       border: 1px solid $jg-color-primary;
       height: 100%;
       padding-top: 60px;
     }
 
-    .dashboard-category-container {
+    .dashboard-item-wrapper {
       overflow-x: hidden;
       width: auto;
 
@@ -136,7 +136,7 @@
     }
   }
 
-  .category {
+  .dashboard-item {
     height: 250px;
     text-align: center;
     color: $jg-text-color-alternate;
@@ -178,10 +178,10 @@
 }
 
 @media(min-width: $jg-device-width-tablet) {
-  .category-options {
+  .dashboard-items-container {
     grid-template-columns: repeat(auto-fill, 33.33%);
 
-    .dashboard-category-container {
+    .dashboard-item-wrapper {
       &:nth-child(odd) {
         background-color: $jg-color-primary;
       }
@@ -194,11 +194,11 @@
 }
 
 @media(min-width: $jg-device-width-desktop) {
-  .category-options {
+  .dashboard-items-container {
     grid-template-columns: repeat(auto-fill, 25%);
     padding: 20px;
 
-    .dashboard-category-container {
+    .dashboard-item-wrapper {
       &:nth-child(8n+1),
       &:nth-child(8n+3),
       &:nth-child(8n+6),
@@ -214,7 +214,7 @@
     }
   }
 
-  .category {
+  .dashboard-item {
     height: 230px;
   }
 }

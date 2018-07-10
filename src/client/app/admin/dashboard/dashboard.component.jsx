@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import DashboardCategory from '../dashboard-category/dashboard-category.component';
+import DashboardCategory from '../dashboard-item/dashboard-item.component';
 import AddCategory from './add-category.component';
 
 import { initAdminDashboardCategories } from '../../actions/admin-dashboard-categories';
@@ -54,7 +54,7 @@ class Dashboard extends React.Component {
             <i className="material-icons">add</i> Add Item
           </button>
         </div>
-        <div className="category-options">
+        <div className="dashboard-items-container">
           {
             this.props.categories.map(category => (
               <DashboardCategory key={category.id} category={category} match={this.props.match} />

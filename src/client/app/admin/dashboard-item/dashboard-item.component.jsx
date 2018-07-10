@@ -104,8 +104,8 @@ class DashboardCategory extends React.Component {
     };
 
     return (
-      <div className="dashboard-category-container">
-        <div className="dashboard-category-mobile-options">
+      <div className="dashboard-item-wrapper">
+        <div className="dashboard-item-mobile-options">
           <div className="remove" onClick={this.toggleRemovePrompt}>
             <i className="material-icons">delete</i>
           </div>
@@ -113,7 +113,7 @@ class DashboardCategory extends React.Component {
 
         <Link to={`${this.props.match.url}/${this.props.category.value}`}>
           <div
-            className="category"
+            className="dashboard-item"
             style={controlStyles}
             onTouchStart={this.touchStart}
             onTouchMove={this.touchMove}
@@ -129,7 +129,7 @@ class DashboardCategory extends React.Component {
           </div>
         </Link>
 
-        <div className={`dashboard-category-remove ${this.state.showRemovePrompt ? 'visible' : ''}`}>
+        <div className={`dashboard-item-remove ${this.state.showRemovePrompt ? 'visible' : ''}`}>
           <div className="remove-message">
             Remove Category?
           </div>
