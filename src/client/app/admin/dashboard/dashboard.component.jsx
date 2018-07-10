@@ -12,13 +12,6 @@ import { initAdminDashboardCategories } from '../../actions/admin-dashboard-cate
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-
-    this.closeModal = this.closeModal.bind(this);
-    this.openModal = this.openModal.bind(this);
-
-    this.state = {
-      modalOpen: false,
-    };
   }
 
   componentDidMount() {
@@ -30,30 +23,10 @@ class Dashboard extends React.Component {
     }
   }
 
-  openModal() {
-    this.setState({
-      modalOpen: true,
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      modalOpen: false,
-    });
-  }
-
   render() {
     return (
       <React.Fragment>
-        <AddCategory isOpen={this.state.modalOpen} close={this.closeModal} />
-        <div className="add-btn-container">
-          <button
-            className="btn btn-outline-primary btn-small"
-            onClick={this.openModal}
-          >
-            <i className="material-icons">add</i> Add Item
-          </button>
-        </div>
+        <AddCategory />
         <div className="dashboard-items-container">
           {
             this.props.categories.map(category => (
