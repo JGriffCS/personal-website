@@ -4,16 +4,13 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import AddCategory from '../dashboard/add-category.component';
 import DashboardCategory from '../dashboard-item/dashboard-item.component';
-import AddCategory from './add-category.component';
+import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
 
 import { initAdminDashboardCategories } from '../../actions/admin-dashboard-categories';
 
 class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     // Because I'll be the only one using the admin section the local store
     // should be a guaranteed source of truth once the initial network request
@@ -27,13 +24,13 @@ class Dashboard extends React.Component {
     return (
       <React.Fragment>
         <AddCategory />
-        <div className="dashboard-items-container">
+        <DashboardSection>
           {
             this.props.categories.map(category => (
               <DashboardCategory key={category.id} category={category} match={this.props.match} />
             ))
           }
-        </div>
+        </DashboardSection>
       </React.Fragment>
     );
   }

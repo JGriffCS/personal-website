@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import axios from 'axios';
 
-import Dashboard from './dashboard/dashboard.component';
+import Dashboard from './containers/dashboard';
 import Breadcrumbs from '../shared/breadcrumbs/breadcrumbs.component';
 import ResourceSites from './resource-sites/resource-sites.component';
 
