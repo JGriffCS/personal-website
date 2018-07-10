@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import AddResourceCategory from '../components/dashboard/add-resource-category/add-resource-category';
-import DashboardCategory from '../dashboard-item/dashboard-item.component';
+import DashboardCategory from '../components/dashboard/dashboard-item/dashboard-item.component';
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
 
 import { initAdminDashboardCategories } from '../../actions/admin-dashboard-categories';

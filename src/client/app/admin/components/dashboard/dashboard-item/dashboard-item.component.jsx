@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeAdminDashboardCategory } from '../../actions/admin-dashboard-categories';
+import { removeAdminDashboardCategory } from '../../../../actions/admin-dashboard-categories';
 
 class DashboardCategory extends React.Component {
   constructor(props) {
