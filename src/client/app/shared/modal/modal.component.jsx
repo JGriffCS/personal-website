@@ -66,7 +66,7 @@ class Modal extends React.Component {
                   { this.props.title }
                 </div>
                 <div className="modal-close" onClick={this.requestClose}>
-                  <i className="fa fa-times" onClick={this.requestClose} />
+                  <i className="material-icons" onClick={this.requestClose}>close</i>
                 </div>
               </div>
 
