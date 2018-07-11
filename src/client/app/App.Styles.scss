@@ -2,7 +2,7 @@
 
 @import "admin/admin.styles";
 @import "admin/login/login.styles";
-@import "admin/resource-sites/add-resource-site.styles";
+@import "admin/components/dashboard/add-resource-site/add-resource-site";
 @import "admin/resource-site/remove-resource-site.styles";
 @import "shared/alert/alert.styles";
 @import "shared/modal/modal.styles";
@@ -119,5 +119,25 @@ input {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
+  }
+}
+
+// Put common styles here for now?
+.add-btn-container {
+  margin-bottom: 15px;
+  padding-right: 20px;
+  text-align: right;
+
+  .btn {
+    border: 2px solid;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-flex;
+    vertical-align: middle;
+
+    i {
+      margin-top: -1px;
+      line-height: .8;
+    }
   }
 }

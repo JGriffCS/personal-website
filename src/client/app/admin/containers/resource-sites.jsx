@@ -5,22 +5,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import ResourceSite from '../resource-site/resource-site.component';
-import AddResourceSite from '../resource-sites/add-resource-site.component';
+import AddResourceSite from '../components/dashboard/add-resource-site/add-resource-site';
 
 import { initAdminResourceSites } from '../../actions/admin-resource-sites';
 
 class ResourceSites extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.closeModal = this.closeModal.bind(this);
-    this.openModal = this.openModal.bind(this);
-
-    this.state = {
-      modalOpen: false,
-    };
-  }
-
   componentDidMount() {
     // Because I'll be the only one using the admin section the local store
     // should be a guaranteed source of truth once the initial network request
@@ -33,29 +22,12 @@ class ResourceSites extends React.Component {
     }
   }
 
-  openModal() {
-    this.setState({
-      modalOpen: true,
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      modalOpen: false,
-    });
-  }
-
   render() {
     return (
       <React.Fragment>
         <AddResourceSite
           id={this.props.siteCategory}
-          isOpen={this.state.modalOpen}
-          close={this.closeModal}
         />
-        <div>
-          <button onClick={this.openModal}>+ Add</button>
-        </div>
         <div className="action-items-container">
           {
             this.props.sites.map(site => (
