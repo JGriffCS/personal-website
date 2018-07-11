@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import Dashboard from './containers/dashboard';
 import Breadcrumbs from '../shared/breadcrumbs/breadcrumbs.component';
-import ResourceSites from './resource-sites/resource-sites.component';
+import ResourceSites from './containers/resource-sites';
 
 class Admin extends React.Component {
   constructor(props) {

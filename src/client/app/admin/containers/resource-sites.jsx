@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import ResourceSite from '../resource-site/resource-site.component';
-import AddResourceSite from './add-resource-site.component';
+import AddResourceSite from '../resource-sites/add-resource-site.component';
 
 import { initAdminResourceSites } from '../../actions/admin-resource-sites';
 
@@ -86,5 +86,5 @@ const mapStateToProps = (state, props) => ({
 
 export default connect(
   mapStateToProps,
-  dispatch => bindActionCreators({ initAdminResourceSites }, dispatch)
+  dispatch => bindActionCreators({ initAdminResourceSites }, dispatch),
 )(ResourceSites);
