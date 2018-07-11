@@ -3,3 +3,24 @@
 @import 'components/dashboard/add-resource-category/add-resource-category.scss';
 @import 'components/dashboard/dashboard-item/dashboard-item.styles';
 @import 'components/dashboard/dashboard-section/dashboard-section';
+@import 'components/resource-sites/add-resource-site/add-resource-site';
+
+// Put common styles here for now?
+.add-btn-container {
+  margin-bottom: 15px;
+  padding-right: 20px;
+  text-align: right;
+
+  .btn {
+    border: 2px solid;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-flex;
+    vertical-align: middle;
+
+    i {
+      margin-top: -1px;
+      line-height: .8;
+    }
+  }
+}

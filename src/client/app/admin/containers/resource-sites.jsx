@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import ResourceSite from '../resource-site/resource-site.component';
-import AddResourceSite from '../components/dashboard/add-resource-site/add-resource-site';
+import AddResourceSite from '../components/resource-sites/add-resource-site/add-resource-site';
 
 import { initAdminResourceSites } from '../../actions/admin-resource-sites';
 
