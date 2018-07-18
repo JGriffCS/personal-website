@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import ResourceSite from '../resource-site/resource-site.component';
+import ResourceSite from '../components/resource-sites/resource-site/resource-site.';
 import AddResourceSite from '../components/resource-sites/add-resource-site/add-resource-site';
 
 import { initAdminResourceSites } from '../../actions/admin-resource-sites';
