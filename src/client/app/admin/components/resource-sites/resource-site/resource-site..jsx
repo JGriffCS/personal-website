@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import RemoveResourceSite from '../../../resource-site/remove-resource-site.component';
+import RemoveResourceSite from '../remove-resource-site/remove-resource-site';
 
 class ResourceSite extends React.Component {
   constructor(props) {

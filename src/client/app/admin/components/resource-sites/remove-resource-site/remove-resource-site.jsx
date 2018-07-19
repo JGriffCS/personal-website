@@ -4,8 +4,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeAdminResourceSite } from '../../actions/admin-resource-sites';
-import Modal from '../../shared/modal/modal.component';
+import { removeAdminResourceSite } from '../../../../actions/admin-resource-sites';
+import Modal from '../../../../shared/modal/modal.component';
 
 class RemoveResourceSiteModal extends React.Component {
   constructor(props) {
