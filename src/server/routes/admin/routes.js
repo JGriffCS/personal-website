@@ -3,7 +3,7 @@ module.exports = (options = {}) => {
 
   return (req, res, next) => {
     const sql = `
-      SELECT id, value, name
+      SELECT id, path, name
       FROM admin_resource_site_categories
     `;
 

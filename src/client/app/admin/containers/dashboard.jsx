@@ -40,7 +40,7 @@ Dashboard.propTypes = {
   resourceCategories: PropTypes.arrayOf(PropTypes.shape({
     icon: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
   })).isRequired,
   initAdminResourceCategories: PropTypes.func.isRequired,
   match: PropTypes.shape({

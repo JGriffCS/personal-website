@@ -111,7 +111,7 @@ class DashboardItem extends React.Component {
           </div>
         </div>
 
-        <Link to={`${this.props.match.url}/${this.props.category.value}`}>
+        <Link to={`${this.props.match.url}/${this.props.category.path}`}>
           <div
             className="dashboard-item"
             style={controlStyles}
@@ -152,7 +152,7 @@ DashboardItem.propTypes = {
     icon: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
   }).isRequired,
   match: PropTypes.shape({
     url: PropTypes.string.isRequired,

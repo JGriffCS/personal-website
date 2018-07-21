@@ -21,7 +21,7 @@ class Admin extends React.Component {
   componentDidMount() {
     axios.get('/api/admin/routes').then((resp) => {
       const routeInfo = resp.data;
-      const resourceRoutes = routeInfo.map(route => ({ id: route.id, path: `${this.props.match.path}/${route.value}`, name: route.name }));
+      const resourceRoutes = routeInfo.map(route => ({ id: route.id, path: `${this.props.match.path}/${route.path}`, name: route.name }));
 
       this.setState(prevState => ({
         ready: true,
@@ -46,16 +46,14 @@ class Admin extends React.Component {
         <Breadcrumbs routes={breadcrumbs} />
         <Route exact path={this.props.match.path} component={Dashboard} />
         {
-          this.state.routes.map((route) => {
-            return (
-              <Route
-                exact
-                key={route.id}
-                path={route.path}
-                render={() => <ResourceSites siteCategory={route.id} />}
-              />
-            );
-          })
+          this.state.routes.map(route => (
+            <Route
+              exact
+              key={route.id}
+              path={route.path}
+              render={() => <ResourceSites siteCategory={route.id} />}
+            />
+          ))
         }
       </div>
     );

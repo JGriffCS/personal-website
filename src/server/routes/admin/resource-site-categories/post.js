@@ -8,7 +8,7 @@ module.exports = (options = {}) => {
     `;
 
     pool.getConnection((err, conn) => {
-      conn.query(sql, [req.body.value, req.body.name, req.body.icon], (postErr) => {
+      conn.query(sql, [req.body.path, req.body.name, req.body.icon], (postErr) => {
         if (postErr) res.status(500).send({ msg: postErr.sqlMessage });
 
         conn.query('SELECT * FROM admin_resource_site_categories WHERE id = LAST_INSERT_ID() LIMIT 1', (getErr, result) => {

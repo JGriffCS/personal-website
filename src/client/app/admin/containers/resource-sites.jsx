@@ -15,6 +15,7 @@ class ResourceSites extends React.Component {
     // should be a guaranteed source of truth once the initial network request
     // has fetched the original data
     if (this.props.sites.length === 0) {
+      console.log(this.props.siteCategory);
       axios.get(`/api/admin/resource_sites/${this.props.siteCategory}`).then(
         resp => this.props.initAdminResourceSites(this.props.siteCategory, resp.data)
         , err => console.log(err),

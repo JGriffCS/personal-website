@@ -21,7 +21,7 @@ class AddResourceCategory extends React.Component {
       icon: '',
       modalOpen: false,
       name: '',
-      value: '',
+      path: '',
     };
   }
 
@@ -48,7 +48,7 @@ class AddResourceCategory extends React.Component {
 
   saveCategory() {
     const body = {
-      value: this.state.value,
+      path: this.state.path,
       name: this.state.name,
       icon: this.state.icon,
     };
@@ -93,9 +93,9 @@ class AddResourceCategory extends React.Component {
                   Category Name:
                   <input id="name" name="name" value={this.state.name} onChange={this.handleInputChange} type="text" />
                 </label>
-                <label htmlFor="value">
+                <label htmlFor="path">
                   Route Identifier:
-                  <input id="value" name="value" value={this.state.value} onChange={this.handleInputChange} type="text" />
+                  <input id="path" name="path" value={this.state.path} onChange={this.handleInputChange} type="text" />
                 </label>
                 <label htmlFor="icon">
                   Icon (FA):
