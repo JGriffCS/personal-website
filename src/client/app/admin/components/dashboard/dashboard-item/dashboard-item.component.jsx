@@ -5,9 +5,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeAdminDashboardCategory } from '../../../../actions/admin-dashboard-categories';
+import { removeAdminResourceCategory } from '../../../../actions/admin-resource-categories';
 
-class DashboardCategory extends React.Component {
+class DashboardItem extends React.Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +27,7 @@ class DashboardCategory extends React.Component {
 
   removeCategory() {
     axios.delete(`/api/admin/resource_site_categories/${this.props.category.id}`).then(() => {
-      this.props.removeAdminDashboardCategory(this.props.category.id);
+      this.props.removeAdminResourceCategory(this.props.category.id);
     }).catch(() => {
       // const { data } = err.response;
       //
@@ -147,19 +147,20 @@ class DashboardCategory extends React.Component {
   }
 }
 
-DashboardCategory.propTypes = {
+DashboardItem.propTypes = {
   category: PropTypes.shape({
     icon: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }).isRequired,
   match: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
-  removeAdminDashboardCategory: PropTypes.func.isRequired,
+  removeAdminResourceCategory: PropTypes.func.isRequired,
 };
 
 export default connect(
   null,
-  dispatch => bindActionCreators({ removeAdminDashboardCategory }, dispatch),
-)(DashboardCategory);
+  dispatch => bindActionCreators({ removeAdminResourceCategory }, dispatch),
+)(DashboardItem);

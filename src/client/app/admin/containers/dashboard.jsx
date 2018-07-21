@@ -5,18 +5,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import AddResourceCategory from '../components/dashboard/add-resource-category/add-resource-category';
-import DashboardCategory from '../components/dashboard/dashboard-item/dashboard-item.component';
+import DashboardItem from '../components/dashboard/dashboard-item/dashboard-item.component';
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
 
-import { initAdminDashboardCategories } from '../../actions/admin-dashboard-categories';
+import { initAdminResourceCategories } from '../../actions/admin-resource-categories';
 
 class Dashboard extends React.Component {
   componentDidMount() {
     // Because I'll be the only one using the admin section the local store
     // should be a guaranteed source of truth once the initial network request
     // has fetched the original data
-    if (this.props.categories.length === 0) {
-      axios.get('/api/admin/resource_site_categories').then(resp => this.props.initAdminDashboardCategories(resp.data), err => console.log(err));
+    if (this.props.resourceCategories.length === 0) {
+      axios.get('/api/admin/resource_site_categories').then(resp => this.props.initAdminResourceCategories(resp.data), err => console.log(err));
     }
   }
 
@@ -26,8 +26,8 @@ class Dashboard extends React.Component {
         <AddResourceCategory />
         <DashboardSection>
           {
-            this.props.categories.map(category => (
-              <DashboardCategory key={category.id} category={category} match={this.props.match} />
+            this.props.resourceCategories.map(category => (
+              <DashboardItem key={category.id} category={category} match={this.props.match} />
             ))
           }
         </DashboardSection>
@@ -37,20 +37,20 @@ class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.shape({
+  resourceCategories: PropTypes.arrayOf(PropTypes.shape({
     icon: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   })).isRequired,
-  initAdminDashboardCategories: PropTypes.func.isRequired,
+  initAdminResourceCategories: PropTypes.func.isRequired,
   match: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-const mapStateToProps = state => ({ categories: state.adminDashboardCategories });
+const mapStateToProps = state => ({ resourceCategories: state.adminResourceCategories });
 
 export default connect(
   mapStateToProps,
-  dispatch => bindActionCreators({ initAdminDashboardCategories }, dispatch),
+  dispatch => bindActionCreators({ initAdminResourceCategories }, dispatch),
 )(Dashboard);

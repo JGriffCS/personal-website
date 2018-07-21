@@ -63,9 +63,6 @@ class Admin extends React.Component {
 }
 
 Admin.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
   match: PropTypes.shape({
     path: PropTypes.string.isRequired,
   }).isRequired,
