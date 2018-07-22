@@ -1,5 +1,7 @@
 // TODO: Maybe desktop first would be more concise?
 .dashboard-items-container {
+  border-bottom: 1px solid;
+
   a {
     display: block;
     position: relative;
@@ -53,6 +55,7 @@
 
 @media (min-width: $jg-device-width-mobile) {
   .dashboard-items-container {
+    border-bottom: none;
     display: grid;
     grid-template-columns: repeat(auto-fill, 50%);
 
