@@ -1,53 +1,8 @@
 // TODO: Maybe desktop first would be more concise?
 .dashboard-items-container {
-  .dashboard-item-wrapper {
-    position: relative;
-  }
-
-  .dashboard-item-mobile-options {
-    width: 60px;
-    height: 100px;
-    position: absolute;
-    background-color: $jg-color-primary;
-    color: $jg-text-color-alternate;
-    z-index: 0;
-    border-top: 1px solid #000;
-    text-align: center;
-
-    .remove {
-      font-size: 22px;
-      margin-top: 35px;
-    }
-  }
-
-  .dashboard-item-remove {
-    width: 100%;
-    height: 100px;
-    position: absolute;
-    z-index: 10000;
-    top: 0;
-    left: 100%;
-    transition: all .4s;
-    border-top: 1px solid black;
-    background-color: $jg-text-color-alternate;
-
-    &.visible {
-      left: 0;
-    }
-
-    div {
-      width: 100%;
-      height: 50px;
-      text-align: center;
-      line-height: 48px;
-    }
-
-    button {
-      margin: 10px;
-    }
-  }
-
   a {
+    display: block;
+    position: relative;
     width: 100%;
 
     &:nth-child(even) {
@@ -78,15 +33,6 @@
     height: 100px;
   }
 
-  .remove {
-    display: none;
-    position: absolute;
-    right: 0;
-    font-size: 16px;
-    height: 35px;
-    width: 35px;
-  }
-
   .title {
     float: right;
     width: 75%;
@@ -110,20 +56,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 50%);
 
-    .dashboard-item-mobile-options {
-      display:none;
-    }
-
-    .dashboard-item-remove {
-      border: 1px solid $jg-color-primary;
-      height: 100%;
-      padding-top: 60px;
-    }
-
-    .dashboard-item-wrapper {
-      overflow-x: hidden;
-      width: auto;
-
+    a {
       &:nth-child(4n),
       &:nth-child(4n+1){
         background-color: $jg-color-primary;
@@ -142,21 +75,6 @@
     color: $jg-text-color-alternate;
     background-color: transparent;
     border: none;
-
-    &:hover {
-      .remove {
-        opacity: 1;
-      }
-    }
-
-    .remove {
-      display: block;
-      opacity: 0;
-      transition: opacity 0.3s;
-      top: 5px;
-      right: 5px;
-      font-size: 22px;
-    }
 
     .title {
       padding-top: 15px;
@@ -181,7 +99,7 @@
   .dashboard-items-container {
     grid-template-columns: repeat(auto-fill, 33.33%);
 
-    .dashboard-item-wrapper {
+    a {
       &:nth-child(odd) {
         background-color: $jg-color-primary;
       }
@@ -198,7 +116,7 @@
     grid-template-columns: repeat(auto-fill, 25%);
     padding: 20px;
 
-    .dashboard-item-wrapper {
+    a {
       &:nth-child(8n+1),
       &:nth-child(8n+3),
       &:nth-child(8n+6),
