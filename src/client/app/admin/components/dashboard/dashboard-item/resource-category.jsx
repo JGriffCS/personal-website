@@ -6,8 +6,8 @@ import { bindActionCreators, compose } from 'redux';
 
 import { removeAdminResourceCategory } from '../../../../actions/admin-resource-categories';
 
-function makeResourceCategory(DashboardItem) {
-  class ResourceCategory extends React.Component {
+function withDeleteFunctionality(DashboardItem) {
+  class RemovableItem extends React.Component {
     constructor(props) {
       super(props);
 
@@ -104,15 +104,15 @@ function makeResourceCategory(DashboardItem) {
       };
 
       return (
-        <div className="resource-category-wrapper">
-          <div className="resource-category-mobile-options">
+        <div className="removable-item-wrapper">
+          <div className="removable-item-mobile-options">
             <div className="remove" onClick={this.toggleRemovePrompt}>
               <i className="material-icons">delete</i>
             </div>
           </div>
 
           <div
-            className="resource-category-remove-controls"
+            className="removable-item-controls"
             style={controlStyles}
             onTouchStart={this.touchStart}
             onTouchMove={this.touchMove}
@@ -124,7 +124,7 @@ function makeResourceCategory(DashboardItem) {
             <DashboardItem {...this.props} />
           </div>
 
-          <div className={`resource-category-remove ${this.state.showRemovePrompt ? 'visible' : ''}`}>
+          <div className={`removable-item-confirmation ${this.state.showRemovePrompt ? 'visible' : ''}`}>
             <div className="remove-message">
               Remove Category?
             </div>
@@ -142,7 +142,7 @@ function makeResourceCategory(DashboardItem) {
     }
   }
 
-  ResourceCategory.propTypes = {
+  RemovableItem.propTypes = {
     icon: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -153,10 +153,10 @@ function makeResourceCategory(DashboardItem) {
     removeAdminResourceCategory: PropTypes.func.isRequired,
   };
 
-  return ResourceCategory;
+  return RemovableItem;
 }
 
 export default compose(
   connect(null, dispatch => bindActionCreators({ removeAdminResourceCategory }, dispatch)),
-  makeResourceCategory,
+  withDeleteFunctionality,
 );

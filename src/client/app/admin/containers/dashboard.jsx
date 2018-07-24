@@ -7,11 +7,11 @@ import { bindActionCreators } from 'redux';
 import AddResourceCategory from '../components/dashboard/add-resource-category/add-resource-category';
 import DashboardItem from '../components/dashboard/dashboard-item/dashboard-item';
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
-import makeResourceCategory from '../components/dashboard/dashboard-item/resource-category';
+import withDeleteFunctionality from '../components/dashboard/dashboard-item/resource-category';
 
 import { initAdminResourceCategories } from '../../actions/admin-resource-categories';
 
-const ResourceCategory = makeResourceCategory(DashboardItem);
+const ResourceCategory = withDeleteFunctionality(DashboardItem);
 class Dashboard extends React.Component {
   componentDidMount() {
     // Because I'll be the only one using the admin section the local store
