@@ -9,10 +9,15 @@ import DashboardItem from '../components/dashboard/dashboard-item/dashboard-item
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
 import withDeleteFunctionality from '../components/dashboard/dashboard-item/resource-category';
 
-import { initAdminResourceCategories } from '../../actions/admin-resource-categories';
+import { initAdminResourceCategories, removeAdminResourceCategory } from '../../actions/admin-resource-categories';
 
 const ResourceCategory = withDeleteFunctionality(DashboardItem);
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.resourceCategoryDelete = this.resourceCategoryDelete.bind(this);
+  }
   componentDidMount() {
     // Because I'll be the only one using the admin section the local store
     // should be a guaranteed source of truth once the initial network request
@@ -20,6 +25,14 @@ class Dashboard extends React.Component {
     if (this.props.resourceCategories.length === 0) {
       axios.get('/api/admin/resource_site_categories').then(resp => this.props.initAdminResourceCategories(resp.data), err => console.log(err));
     }
+  }
+
+  resourceCategoryDelete(id) {
+    axios.delete(`/api/admin/resource_site_categories/${id}`).then(() => {
+      this.props.removeAdminResourceCategory(id);
+    }).catch(() => {
+
+    });
   }
 
   render() {
@@ -33,7 +46,7 @@ class Dashboard extends React.Component {
           {
             this.props.resourceCategories.map((category) => {
               return (
-                <ResourceCategory key={category.id} {...category} match={this.props.match} />
+                <ResourceCategory key={category.id} {...category} deleteAction={this.resourceCategoryDelete} match={this.props.match} />
               );
             })
           }
@@ -50,6 +63,7 @@ Dashboard.propTypes = {
     path: PropTypes.string.isRequired,
   })).isRequired,
   initAdminResourceCategories: PropTypes.func.isRequired,
+  removeAdminResourceCategory: PropTypes.func.isRequired,
   match: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
@@ -59,5 +73,5 @@ const mapStateToProps = state => ({ resourceCategories: state.adminResourceCateg
 
 export default connect(
   mapStateToProps,
-  dispatch => bindActionCreators({ initAdminResourceCategories }, dispatch),
+  dispatch => bindActionCreators({ initAdminResourceCategories, removeAdminResourceCategory }, dispatch),
 )(Dashboard);

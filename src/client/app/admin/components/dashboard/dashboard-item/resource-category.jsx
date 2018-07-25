@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import { connect } from 'react-redux';
-import { bindActionCreators, compose } from 'redux';
 
-import { removeAdminResourceCategory } from '../../../../actions/admin-resource-categories';
-
+// TODO: Make actions and reducers generic
+// TODO: Make store hold object of Dashboard Items
+// TODO: Make a property ResourceCategories that this can interact with
 function withDeleteFunctionality(DashboardItem) {
   class RemovableItem extends React.Component {
     constructor(props) {
       super(props);
 
-      this.removeCategory = this.removeCategory.bind(this);
+      this.removeItem = this.removeItem.bind(this);
       this.toggleRemovePrompt = this.toggleRemovePrompt.bind(this);
       this.touchStart = this.touchStart.bind(this);
       this.touchMove = this.touchMove.bind(this);
@@ -25,19 +23,8 @@ function withDeleteFunctionality(DashboardItem) {
       };
     }
 
-    removeCategory() {
-      axios.delete(`/api/admin/resource_site_categories/${this.props.id}`).then(() => {
-        this.props.removeAdminResourceCategory(this.props.id);
-      }).catch(() => {
-        // const { data } = err.response;
-        //
-        // this.setState({
-        //   alert: {
-        //     type: 'error',
-        //     message: data.msg,
-        //   },
-        // });
-      });
+    removeItem() {
+      this.props.deleteAction(this.props.id);
     }
 
     toggleRemovePrompt(e) {
@@ -129,7 +116,7 @@ function withDeleteFunctionality(DashboardItem) {
               Remove Category?
             </div>
             <div className="remove-actions">
-              <button className="btn btn-small btn-primary" onClick={this.removeCategory}>
+              <button className="btn btn-small btn-primary" onClick={this.removeItem}>
                 Confirm
               </button>
               <button className="btn btn-small btn-outline-secondary" onClick={this.toggleRemovePrompt}>
@@ -150,13 +137,10 @@ function withDeleteFunctionality(DashboardItem) {
     match: PropTypes.shape({
       url: PropTypes.string.isRequired,
     }).isRequired,
-    removeAdminResourceCategory: PropTypes.func.isRequired,
+    deleteAction: PropTypes.func.isRequired,
   };
 
   return RemovableItem;
 }
 
-export default compose(
-  connect(null, dispatch => bindActionCreators({ removeAdminResourceCategory }, dispatch)),
-  withDeleteFunctionality,
-);
+export default withDeleteFunctionality;

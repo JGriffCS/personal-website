@@ -3,7 +3,7 @@ module.exports = (options = {}) => {
 
   return (req, res) => {
     const sql = `
-      INSERT INTO admin_resource_site_categories (value, name, icon) 
+      INSERT INTO admin_resource_site_categories (path, name, icon) 
       VALUES (?, ?, ?)
     `;
 
