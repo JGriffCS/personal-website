@@ -23,7 +23,8 @@ class Dashboard extends React.Component {
     // should be a guaranteed source of truth once the initial network request
     // has fetched the original data
     if (this.props.resourceCategories.length === 0) {
-      axios.get('/api/admin/resource_site_categories').then(resp => this.props.initAdminResourceCategories(resp.data), err => console.log(err));
+      axios.get('/api/admin/resource_site_categories')
+        .then(resp => this.props.initAdminResourceCategories(resp.data), err => console.log(err));
     }
   }
 
@@ -44,11 +45,14 @@ class Dashboard extends React.Component {
         <AddResourceCategory />
         <DashboardSection title="Resource Categories">
           {
-            this.props.resourceCategories.map((category) => {
-              return (
-                <ResourceCategory key={category.id} {...category} deleteAction={this.resourceCategoryDelete} match={this.props.match} />
-              );
-            })
+            this.props.resourceCategories.map(category => (
+              <ResourceCategory
+                key={category.id}
+                {...category}
+                deleteAction={this.resourceCategoryDelete}
+                match={this.props.match}
+              />
+            ))
           }
         </DashboardSection>
       </React.Fragment>
@@ -73,5 +77,8 @@ const mapStateToProps = state => ({ resourceCategories: state.adminResourceCateg
 
 export default connect(
   mapStateToProps,
-  dispatch => bindActionCreators({ initAdminResourceCategories, removeAdminResourceCategory }, dispatch),
+  dispatch => bindActionCreators({
+    initAdminResourceCategories,
+    removeAdminResourceCategory,
+  }, dispatch),
 )(Dashboard);
