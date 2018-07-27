@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function DashboardSection({ children, title }) {
+export default function DashboardSection({ children }) {
   return (
-    <React.Fragment>
-      <h3>{title}</h3>
-      <div className="dashboard-items-container">
-        { children }
-      </div>
-    </React.Fragment>
+    <div className="dashboard-items-container">
+      { children }
+    </div>
   );
 }
 
 DashboardSection.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
 };

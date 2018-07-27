@@ -39,22 +39,28 @@ class Dashboard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DashboardSection title="Admin Functions">
-          <DashboardItem path="todos" icon="delete" name="Todos" match={this.props.match} />
-        </DashboardSection>
-        <AddResourceCategory />
-        <DashboardSection title="Resource Categories">
-          {
-            this.props.resourceCategories.map(category => (
-              <ResourceCategory
-                key={category.id}
-                {...category}
-                deleteAction={this.resourceCategoryDelete}
-                match={this.props.match}
-              />
-            ))
-          }
-        </DashboardSection>
+        <div>
+          <h3>Admin Functions</h3>
+          <DashboardSection>
+            <DashboardItem path="todos" icon="delete" name="Todos" match={this.props.match} />
+          </DashboardSection>
+        </div>
+        <div>
+          <h3>Resource Categories</h3>
+          <AddResourceCategory />
+          <DashboardSection>
+            {
+              this.props.resourceCategories.map(category => (
+                <ResourceCategory
+                  key={category.id}
+                  {...category}
+                  deleteAction={this.resourceCategoryDelete}
+                  match={this.props.match}
+                />
+              ))
+            }
+          </DashboardSection>
+        </div>
       </React.Fragment>
     );
   }
