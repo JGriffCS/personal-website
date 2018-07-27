@@ -10,7 +10,7 @@
     }
 
     &:nth-child(odd) a {
-      color: $jg-color-primary-lighter;
+      color: $jg-color-alternate;
     }
   }
 
@@ -86,7 +86,7 @@
       &:nth-child(4n+2),
       &:nth-child(4n+3) {
         a {
-          background-color: $jg-color-primary-lighter;
+          background-color: $jg-color-alternate;
         }
       }
     }
@@ -134,7 +134,7 @@
 
       &:nth-child(even) {
         a {
-          background-color: $jg-color-primary-lighter;
+          background-color: $jg-color-alternate;
         }
       }
     }
@@ -157,7 +157,7 @@
       &:nth-child(8n+5),
       &:nth-child(8n+7) {
         a {
-          background-color: $jg-color-primary-lighter;
+          background-color: $jg-color-alternate;
         }
       }
     }
