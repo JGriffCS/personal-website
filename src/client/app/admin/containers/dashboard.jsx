@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import AddResourceCategory from '../components/dashboard/add-resource-category/add-resource-category';
 import DashboardItem from '../components/dashboard/dashboard-item/dashboard-item';
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
-import withDeleteFunctionality from '../components/dashboard/dashboard-item/resource-category';
+import withDeleteFunctionality from '../components/dashboard/dashboard-item/removable-item';
 
 import { initAdminResourceCategories, removeAdminResourceCategory } from '../../actions/admin-resource-categories';
 
