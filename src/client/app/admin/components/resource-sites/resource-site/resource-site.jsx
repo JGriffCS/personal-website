@@ -39,6 +39,9 @@ class ResourceSite extends React.Component {
         />
         <a className="action-item" href={this.props.item.link}>
           <div>
+            <div className="action-item-header">
+
+            </div>
             <div className="action-image-container">
               <img src={`https://logo.clearbit.com/${this.props.item.image_url}?s=128`} />
             </div>
