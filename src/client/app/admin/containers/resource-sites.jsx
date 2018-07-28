@@ -29,7 +29,7 @@ class ResourceSites extends React.Component {
         <AddResourceSite
           id={this.props.siteCategory}
         />
-        <div className="action-items-container">
+        <div className="resource-sites-container">
           {
             this.props.sites.map(site => (
               <ResourceSite item={site} key={site.id} />
