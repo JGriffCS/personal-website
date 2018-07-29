@@ -57,7 +57,9 @@
   .dashboard-items-container {
     border-bottom: none;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 50%);
+    grid-gap: 1rem;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fill, calc((100% - 1rem)/2));
 
     a {
       &:nth-child(4n),
@@ -100,7 +102,7 @@
 
 @media(min-width: $jg-device-width-tablet) {
   .dashboard-items-container {
-    grid-template-columns: repeat(auto-fill, 33.33%);
+    grid-template-columns: repeat(auto-fill, calc((100% - 2rem)/3));
 
     a {
       &:nth-child(odd) {
@@ -116,7 +118,7 @@
 
 @media(min-width: $jg-device-width-desktop) {
   .dashboard-items-container {
-    grid-template-columns: repeat(auto-fill, 25%);
+    grid-template-columns: repeat(auto-fill, calc((100% - 3rem)/4));
     padding: 20px;
 
     a {

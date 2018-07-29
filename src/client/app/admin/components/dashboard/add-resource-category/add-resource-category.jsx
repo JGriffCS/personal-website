@@ -73,7 +73,7 @@ class AddResourceCategory extends React.Component {
       <React.Fragment>
         <div className="add-btn-container">
           <button
-            className="btn btn-outline-primary btn-small"
+            className="btn btn-primary btn-small"
             onClick={this.openModal}
           >
             <i className="material-icons">add</i> Add Item

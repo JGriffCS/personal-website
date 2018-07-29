@@ -14,12 +14,14 @@
   text-align: right;
 
   .btn {
-    border: 2px solid;
-    font-weight: bold;
+    border: 1px solid;
     display: inline-flex;
+    font-size: 12px;
+    text-transform: uppercase;
     vertical-align: middle;
 
     i {
+      font-size: 18px;
       margin-top: -1px;
       line-height: .8;
     }
