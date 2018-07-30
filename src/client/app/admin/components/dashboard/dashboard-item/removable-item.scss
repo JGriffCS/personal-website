@@ -125,13 +125,13 @@
 
 @media(min-width: $jg-device-width-tablet) {
   .dashboard-items-container {
-    .removal-item-wrapper {
+    .removable-item-wrapper {
       &:nth-child(odd) {
         a {
           background-color: $jg-color-primary;
         }
       }
-
+  
       &:nth-child(even) {
         a {
           background-color: $jg-color-alternate;
