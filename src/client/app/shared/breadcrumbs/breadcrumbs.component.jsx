@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { matchPath, withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
+import './breadcrumbs.pcss';
+
 const DEFAULT_MATCH_OPTIONS = { exact: true };
 
 const getBreadcrumbs = ({ routes, location }) => {

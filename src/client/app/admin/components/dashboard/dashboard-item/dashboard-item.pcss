@@ -1,18 +1,17 @@
-// TODO: Maybe desktop first would be more concise?
 .dashboard-items-container {
   border-bottom: 1px solid;
 
-  a {
+  & a {
     display: block;
     position: relative;
     width: 100%;
 
     &:nth-child(even) {
-      color: $jg-color-primary;
+      color: env(--color-primary);
     }
 
     &:nth-child(odd) {
-      color: $jg-color-alternate;
+      color: env(--color-alternate);
     }
   }
 }
@@ -35,7 +34,7 @@
     height: 100px;
   }
 
-  .title {
+  & .title {
     float: right;
     width: 75%;
     font-size: 1.25em;
@@ -43,17 +42,17 @@
     padding: 0 10px;
   }
 
-  .visual {
+  & .visual {
     width: 25%;
     float: left;
 
-    i {
+    & i {
       font-size: 48px;
     }
   }
 }
 
-@media (min-width: $jg-device-width-mobile) {
+@media (min-width: env(--device-width-tablet-min)) {
   .dashboard-items-container {
     border-bottom: none;
     display: grid;
@@ -61,15 +60,15 @@
     padding: 20px;
     grid-template-columns: repeat(auto-fill, calc((100% - 1rem)/2));
 
-    a {
+    & a {
       &:nth-child(4n),
       &:nth-child(4n+1){
-        background-color: $jg-color-primary;
+        background-color: env(--color-primary);
       }
 
       &:nth-child(4n+2),
       &:nth-child(4n+3){
-        background-color: $jg-color-alternate;
+        background-color: env(--color-alternate);
       }
     }
   }
@@ -77,62 +76,62 @@
   .dashboard-item {
     height: 250px;
     text-align: center;
-    color: $jg-text-color-alternate;
+    color: env(--text-color-alt);
     background-color: transparent;
     border: none;
 
-    .title {
+    & .title {
       padding-top: 15px;
       height: 35%;
       float: none;
       width: 100%;
     }
 
-    .visual {
+    & .visual {
       height: 65%;
       float: none;
       width: 100%;
 
-      i {
+      & i {
         font-size: 72px;
       }
     }
   }
 }
 
-@media(min-width: $jg-device-width-tablet) {
+@media(min-width: env(--device-width-desktop-min)) {
   .dashboard-items-container {
     grid-template-columns: repeat(auto-fill, calc((100% - 2rem)/3));
 
-    a {
+    & a {
       &:nth-child(odd) {
-        background-color: $jg-color-primary;
+        background-color: env(--color-primary);
       }
 
       &:nth-child(even) {
-        background-color: $jg-color-alternate;
+        background-color: env(--color-alternate);
       }
     }
   }
 }
 
-@media(min-width: $jg-device-width-desktop) {
+@media(min-width: env(--device-width-desktop-large)) {
   .dashboard-items-container {
     grid-template-columns: repeat(auto-fill, calc((100% - 3rem)/4));
     padding: 20px;
 
-    a {
+    & a {
       &:nth-child(8n+1),
       &:nth-child(8n+3),
       &:nth-child(8n+6),
       &:nth-child(8n) {
-        background-color: $jg-color-primary;
+        background-color: env(--color-primary);
       }
       &:nth-child(8n+2),
       &:nth-child(8n+4),
       &:nth-child(8n+5),
       &:nth-child(8n+7) {
-        background-color: $jg-color-alternate;
+        background-color: env(--color-alternate);
       }
     }
   }

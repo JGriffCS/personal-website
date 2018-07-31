@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { addAdminResourceSite } from '../../../../actions/admin-resource-sites';
 import Modal from '../../../../shared/modal/modal.component';
 
+import './add-resource-site.pcss';
+
 class AddResourceSiteModal extends React.Component {
   constructor(props) {
     super(props);
@@ -93,7 +95,7 @@ class AddResourceSiteModal extends React.Component {
       <React.Fragment>
         <div className="add-btn-container">
           <button
-            className="btn btn-outline-primary btn-small"
+            className="btn btn-primary btn-small"
             onClick={this.openModal}
           >
             <i className="material-icons">add</i> Add Site

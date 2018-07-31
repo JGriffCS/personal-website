@@ -8,6 +8,8 @@ import Dashboard from './containers/dashboard';
 import Breadcrumbs from '../shared/breadcrumbs/breadcrumbs.component';
 import ResourceSites from './containers/resource-sites';
 
+import './admin.pcss';
+
 class Admin extends React.Component {
   constructor(props) {
     super(props);

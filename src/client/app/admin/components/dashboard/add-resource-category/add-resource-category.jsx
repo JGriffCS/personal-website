@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { addAdminResourceCategory } from '../../../../actions/admin-resource-categories';
 import Modal from '../../../../shared/modal/modal.component';
 
+import './add-resource-category.pcss';
+
 class AddResourceCategory extends React.Component {
   constructor(props) {
     super(props);

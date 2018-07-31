@@ -6,7 +6,7 @@
   box-sizing: border-box;
   padding: 0 45px;
 
-  label {
+  & label {
     font-weight: bold;
     font-size: 18px;
     display: block;
@@ -18,12 +18,12 @@
   box-sizing: border-box;
   padding: 30px 20px 10px 20px;
 
-  .action-item {
+  & .action-item {
     display: block;
     border-bottom: 1px solid black;
   }
 
-  .action-image-container {
+  & .action-image-container {
     background: #f2f2f2;
     float: left;
     height: 175px;
@@ -31,7 +31,7 @@
   }
 }
 
-@media (min-width: $jg-device-width-mobile) {
+@media (min-width: env(--device-width-tablet-min)) {
   .add-resource-site-form-container {
     height: 220px;
     float: left;
@@ -40,7 +40,7 @@
     box-sizing: border-box;
     padding-left: 45px;
 
-    label {
+    & label {
       font-weight: bold;
       font-size: 18px;
       display: block;
@@ -55,11 +55,11 @@
     align-items: center;
     padding: inherit;
 
-    .action-item {
+    & .action-item {
       margin: 0 auto;
     }
 
-    .action-image-container {
+    & .action-image-container {
       margin: 0 auto;
       height: 128px;
       width: 128px;

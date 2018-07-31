@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './removable-item.pcss';
+
 // TODO: Make actions and reducers generic
 // TODO: Make store hold object of Dashboard Items
 // TODO: Make a property ResourceCategories that this can interact with

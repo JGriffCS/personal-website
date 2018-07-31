@@ -1,27 +1,27 @@
 .login-container {
-  color: $jg-text-color;
+  color: env(--text-color);
   width: 40%;
   min-width: 315px;
-  border: 1px solid $jg-color-gray-dark;
+  border: 1px solid env(--color-gray-dark);
   border-radius: 15px;
   margin: 50px auto;
-  background: $jg-color-gray;
+  background: env(--color-gray);
   padding: 25px;
   box-sizing: border-box;
 
-  .login-header {
+  & .login-header {
     text-align: center;
 
-    h2 {
+    & h2 {
       margin-top: 0;
     }
   }
 
-  .login-form {
+  & .login-form {
     width: 100%;
   }
 
-  input {
+  & input {
     display: block;
     margin: 20px auto;
     width: 70%;

@@ -10,7 +10,7 @@ import Blog from './public/containers/Blog/index';
 import Login from './admin/login/login.component';
 import Admin from './admin/admin.container';
 
-import './App.Styles.scss';
+import './App.Styles.pcss';
 
 export default () => (
   <Router>

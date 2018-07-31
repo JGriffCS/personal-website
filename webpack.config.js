@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/client/index.jsx',
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -16,37 +16,39 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/client/index.html',
       filename: 'index.html',
-      inject: 'body'
+      inject: 'body',
     }),
   ],
   watch: true,
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use : [{
-          loader: 'babel-loader',
-        }],
+        test: /\.jsx?$/,
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
       },
       {
-        test: /\.jsx$/,
-        use: [{
-          loader: 'babel-loader',
-        }],
+        test: /\.pcss$/,
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
+        ],
       },
-      {
-        test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-        }, {
-          loader: 'sass-loader',
-        }],
-        include: path.resolve(__dirname, 'src'),
-      }
     ],
   },
   resolve: {

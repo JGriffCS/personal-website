@@ -6,6 +6,8 @@ import jwtDecode from 'jwt-decode';
 import loginService from '../../services/login.service';
 import Alert from '../../shared/alert/alert.component';
 
+import './login.pcss';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);

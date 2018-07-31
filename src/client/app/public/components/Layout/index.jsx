@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './styles.pcss';
+
 class Layout extends React.Component {
   render() {
     return (

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import RemoveResourceSite from '../remove-resource-site/remove-resource-site';
 
+import './resource-site.pcss';
+
 class ResourceSite extends React.Component {
   constructor(props) {
     super(props);

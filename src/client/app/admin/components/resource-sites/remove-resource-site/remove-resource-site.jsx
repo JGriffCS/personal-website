@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { removeAdminResourceSite } from '../../../../actions/admin-resource-sites';
 import Modal from '../../../../shared/modal/modal.component';
 
+import './remove-resource-site.pcss';
+
 class RemoveResourceSiteModal extends React.Component {
   constructor(props) {
     super(props);

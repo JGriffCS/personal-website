@@ -12,19 +12,19 @@
 .dashboard-item-preview {
   .dashboard-item {
     border-bottom: 1px solid black;
-    color: $jg-color-primary;
+    color: env(--color-primary);
   }
 }
 
-@media (min-width: $jg-device-width-mobile) {
+@media (min-width: env(--device-width-tablet-min)) {
   .dashboard-item-preview {
     .dashboard-item {
       width: 220px;
       height: 220px;
       margin: 0 auto;
       border-bottom: none;
-      background-color: $jg-color-primary;
-      color: $jg-text-color-alternate;
+      background-color: env(--color-primary);
+      color: env(--text-color-alt);
     }
   }
 }
@@ -49,7 +49,7 @@
   }
 }
 
-@media (min-width: $jg-device-width-tablet) {
+@media (min-width: env(--device-width-desktop-min)) {
   .add-category-form-container {
     width: 60%;
   }
@@ -59,7 +59,7 @@
   }
 }
 
-@media (min-width: $jg-device-width-tablet) {
+@media (min-width: env(--device-width-desktop-large)) {
   .dashboard-item-preview {
     .dashboard-item {
       width: 250px;

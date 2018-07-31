@@ -13,13 +13,13 @@
   font-weight: bold;
   font-size: 24px;
 
-  img {
+  & img {
     float: left;
     width: 175px;
     display: inline;
   }
 
-  .resource-site-title {
+  & .resource-site-title {
     width: calc(100% - 175px);
     text-align: center;
     height: 175px;
@@ -29,25 +29,25 @@
   }
 }
 
-@media(min-width: $jg-device-width-mobile) {
+@media(min-width: env(--device-width-tablet-min)) {
   .resource-sites-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 33.33%);
 
-    a {
+    & a {
       &:nth-child(6n+1),
       &:nth-child(6n+3),
       &:nth-child(6n+5) {
-        background-color: $jg-color-primary;
+        background-color: env(--color-primary);
       }
       &:nth-child(6n+2),
       &:nth-child(6n+4),
       &:nth-child(6n) {
-        background-color: $jg-color-alternate;
+        background-color: env(--color-alternate);
       }
     }
 
-    .resource-site {
+    & .resource-site {
       color: white;
       font-size: initial;
       font-weight: initial;
@@ -55,24 +55,24 @@
       text-align: center;
       width: 100%;
 
-      .resource-site-header {
+      & .resource-site-header {
         height: 35px;
       }
 
-      .resource-site-image-container {
+      & .resource-site-image-container {
         align-items: center;
         display: flex;
         height: 128px;
         justify-content: center;
       }
 
-      img {
+      & img {
         display: initial;
         float: none;
         width: auto;
       }
 
-      .resource-site-title {
+      & .resource-site-title {
         display: block;
         height: 35px;
         line-height: 35px;
@@ -82,46 +82,46 @@
   }
 }
 
-@media(min-width: $jg-device-width-tablet) {
+@media(min-width: env(--device-width-desktop-min)) {
   .resource-sites-container {
     grid-template-columns: repeat(auto-fill, 25%);
 
-    a {
+    & a {
       &:nth-child(8n+1),
       &:nth-child(8n+3),
       &:nth-child(8n+6),
       &:nth-child(8n) {
-        background-color: $jg-color-primary;
+        background-color: env(--color-primary);
       }
       &:nth-child(8n+2),
       &:nth-child(8n+4),
       &:nth-child(8n+5),
       &:nth-child(8n+7) {
-        background-color: $jg-color-alternate;
+        background-color: env(--color-alternate);
       }
     }
   }
 }
 
-@media(min-width: $jg-device-width-desktop) {
+@media(min-width: env(--device-width-desktop-large)) {
   .resource-sites-container {
     grid-template-columns: repeat(auto-fill, 20%);
     padding: 20px;
 
-    a {
+    & a {
       &:nth-child(10n+1),
       &:nth-child(10n+3),
       &:nth-child(10n+5),
       &:nth-child(10n+7),
       &:nth-child(10n+9) {
-        background-color: $jg-color-primary;
+        background-color: env(--color-primary);
       }
       &:nth-child(10n+2),
       &:nth-child(10n+4),
       &:nth-child(10n+6),
       &:nth-child(10n+8),
       &:nth-child(10n) {
-        background-color: $jg-color-alternate;
+        background-color: env(--color-alternate);
       }
     }
   }

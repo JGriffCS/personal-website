@@ -8,6 +8,8 @@ import { setBlogPosts } from '../../../actions/blogPosts';
 import BlogPost from '../../components/BlogPost/index';
 import BlogNavigator from '../../components/BlogNavigator/index';
 
+import './styles.pcss';
+
 class Blog extends React.Component {
   constructor(props, context) {
     super(props, context);

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Alert from '../alert/alert.component';
 import ModalWrapper from './modal-wrapper.component';
 
+import './modal.pcss';
+
 class Modal extends React.Component {
   constructor(props) {
     super(props);

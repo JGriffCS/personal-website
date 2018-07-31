@@ -1,13 +1,3 @@
-@import "variables";
-
-@import "admin/admin.styles";
-@import "admin/login/login.styles";
-@import "shared/alert/alert.styles";
-@import "shared/modal/modal.styles";
-@import "public/components/Header/header.styles";
-@import "public/components/Layout/styles";
-@import "public/containers/Blog/styles";
-
 * {
   box-sizing: border-box;
 }
@@ -70,27 +60,26 @@ input {
 }
 
 .btn-primary {
-  color: $jg-text-color-alternate;
-  background-color: $jg-color-primary;
-  border-color: $jg-color-primary;
+  color: env(--text-color-alt);
+  background-color: env(--color-primary);
+  border-color: env(--color-primary);
 
   &:hover {
-    color: $jg-text-color-alternate;
-    background-color: lighten($jg-color-primary, 5%);
-    border-color: lighten($jg-color-primary, 5%);
+    color: env(--text-color-alt);
+    background-color: color-mod(env(--color-primary) blackness(-5%));
+    border-color: color-mod(env(--color-primary) blackness(-5%));
   }
 }
 
 .btn-outline-primary {
-  color: $jg-color-primary;
-  background-color: #FFF;
-  background-image: none;
-  border-color: $jg-color-primary;
+  color: env(--color-primary);
+  background: #FFF none;
+  border-color: env(--color-primary);
 
   &:hover {
-    color: $jg-text-color-alternate;
-    background-color: $jg-color-primary;
-    border-color: $jg-color-primary;
+    color: env(--text-color-alt);
+    background-color: env(--color-primary);
+    border-color: env(--color-primary);
   }
 }
 
@@ -108,8 +97,7 @@ input {
 
 .btn-outline-secondary {
   color: #6c757d;
-  background-color: #FFF;
-  background-image: none;
+  background: #FFF none;
   border-color: #6c757d;
 
   &:hover {

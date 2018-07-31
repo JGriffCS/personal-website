@@ -1,16 +1,16 @@
 .header {
-  background-color: $jg-color-primary;
-  color: $jg-text-color-alternate;
+  background-color: env(--color-primary);
+  color: env(--text-color-alt);
   height: 60px;
 
-  .header-content {
+  & .header-content {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     line-height: 60px;
   }
 
-  .nav-button {
+  & .nav-button {
     flex: 1;
     text-align: center;
     border-left: 1px solid white;
@@ -20,7 +20,7 @@
       border-right: 1px solid white;
     }
 
-    a {
+    & a {
       color: white;
       text-decoration: none;
       font-size: 24px;
