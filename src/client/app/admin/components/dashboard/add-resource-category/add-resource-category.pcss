@@ -1,7 +1,7 @@
 .add-category-form-container {
   height: 200px;
 
-  label {
+  & label {
     font-weight: bold;
     font-size: 18px;
     display: block;
@@ -10,7 +10,7 @@
 }
 
 .dashboard-item-preview {
-  .dashboard-item {
+  & .dashboard-item {
     border-bottom: 1px solid black;
     color: env(--color-primary);
   }
@@ -18,7 +18,7 @@
 
 @media (min-width: env(--device-width-tablet-min)) {
   .dashboard-item-preview {
-    .dashboard-item {
+    & .dashboard-item {
       width: 220px;
       height: 220px;
       margin: 0 auto;
@@ -42,7 +42,7 @@
     width: 50%;
     display: inline-block;
 
-    .dashboard-item {
+    & .dashboard-item {
       float: right;
       margin-right: 20px;
     }
@@ -61,7 +61,7 @@
 
 @media (min-width: env(--device-width-desktop-large)) {
   .dashboard-item-preview {
-    .dashboard-item {
+    & .dashboard-item {
       width: 250px;
       height: 250px;
     }

@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import Dashboard from './containers/dashboard';
-import Breadcrumbs from '../shared/breadcrumbs/breadcrumbs';
+import Breadcrumbs from '../shared/components/breadcrumbs/breadcrumbs';
 import ResourceSites from './containers/resource-sites';
 
-import './admin.pcss';
+import './index.pcss';
 
 class Admin extends React.Component {
   constructor(props) {

@@ -9,7 +9,7 @@ import DashboardItem from '../components/dashboard/dashboard-item/dashboard-item
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
 import withDeleteFunctionality from '../components/dashboard/dashboard-item/removable-item';
 
-import { initAdminResourceCategories, removeAdminResourceCategory } from '../../actions/admin-resource-categories';
+import { initAdminResourceCategories, removeAdminResourceCategory } from '../actions/admin-resource-categories';
 
 const ResourceCategory = withDeleteFunctionality(DashboardItem);
 class Dashboard extends React.Component {

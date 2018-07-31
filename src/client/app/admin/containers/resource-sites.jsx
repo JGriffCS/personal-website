@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import ResourceSite from '../components/resource-sites/resource-site/resource-site';
 import AddResourceSite from '../components/resource-sites/add-resource-site/add-resource-site';
 
-import { initAdminResourceSites } from '../../actions/admin-resource-sites';
+import { initAdminResourceSites } from '../actions/admin-resource-sites';
 
 class ResourceSites extends React.Component {
   componentDidMount() {

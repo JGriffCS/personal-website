@@ -4,7 +4,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 import loginService from '../../services/login.service';
-import Alert from '../../shared/alert/alert';
+import Alert from '../../../shared/components/alert/alert';
 
 import './login.pcss';
 

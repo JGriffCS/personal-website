@@ -7,8 +7,8 @@ import Layout from './public/components/layout/layout';
 
 import Home from './public/containers/Home/index';
 import Blog from './public/containers/Blog/index';
-import Login from './admin/login/login';
-import Admin from './admin/admin.container';
+import Login from './admin/components/login/login';
+import Admin from './admin/index';
 
 import './app.pcss';
 

@@ -4,8 +4,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeAdminResourceSite } from '../../../../actions/admin-resource-sites';
-import Modal from '../../../../shared/modal/modal';
+import { removeAdminResourceSite } from '../../../actions/admin-resource-sites';
+import Modal from '../../../../shared/components/modal/modal';
 
 import './remove-resource-site.pcss';
 
