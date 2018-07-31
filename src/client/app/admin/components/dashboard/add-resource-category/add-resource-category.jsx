@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { addAdminResourceCategory } from '../../../../actions/admin-resource-categories';
-import Modal from '../../../../shared/modal/modal.component';
+import Modal from '../../../../shared/modal/modal';
 
 import './add-resource-category.pcss';
 

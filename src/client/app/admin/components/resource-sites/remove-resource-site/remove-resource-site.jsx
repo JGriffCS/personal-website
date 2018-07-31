@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { removeAdminResourceSite } from '../../../../actions/admin-resource-sites';
-import Modal from '../../../../shared/modal/modal.component';
+import Modal from '../../../../shared/modal/modal';
 
 import './remove-resource-site.pcss';
 

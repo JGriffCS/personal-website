@@ -5,22 +5,19 @@ import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 
-import { blogPosts } from './app/reducers/blogPosts';
 import adminResourceCategories from './app/reducers/admin-resource-categories';
 import adminResourceSites from './app/reducers/admin-resource-sites';
 
-import App from './app/App';
+import App from './app/app';
 
 const initialState = {
   adminResourceCategories: [],
   adminResourceSites: {},
-  blogPosts: [],
 };
 
 const reducers = combineReducers({
   adminResourceCategories,
   adminResourceSites,
-  blogPosts,
 });
 
 const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);

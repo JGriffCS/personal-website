@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { addAdminResourceSite } from '../../../../actions/admin-resource-sites';
-import Modal from '../../../../shared/modal/modal.component';
+import Modal from '../../../../shared/modal/modal';
 
 import './add-resource-site.pcss';
 

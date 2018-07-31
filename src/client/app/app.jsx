@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Header from './public/components/Header/header.component';
-import Layout from './public/components/Layout/index';
+import Header from './public/components/header/header';
+import Layout from './public/components/layout/layout';
 // import Footer from './public/components/Footer/FooterComponent';
 
 import Home from './public/containers/Home/index';
 import Blog from './public/containers/Blog/index';
-import Login from './admin/login/login.component';
+import Login from './admin/login/login';
 import Admin from './admin/admin.container';
 
-import './App.Styles.pcss';
+import './app.pcss';
 
 export default () => (
   <Router>

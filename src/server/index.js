@@ -28,8 +28,6 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', '..', 'dist'))); // serves the index.html
 app.listen(3000); // listens on port 3000 -> http://localhost:3000/
 
-app.get('/api/blogposts', require('./routes/blog_posts.js')({ pool }));
-
 app.post('/api/authenticate', require('./routes/admin/authenticate.js')({ pool, jwt, secret: config.secret }));
 app.post('/api/admin/resource_site_categories', require('./routes/admin/resource-site-categories/post.js')({ pool }));
 app.post('/api/admin/resource_sites', require('./routes/admin/resource-sites/post.js')({ pool }));
