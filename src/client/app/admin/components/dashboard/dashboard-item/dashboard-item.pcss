@@ -61,15 +61,7 @@
     grid-template-columns: repeat(auto-fill, calc((100% - 1rem)/2));
 
     & a {
-      &:nth-child(4n),
-      &:nth-child(4n+1){
-        background-color: env(--color-primary);
-      }
-
-      &:nth-child(4n+2),
-      &:nth-child(4n+3){
-        background-color: env(--color-alternate);
-      }
+      @mixin checkered 2;
     }
   }
 
@@ -104,13 +96,7 @@
     grid-template-columns: repeat(auto-fill, calc((100% - 2rem)/3));
 
     & a {
-      &:nth-child(odd) {
-        background-color: env(--color-primary);
-      }
-
-      &:nth-child(even) {
-        background-color: env(--color-alternate);
-      }
+      @mixin checkered;
     }
   }
 }
@@ -121,18 +107,7 @@
     padding: 20px;
 
     & a {
-      &:nth-child(8n+1),
-      &:nth-child(8n+3),
-      &:nth-child(8n+6),
-      &:nth-child(8n) {
-        background-color: env(--color-primary);
-      }
-      &:nth-child(8n+2),
-      &:nth-child(8n+4),
-      &:nth-child(8n+5),
-      &:nth-child(8n+7) {
-        background-color: env(--color-alternate);
-      }
+      @mixin checkered 4;
     }
   }
 

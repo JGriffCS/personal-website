@@ -12,6 +12,10 @@
     &:nth-child(odd) a {
       color: env(--color-alternate);
     }
+
+    & a {
+      background-color: transparent;
+    }
   }
 
   & .removable-item-mobile-options {
@@ -76,19 +80,7 @@
     & .removable-item-wrapper {
       height: auto;
 
-      &:nth-child(4n),
-      &:nth-child(4n+1) {
-        & a {
-          background-color: env(--color-primary);
-        }
-      }
-
-      &:nth-child(4n+2),
-      &:nth-child(4n+3) {
-        & a {
-          background-color: env(--color-alternate);
-        }
-      }
+      @mixin checkered 2;
     }
 
     & .removable-item-controls {
@@ -126,17 +118,7 @@
 @media(min-width: env(--device-width-desktop-min)) {
   .dashboard-items-container {
     & .removable-item-wrapper {
-      &:nth-child(odd) {
-        & a {
-          background-color: env(--color-primary);
-        }
-      }
-
-      &:nth-child(even) {
-        & a {
-          background-color: env(--color-alternate);
-        }
-      }
+      @mixin checkered 3;
     }
   }
 }
@@ -144,22 +126,7 @@
 @media(min-width: env(--device-width-desktop-large)) {
   .dashboard-items-container {
     & .removable-item-wrapper {
-      &:nth-child(8n+1),
-      &:nth-child(8n+3),
-      &:nth-child(8n+6),
-      &:nth-child(8n) {
-        & a {
-          background-color: env(--color-primary);
-        }
-      }
-      &:nth-child(8n+2),
-      &:nth-child(8n+4),
-      &:nth-child(8n+5),
-      &:nth-child(8n+7) {
-        & a {
-          background-color: env(--color-alternate);
-        }
-      }
+      @mixin checkered 4;
     }
   }
 }
