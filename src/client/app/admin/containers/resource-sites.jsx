@@ -6,9 +6,11 @@ import { bindActionCreators } from 'redux';
 
 import ResourceSite from '../components/resource-sites/resource-site/resource-site';
 import AddResourceSite from '../components/resource-sites/add-resource-site/add-resource-site';
+import withDeleteFunctionality from '../components/dashboard/dashboard-item/removable-item';
 
-import { initAdminResourceSites } from '../actions/admin-resource-sites';
+import { initAdminResourceSites, removeAdminResourceSite } from '../actions/admin-resource-sites';
 
+const RemovableResourceSite = withDeleteFunctionality(ResourceSite);
 class ResourceSites extends React.Component {
   componentDidMount() {
     // Because I'll be the only one using the admin section the local store
@@ -32,7 +34,7 @@ class ResourceSites extends React.Component {
         <div className="resource-sites-container">
           {
             this.props.sites.map(site => (
-              <ResourceSite item={site} key={site.id} />
+              <RemovableResourceSite item={site} key={site.id} deleteAction={() => console.log('hi')} />
             ))
           }
         </div>
@@ -59,5 +61,5 @@ const mapStateToProps = (state, props) => ({
 
 export default connect(
   mapStateToProps,
-  dispatch => bindActionCreators({ initAdminResourceSites }, dispatch),
+  dispatch => bindActionCreators({ initAdminResourceSites, removeAdminResourceSite }, dispatch),
 )(ResourceSites);

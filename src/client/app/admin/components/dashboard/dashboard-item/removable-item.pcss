@@ -1,4 +1,4 @@
-.dashboard-items-container {
+.dashboard-items-container, .resource-sites-container {
   & .removable-item-wrapper {
     height: 100px;
     overflow: hidden;
@@ -76,7 +76,7 @@
 }
 
 @media (min-width: env(--device-width-tablet-min)) {
-  .dashboard-items-container {
+  .dashboard-items-container, .resource-sites-container {
     & .removable-item-wrapper {
       height: auto;
 
@@ -116,7 +116,7 @@
 }
 
 @media(min-width: env(--device-width-desktop-min)) {
-  .dashboard-items-container {
+  .dashboard-items-container, .resource-sites-container {
     & .removable-item-wrapper {
       @mixin checkered 3;
     }
@@ -124,7 +124,7 @@
 }
 
 @media(min-width: env(--device-width-desktop-large)) {
-  .dashboard-items-container {
+  .dashboard-items-container, .resource-sites-container {
     & .removable-item-wrapper {
       @mixin checkered 4;
     }
