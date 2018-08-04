@@ -1,6 +1,5 @@
 .dashboard-items-container, .resource-sites-container {
   & .removable-item-wrapper {
-    height: 100px;
     overflow: hidden;
     position: relative;
     width: auto;
@@ -20,7 +19,7 @@
 
   & .removable-item-mobile-options {
     width: 60px;
-    height: 100px;
+    height: 100%;
     position: absolute;
     background-color: env(--color-primary);
     color: env(--text-color-alt);
@@ -49,7 +48,7 @@
 
   & .removable-item-confirmation {
     width: 100%;
-    height: 100px;
+    height: 100%;
     position: absolute;
     z-index: 10000;
     top: 0;
@@ -64,7 +63,7 @@
 
     & div {
       width: 100%;
-      height: 50px;
+      height: 50%;
       text-align: center;
       line-height: 48px;
     }
@@ -78,8 +77,6 @@
 @media (min-width: env(--device-width-tablet-min)) {
   .dashboard-items-container, .resource-sites-container {
     & .removable-item-wrapper {
-      height: auto;
-
       @mixin checkered 2;
     }
 
