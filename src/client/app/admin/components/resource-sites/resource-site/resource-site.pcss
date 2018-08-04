@@ -34,8 +34,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 33.33%);
 
-    & a {
-      @mixin checkered 6;
+    & a,
+    & .removable-item-wrapper {
+      @mixin checkered;
     }
 
     & .resource-site {
@@ -77,8 +78,9 @@
   .resource-sites-container {
     grid-template-columns: repeat(auto-fill, 25%);
 
-    & a {
-      @mixin checkered 8;
+    & a,
+    & .removable-item-wrapper {
+      @mixin checkered 4;
     }
   }
 }
@@ -88,8 +90,9 @@
     grid-template-columns: repeat(auto-fill, 20%);
     padding: 20px;
 
-    & a {
-      @mixin checkered 10;
+    & a,
+    & .removable-item-wrapper {
+      @mixin checkered 5;
     }
   }
 }

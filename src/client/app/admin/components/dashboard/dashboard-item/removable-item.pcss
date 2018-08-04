@@ -1,129 +1,98 @@
-.dashboard-items-container, .resource-sites-container {
-  & .removable-item-wrapper {
-    overflow: hidden;
-    position: relative;
-    width: auto;
+.removable-item-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: auto;
 
-    &:nth-child(even) a {
-      color: env(--color-primary);
-    }
-
-    &:nth-child(odd) a {
-      color: env(--color-alternate);
-    }
-
-    & a {
-      background-color: transparent;
-    }
-  }
-
-  & .removable-item-mobile-options {
-    width: 60px;
-    height: 100%;
-    position: absolute;
-    background-color: env(--color-primary);
-    color: env(--text-color-alt);
-    z-index: 0;
-    border-top: 1px solid #000;
-    text-align: center;
-
-    & .remove {
-      font-size: 22px;
-      margin-top: 35px;
-    }
-  }
-
-  & .removable-item-controls {
-    width: 100%;
-
-    & .remove {
-      display: none;
-      position: absolute;
-      right: 0;
-      font-size: 16px;
-      height: 35px;
-      width: 35px;
-    }
-  }
-
-  & .removable-item-confirmation {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 10000;
-    top: 0;
-    left: 100%;
-    transition: all .4s;
-    border-top: 1px solid black;
-    background-color: env(--text-color-alt);
-
-    &.visible {
-      left: 0;
-    }
-
-    & div {
-      width: 100%;
-      height: 50%;
-      text-align: center;
-      line-height: 48px;
-    }
-
-    & button {
-      margin: 10px;
-    }
+  & a {
+    background-color: transparent;
   }
 }
+
+.removable-item-mobile-options {
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  background-color: env(--color-primary);
+  color: env(--text-color-alt);
+  z-index: 0;
+  border-top: 1px solid #000;
+  text-align: center;
+
+  & .remove {
+    font-size: 22px;
+    margin-top: 35px;
+  }
+}
+
+.removable-item-controls {
+  width: 100%;
+
+  & .remove {
+    display: none;
+    position: absolute;
+    right: 0;
+    font-size: 16px;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.removable-item-confirmation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 100%;
+  transition: all .4s;
+  border-top: 1px solid black;
+  background-color: env(--text-color-alt);
+
+  &.visible {
+    left: 0;
+  }
+
+  & div {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    line-height: 48px;
+  }
+
+  & button {
+    margin: 10px;
+  }
+}
+
 
 @media (min-width: env(--device-width-tablet-min)) {
-  .dashboard-items-container, .resource-sites-container {
-    & .removable-item-wrapper {
-      @mixin checkered 2;
-    }
-
-    & .removable-item-controls {
-      &:hover {
-        & .remove {
-          opacity: 1;
-        }
-      }
-
+  .removable-item-controls {
+    &:hover {
       & .remove {
-        color: #fff;
-        cursor: pointer;
-        display: block;
-        opacity: 0;
-        transition: opacity 0.3s;
-        top: 5px;
-        right: 5px;
-        font-size: 22px;
-        z-index: 2;
+        opacity: 1;
       }
     }
 
-    & .removable-item-mobile-options {
-      display: none;
-    }
-
-    & .removable-item-confirmation {
-      border: 1px solid env(--color-primary);
-      height: 100%;
-      padding-top: 60px;
-    }
-  }
-}
-
-@media(min-width: env(--device-width-desktop-min)) {
-  .dashboard-items-container, .resource-sites-container {
-    & .removable-item-wrapper {
-      @mixin checkered 3;
+    & .remove {
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.3s;
+      top: 5px;
+      right: 5px;
+      font-size: 22px;
+      z-index: 2;
     }
   }
-}
 
-@media(min-width: env(--device-width-desktop-large)) {
-  .dashboard-items-container, .resource-sites-container {
-    & .removable-item-wrapper {
-      @mixin checkered 4;
-    }
+  .removable-item-mobile-options {
+    display: none;
+  }
+
+  .removable-item-confirmation {
+    border: 1px solid env(--color-primary);
+    height: 100%;
+    padding-top: 60px;
   }
 }

@@ -2,17 +2,10 @@
   border-bottom: 1px solid;
 
   & a {
+    color: env(--color-primary) !important; // Not enough specificity to override webkit
     display: block;
     position: relative;
     width: 100%;
-
-    &:nth-child(even) {
-      color: env(--color-primary);
-    }
-
-    &:nth-child(odd) {
-      color: env(--color-alternate);
-    }
   }
 }
 
@@ -61,7 +54,8 @@
     padding: 20px;
     grid-template-columns: repeat(auto-fill, calc((100% - 1rem)/2));
 
-    & a {
+    & a,
+    & .removable-item-wrapper {
       @mixin checkered 2;
     }
   }
@@ -96,7 +90,8 @@
   .dashboard-items-container {
     grid-template-columns: repeat(auto-fill, calc((100% - 2rem)/3));
 
-    & a {
+    & a,
+    & .removable-item-wrapper {
       @mixin checkered;
     }
   }
@@ -107,7 +102,8 @@
     grid-template-columns: repeat(auto-fill, calc((100% - 3rem)/4));
     padding: 20px;
 
-    & a {
+    & a,
+    & .removable-item-wrapper {
       @mixin checkered 4;
     }
   }
