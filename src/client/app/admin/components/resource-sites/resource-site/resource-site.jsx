@@ -39,8 +39,8 @@ class ResourceSite extends React.Component {
           isOpen={this.state.modalOpen}
           close={this.closeModal}
         />
-        <a className="resource-site" href={this.props.item.link}>
-          <div>
+        <a href={this.props.item.link}>
+          <div className="resource-site">
             <div className="resource-site-header" />
             <div className="resource-site-image-container">
               <img src={`https://logo.clearbit.com/${this.props.item.image_url}?s=128`} />

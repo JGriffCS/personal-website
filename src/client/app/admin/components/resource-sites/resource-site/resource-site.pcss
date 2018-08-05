@@ -3,27 +3,32 @@
 }
 
 .resource-site {
-  background-color: #FFF;
   border-top: 1px solid black;
-  font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   height: 100px;
   margin: 0;
   position: relative;
   transition: all .3s;
   width: 100%;
 
-  & img {
-    float: left;
+  & .resource-site-image-container {
+    align-items: center;
+    background: #FFF;
+    display: inline-flex;
+    height: 100px;
     width: 100px;
-    display: inline;
+  }
+
+  & img {
+    width: 100px;
   }
 
   & .resource-site-title {
+    float: right;
     width: calc(100% - 100px);
     text-align: center;
     height: 100px;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
   }
@@ -42,6 +47,7 @@
     }
 
     & .resource-site {
+      border: none;
       color: white;
       font-size: initial;
       font-weight: initial;
