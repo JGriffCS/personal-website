@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import AddResourceCategory from '../components/dashboard/add-resource-category/add-resource-category';
 import DashboardItem from '../components/dashboard/dashboard-item/dashboard-item';
 import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
-import withDeleteFunctionality from '../components/dashboard/dashboard-item/removable-item';
+import withDeleteFunctionality from '../components/shared/removable-item/removable-item';
 
 import { initAdminResourceCategories, removeAdminResourceCategory } from '../actions/admin-resource-categories';
 
@@ -55,6 +55,7 @@ class Dashboard extends React.Component {
                   key={category.id}
                   {...category}
                   deleteAction={this.resourceCategoryDelete}
+                  deleteMessage="Remove Resource Category?"
                   match={this.props.match}
                 />
               ))

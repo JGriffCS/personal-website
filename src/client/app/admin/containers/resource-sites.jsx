@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import ResourceSite from '../components/resource-sites/resource-site/resource-site';
 import AddResourceSite from '../components/resource-sites/add-resource-site/add-resource-site';
-import withDeleteFunctionality from '../components/dashboard/dashboard-item/removable-item';
+import withDeleteFunctionality from '../components/shared/removable-item/removable-item';
 
 import { initAdminResourceSites, removeAdminResourceSite } from '../actions/admin-resource-sites';
 
@@ -52,6 +52,7 @@ class ResourceSites extends React.Component {
                 item={site}
                 key={site.id}
                 deleteAction={this.resourceSiteDelete}
+                deleteMessage="Remove Resource Site?"
               />
             ))
           }

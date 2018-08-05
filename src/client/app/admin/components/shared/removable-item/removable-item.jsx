@@ -115,7 +115,7 @@ function withDeleteFunctionality(DashboardItem) {
 
           <div className={`removable-item-confirmation ${this.state.showRemovePrompt ? 'visible' : ''}`}>
             <div className="remove-message">
-              Remove Category?
+              {this.props.deleteMessage}
             </div>
             <div className="remove-actions">
               <button className="btn btn-small btn-primary" onClick={this.removeItem}>
@@ -133,6 +133,11 @@ function withDeleteFunctionality(DashboardItem) {
 
   RemovableItem.propTypes = {
     deleteAction: PropTypes.func.isRequired,
+    deleteMessage: PropTypes.string,
+  };
+
+  RemovableItem.defaultProps = {
+    deleteMessage: 'Remove Item?',
   };
 
   return RemovableItem;
