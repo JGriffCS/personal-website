@@ -132,13 +132,6 @@ function withDeleteFunctionality(DashboardItem) {
   }
 
   RemovableItem.propTypes = {
-    icon: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    match: PropTypes.shape({
-      url: PropTypes.string.isRequired,
-    }).isRequired,
     deleteAction: PropTypes.func.isRequired,
   };
 

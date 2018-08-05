@@ -34,7 +34,12 @@ class ResourceSites extends React.Component {
         <div className="resource-sites-container">
           {
             this.props.sites.map(site => (
-              <RemovableResourceSite item={site} key={site.id} deleteAction={() => console.log('hi')} />
+              <RemovableResourceSite
+                id={site.id}
+                item={site}
+                key={site.id}
+                deleteAction={() => console.log('hi')}
+              />
             ))
           }
         </div>
