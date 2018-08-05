@@ -12,6 +12,11 @@ import { initAdminResourceSites, removeAdminResourceSite } from '../actions/admi
 
 const RemovableResourceSite = withDeleteFunctionality(ResourceSite);
 class ResourceSites extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.resourceSiteDelete = this.resourceSiteDelete.bind(this);
+  }
   componentDidMount() {
     // Because I'll be the only one using the admin section the local store
     // should be a guaranteed source of truth once the initial network request
@@ -23,6 +28,14 @@ class ResourceSites extends React.Component {
         , err => console.log(err),
       );
     }
+  }
+
+  resourceSiteDelete(id) {
+    axios.delete(`/api/admin/resource_sites/${id}`).then(() => {
+      this.props.removeAdminResourceSite(this.props.siteCategory, id);
+    }).catch(() => {
+
+    });
   }
 
   render() {
@@ -38,7 +51,7 @@ class ResourceSites extends React.Component {
                 id={site.id}
                 item={site}
                 key={site.id}
-                deleteAction={() => console.log('hi')}
+                deleteAction={this.resourceSiteDelete}
               />
             ))
           }
@@ -50,6 +63,7 @@ class ResourceSites extends React.Component {
 
 ResourceSites.propTypes = {
   initAdminResourceSites: PropTypes.func.isRequired,
+  removeAdminResourceSite: PropTypes.func.isRequired,
   siteCategory: PropTypes.number.isRequired,
   sites: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
