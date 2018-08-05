@@ -4,6 +4,7 @@
 
 .resource-site {
   border-top: 1px solid black;
+  color: env(--color-primary);
   font-size: 18px;
   height: 100px;
   margin: 0;
@@ -45,39 +46,41 @@
     & .removable-item-wrapper {
       @mixin checkered 2;
     }
+  }
 
-    & .resource-site {
-      border: none;
-      color: white;
-      font-size: initial;
-      font-weight: initial;
-      height: 198px;
-      text-align: center;
-      width: 100%;
+  .resource-site {
+    border: none;
+    color: white;
+    font-size: initial;
+    font-weight: initial;
+    height: 198px;
+    text-align: center;
+    width: 100%;
 
-      & .resource-site-header {
-        height: 35px;
-      }
+    & .resource-site-header {
+      height: 35px;
+    }
 
-      & .resource-site-image-container {
-        align-items: center;
-        height: 128px;
-        justify-content: center;
-      }
+    & .resource-site-image-container {
+      align-items: center;
+      background: transparent;
+      height: 128px;
+      width: 128px;
+      justify-content: center;
+    }
 
-      & img {
-        display: initial;
-        float: none;
-        width: auto;
-      }
+    & img {
+      display: initial;
+      float: none;
+      width: auto;
+    }
 
-      & .resource-site-title {
-        display: block;
-        float: none;
-        height: 35px;
-        line-height: 35px;
-        width: auto;
-      }
+    & .resource-site-title {
+      display: block;
+      float: none;
+      height: 35px;
+      line-height: 35px;
+      width: auto;
     }
   }
 }

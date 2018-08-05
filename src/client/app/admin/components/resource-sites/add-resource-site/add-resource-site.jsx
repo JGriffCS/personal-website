@@ -127,6 +127,7 @@ class AddResourceSiteModal extends React.Component {
             </div>
             <div className="add-resource-site-preview">
               <div className="resource-site">
+                <div className="resource-site-header" />
                 <div className="resource-site-image-container">
                   {
                     this.state.showImage ?
