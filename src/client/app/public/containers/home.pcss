@@ -1,0 +1,32 @@
+.home-container {
+  background-image: url('../../../assets/japan1.jpg');
+  height: calc(100vh - 60px);
+  padding: 0 15%;
+}
+
+.home-content {
+  background: #fff;
+  height: 100%;
+  padding: 20px;
+}
+
+.info-section-container {
+  height: 300px;
+
+  & .personal-photo-container {
+    display: inline-block;
+    height: 100%;
+    width: 300px;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & .personal-description {
+    display: inline-block;
+    float: right;
+    height: 300px;
+    width: calc(100% - 300px);
+  }
+}

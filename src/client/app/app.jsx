@@ -5,7 +5,7 @@ import Header from './public/components/header/header';
 import Layout from './public/components/layout/layout';
 // import Footer from './public/components/Footer/FooterComponent';
 
-import Home from './public/containers/Home/index';
+import Home from './public/containers/home';
 import Blog from './public/containers/Blog/index';
 import Login from './admin/components/login/login';
 import Admin from './admin/index';
@@ -16,9 +16,9 @@ export default () => (
   <Router>
     <div>
       <Header />
+      <Route exact path="/" component={Home} />
+      <Route path="/blog" component={Blog} />
       <Layout>
-        <Route exact path="/" component={Home} />
-        <Route path="/blog" component={Blog} />
         <Route path="/login" component={Login} />
         <Route path="/admin" component={Admin} />
       </Layout>
