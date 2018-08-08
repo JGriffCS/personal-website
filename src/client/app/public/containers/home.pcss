@@ -3,12 +3,31 @@
   height: calc(100vh - 60px);
   padding: 0 15%;
 
-  & h2 {
-    background: env(--color-primary);
-    color: env(--text-color-alt);
+  & h3 {
+    color: env(--text-color);
     margin: 0;
     padding: 5px;
-    text-align: center;
+    display: table;
+    white-space: nowrap;
+    width: 100%;
+
+    &::after,
+    &::before {
+      border-top: 6px solid env(--color-primary);
+      content: '';
+      display: table-cell;
+      position: relative;
+      top: 10px;
+      width: 45%;
+    }
+
+    &::after {
+      left: 1.5%;
+    }
+
+    &::before {
+      right: 1.5%;
+    }
   }
 }
 
