@@ -1,7 +1,15 @@
 .home-container {
-  background-image: url('../../../assets/japan1.jpg');
+  background-image: url('../../../assets/images/japan1.jpg');
   height: calc(100vh - 60px);
   padding: 0 15%;
+
+  & h2 {
+    background: env(--color-primary);
+    color: env(--text-color-alt);
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+  }
 }
 
 .home-content {
@@ -10,15 +18,29 @@
   padding: 20px;
 }
 
+.built-with-section-container {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25%);
+  height: 100px;
+  justify-items: center;
+  padding-top: 20px;
+
+  & img {
+    width: 100px;
+  }
+}
+
 .info-section-container {
   height: 300px;
 
   & .personal-photo-container {
     display: inline-block;
     height: 100%;
-    width: 300px;
+    width: 270px;
 
     & img {
+      height: 300px;
       width: 100%;
     }
   }
@@ -26,7 +48,13 @@
   & .personal-description {
     display: inline-block;
     float: right;
+    font-size: 20px;
     height: 300px;
-    width: calc(100% - 300px);
+    padding-left: 20px;
+    width: calc(100% - 270px);
   }
+}
+
+.contact-section-container {
+  padding-top: 20px;
 }
