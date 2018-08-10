@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Section from '../components/home/section/section';
+import Technologies from '../components/home/technologies/technologies';
 import WorkExperience from '../components/home/work-experience/work-experience';
 
 import personalPhoto from '../../../assets/images/me.png';
@@ -28,7 +29,7 @@ function Home() {
           </div>
         </div>
         <Section title="Skills and Technologies">
-          <div />
+          <Technologies />
         </Section>
         <Section title="Work Experience">
           <WorkExperience />
