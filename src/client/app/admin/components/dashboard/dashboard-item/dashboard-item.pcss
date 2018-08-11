@@ -58,6 +58,13 @@
     & .removable-item-wrapper {
       @mixin checkered 2;
     }
+
+    /* TODO: Revisit use of !important */
+    & .removable-item-wrapper {
+      & a {
+        background: transparent !important;
+      }
+    }
   }
 
   .dashboard-item {
