@@ -3,6 +3,7 @@
     "browser": true,
     "node": true
   },
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "rules": {
     "jsx-a11y/alt-text": ["off"],
