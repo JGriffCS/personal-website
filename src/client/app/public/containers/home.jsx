@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Section from '../components/home/section/section';
+import AboutMe from '../components/home/about-me/about-me';
 import Technologies from '../components/home/technologies/technologies';
 import WorkExperience from '../components/home/work-experience/work-experience';
 
-import personalPhoto from '../../../assets/images/me.png';
 import reactLogo from '../../../assets/images/react.svg';
 import reduxLogo from '../../../assets/images/redux.svg';
 import postcssLogo from '../../../assets/images/post.svg';
@@ -16,18 +16,9 @@ function Home() {
   return (
     <div className="home-container">
       <div className="home-content">
-        <div className="info-section-container">
-          <div className="personal-photo-container">
-            <img src={personalPhoto} alt="me" />
-          </div>
-          <div className="personal-description">
-            <Section title="Josh Griffiths">
-              <div>
-                Description goes here!
-              </div>
-            </Section>
-          </div>
-        </div>
+        <Section title="Josh Griffiths">
+          <AboutMe />
+        </Section>
         <Section title="Skills and Technologies">
           <Technologies />
         </Section>

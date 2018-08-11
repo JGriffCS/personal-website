@@ -1,0 +1,15 @@
+.about-me-wrapper {
+  overflow: auto;
+
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+  & img {
+    float: left;
+    height: 300px;
+    margin-right: 25px;
+  }
+}

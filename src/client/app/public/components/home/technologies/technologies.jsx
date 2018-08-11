@@ -28,8 +28,8 @@ const Technologies = () => (
     <span>Grunt </span>
     <span>Agile </span>
     <span>Scrum </span>
-    <span>Responsive Design </span>
-    <span>A/B Testing </span>
+    <span>Responsive&nbsp;Design </span>
+    <span>A/B&nbsp;Testing </span>
   </div>
 );
 
