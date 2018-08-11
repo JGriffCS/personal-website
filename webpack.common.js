@@ -4,9 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/client/index.jsx',
+  entry: {
+    app: './src/client/index.jsx',
+    vendor: ['react', 'react-dom', 'redux'],
+  },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
@@ -17,6 +21,19 @@ module.exports = {
       inject: 'body',
     }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          test: 'vendor',
+          enforce: true,
+        },
+      },
+    },
+    runtimeChunk: true,
+  },
   module: {
     rules: [
       {
