@@ -106,16 +106,6 @@
 
 @media(min-width: env(--device-width-desktop-large)) {
   .dashboard-items-container {
-    grid-template-columns: repeat(auto-fill, calc((100% - 3rem) / 4));
-    padding: 20px;
-
-    & a,
-    & .removable-item-wrapper {
-      @mixin checkered 4;
-    }
-  }
-
-  .dashboard-item {
-    height: 230px;
+    padding: 20px 0;
   }
 }

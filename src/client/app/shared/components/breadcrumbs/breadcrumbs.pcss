@@ -1,5 +1,5 @@
 .breadcrumb-container {
-  padding: 25px;
+  padding: 25px 10px;
 
   & .breadcrumb a {
     color: #007bff;
@@ -18,8 +18,14 @@
   }
 }
 
-@media (max-width: env(--device-width-tablet-min)) {
+@media (min-width: env(--device-width-tablet-min)) {
   .breadcrumb-container {
-    padding-left: 10px;
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: env(--device-width-desktop-large)) {
+  .breadcrumb-container {
+    padding-left: 0;
   }
 }

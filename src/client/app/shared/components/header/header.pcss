@@ -1,9 +1,8 @@
 .header {
-  @mixin title_font;
-
   background-color: env(--color-primary);
   color: env(--text-color-alt);
   height: 45px;
+  padding: 0 10px;
   position: fixed;
   width: 100%;
   z-index: 2;
@@ -42,5 +41,17 @@
     &.active {
       background-color: env(--color-alternate);
     }
+  }
+}
+
+@media (min-width: env(--device-width-tablet-min)) {
+  .header {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: env(--device-width-desktop-large)) {
+  .header {
+    padding: 0;
   }
 }

@@ -3,7 +3,7 @@ module.exports = {
   '--device-width-tablet-min': '480px',
   '--device-width-tablet-max': '767px',
   '--device-width-desktop-min': '768px',
-  '--device-width-desktop-large': '992px',
+  '--device-width-desktop-large': '900px',
 
   '--max-content-width': '980px',
 
