@@ -2,7 +2,7 @@ import React from 'react';
 import Loadable from 'react-loadable';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Header from './public/components/header/header';
+import Header from './shared/components/header/header';
 import Layout from './public/components/layout/layout';
 import Loading from './shared/components/loading/loading';
 // import Footer from './public/components/Footer/FooterComponent';

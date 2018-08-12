@@ -1,0 +1,37 @@
+.header {
+  background-color: env(--color-primary);
+  color: env(--text-color-alt);
+  height: 50px;
+
+  & .header-content {
+    max-width: 980px;
+    margin: 0 auto;
+    line-height: 50px;
+  }
+
+  & .nav-button-container {
+    float: right;
+    width: auto;
+  }
+
+  & .nav-button {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+
+    &:hover {
+      //background-color: color-mod(env(--color-primary) lightness(10%));
+      background-color: env(--color-alternate);
+    }
+
+    & a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    &.active {
+      background-color: env(--color-alternate);
+    }
+  }
+}
