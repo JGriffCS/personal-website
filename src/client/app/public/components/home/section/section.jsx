@@ -6,7 +6,9 @@ import './section.pcss';
 const Section = ({ children, title }) => (
   <div className="section">
     <h1 className="section-title">{title}</h1>
-    {children}
+    <div className="section-body">
+      {children}
+    </div>
   </div>
 );
 

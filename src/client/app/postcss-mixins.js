@@ -41,4 +41,7 @@ module.exports = {
 
     return mixinObj;
   },
+  title_font: {
+    'font-family': 'Carrois Gothic SC, sans-serif',
+  },
 };

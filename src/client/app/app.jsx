@@ -27,13 +27,17 @@ const Admin = Loadable({
 export default () => (
   <Router>
     <div>
-      <Header />
-      <Route exact path="/" component={Home} />
-      <Route path="/blog" component={Blog} />
-      <Layout>
-        <Route path="/login" component={Login} />
-        <Route path="/admin" component={Admin} />
-      </Layout>
+      <div className="header-container">
+        <Header />
+      </div>
+      <div className="body-container">
+        <Route exact path="/" component={Home} />
+        <Route path="/blog" component={Blog} />
+        <Layout>
+          <Route path="/login" component={Login} />
+          <Route path="/admin" component={Admin} />
+        </Layout>
+      </div>
     </div>
   </Router>
 );

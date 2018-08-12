@@ -1,5 +1,9 @@
 .section {
+  margin-bottom: 25px;
+
   & .section-title {
+    @mixin title_font;
+
     color: env(--text-color);
     font-size: 22px;
     margin: 0;
@@ -16,6 +20,7 @@
       position: relative;
       top: 12px;
       width: 45%;
+      z-index: 1;
     }
 
     &::after {
@@ -25,5 +30,10 @@
     &::before {
       right: 1.5%;
     }
+  }
+
+  & .section-body {
+    font-size: 15px;
+    line-height: 25px;
   }
 }

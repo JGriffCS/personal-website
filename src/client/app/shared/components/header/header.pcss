@@ -1,17 +1,27 @@
 .header {
+  @mixin title_font;
+
   background-color: env(--color-primary);
   color: env(--text-color-alt);
-  height: 50px;
+  height: 45px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 
   & .header-content {
-    max-width: 980px;
+    max-width: 900px;
     margin: 0 auto;
-    line-height: 50px;
+    line-height: 44px;
   }
 
   & .nav-button-container {
     float: right;
     width: auto;
+  }
+
+  & .header-logo {
+    float: left;
+    width: 45px;
   }
 
   & .nav-button {
@@ -20,7 +30,6 @@
     width: 100px;
 
     &:hover {
-      //background-color: color-mod(env(--color-primary) lightness(10%));
       background-color: env(--color-alternate);
     }
 
