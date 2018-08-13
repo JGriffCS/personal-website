@@ -1,12 +1,18 @@
 .technologies-wrapper {
   line-height: 35px;
   padding: 25px 0 0 0;
-  text-align: center;
+  text-align: justify;
 
   & span {
     background-color: env(--color-primary);
     color: white;
     margin-right: 10px;
     padding: 5px;
+  }
+}
+
+@media (min-width: env(--device-width-desktop-min)) {
+  .technologies-wrapper {
+    text-align: center;
   }
 }

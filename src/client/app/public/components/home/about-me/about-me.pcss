@@ -12,6 +12,7 @@
   }
 
   & .personal-photo {
+    display: none;
     float: left;
     height: 300px;
     margin-right: 25px;
@@ -21,7 +22,15 @@
     text-align: center;
 
     & img {
-      margin-right: 25px;
+      margin: 0 12px;
+    }
+  }
+}
+
+@media (min-width: env(--device-width-desktop-min)) {
+  .about-me-wrapper {
+    & .personal-photo {
+      display: inline-block;
     }
   }
 }

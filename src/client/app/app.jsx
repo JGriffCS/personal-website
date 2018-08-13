@@ -3,7 +3,7 @@ import Loadable from 'react-loadable';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './shared/components/header/header';
-import Layout from './public/components/layout/layout';
+import Layout from './shared/components/layout/layout';
 import Loading from './shared/components/loading/loading';
 // import Footer from './public/components/Footer/FooterComponent';
 
@@ -32,8 +32,8 @@ export default () => (
       </div>
       <div className="body-container">
         <Route exact path="/" component={Home} />
-        <Route path="/blog" component={Blog} />
         <Layout>
+          <Route path="/blog" component={Blog} />
           <Route path="/login" component={Login} />
           <Route path="/admin" component={Admin} />
         </Layout>

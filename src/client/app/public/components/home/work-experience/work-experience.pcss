@@ -32,22 +32,43 @@
 
   & .company-location,
   & .position-dates {
-    float: right;
+    display: block;
   }
 
   & .company-logo {
-    width: 100px;
+    display: none;
     height: 100px;
+    width: 100px;
   }
 
   & .position-description {
-    display: inline-block;
-    float: right;
-    padding-left: 20px;
-    width: calc(100% - 100px);
-
     & ul {
       margin: 0;
+      padding-left: 20px;
+    }
+  }
+}
+
+@media (min-width: env(--device-width-desktop-min)) {
+  .work-experience-section {
+    & .company-location,
+    & .position-dates {
+      float: right;
+    }
+
+    & .company-logo {
+      display: inline-block;
+    }
+
+    & .position-description {
+      display: inline-block;
+      float: right;
+      padding-left: 20px;
+      width: calc(100% - 100px);
+
+      & ul {
+        padding-left: 40px;
+      }
     }
   }
 }
