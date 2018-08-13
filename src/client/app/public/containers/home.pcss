@@ -1,14 +1,30 @@
-.home-container {
-  background: #e7e7e7;
+.home-background {
+  background-image: url("../../../assets/images/background.jpg");
+  background-size: cover;
+  height: calc(100vh - 45px);
+  position: absolute;
+  opacity: 0.55;
+  top: 45px;
+  width: 100%;
+  z-index: -1;
 }
 
 .home-content {
   background: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.33);
-  height: 100%;
+  height: calc(100vh - 45px);
   margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
   padding: 20px;
   max-width: 900px;
+
+  /* Scroll bars. FF gets to be ugly */
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .built-with-section-container {

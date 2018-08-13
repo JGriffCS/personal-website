@@ -15,6 +15,7 @@ import './home.pcss';
 function Home() {
   return (
     <div className="home-container">
+      <div className="home-background" />
       <div className="home-content">
         <Section title="Josh Griffiths">
           <AboutMe />
