@@ -5,8 +5,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
+    polyfill: 'babel-polyfill',
     app: './src/client/index.jsx',
-    vendor: ['react', 'react-dom', 'redux'],
+    vendor: ['react', 'react-dom', 'react-loadable', 'redux'],
   },
   output: {
     filename: '[name].bundle.js',
