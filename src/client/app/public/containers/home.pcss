@@ -2,7 +2,7 @@
   background-image: url("../../../assets/images/background.jpg");
   background-size: cover;
   height: calc(100vh - 45px);
-  position: absolute;
+  position: fixed;
   opacity: 0.55;
   top: 45px;
   width: 100%;
@@ -12,30 +12,8 @@
 .home-content {
   background: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.33);
-  height: calc(100vh - 45px);
   margin: 0 auto;
   overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 20px;
+  padding: 20px 20px 45px 20px;
   max-width: 900px;
-
-  /* Scroll bars. FF gets to be ugly */
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.built-with-section-container {
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 25%);
-  height: 100px;
-  justify-items: center;
-  padding-top: 20px;
-
-  & img {
-    width: 100px;
-  }
 }

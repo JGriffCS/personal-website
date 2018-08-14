@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './shared/components/header/header';
 import Layout from './shared/components/layout/layout';
 import Loading from './shared/components/loading/loading';
-// import Footer from './public/components/Footer/FooterComponent';
+import Footer from './shared/components/footer/footer';
 
 import './app.pcss';
 
@@ -38,6 +38,7 @@ export default () => (
           <Route path="/admin" component={Admin} />
         </Layout>
       </div>
+      <Footer />
     </div>
   </Router>
 );
