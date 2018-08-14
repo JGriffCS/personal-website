@@ -1,10 +1,10 @@
 import React from 'react';
 
 import './footer.pcss';
-import reactLogo from '../../../../assets/images/react.svg';
-import reduxLogo from '../../../../assets/images/redux.svg';
-import postcssLogo from '../../../../assets/images/post.svg';
-import nodeLogo from '../../../../assets/images/node.svg';
+import reactLogo from '../../../assets/images/react.svg';
+import reduxLogo from '../../../assets/images/redux.svg';
+import postcssLogo from '../../../assets/images/post.svg';
+import nodeLogo from '../../../assets/images/node.svg';
 
 const Footer = () => (
   <div className="footer">

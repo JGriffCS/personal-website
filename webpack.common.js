@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: {
     polyfill: 'babel-polyfill',
-    app: './src/client/index.jsx',
+    app: './src/index.jsx',
     vendor: ['react', 'react-dom', 'react-loadable', 'redux'],
   },
   output: {
@@ -17,7 +17,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: './src/client/index.html',
+      template: './src/index.html',
       filename: 'index.html',
       inject: 'body',
     }),

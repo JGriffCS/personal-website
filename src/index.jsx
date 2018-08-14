@@ -5,10 +5,10 @@ import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 
-import adminResourceCategories from './app/admin/reducers/admin-resource-categories';
-import adminResourceSites from './app/admin/reducers/admin-resource-sites';
+import adminResourceCategories from './admin/reducers/admin-resource-categories';
+import adminResourceSites from './admin/reducers/admin-resource-sites';
 
-import App from './app/app';
+import App from './app';
 
 const initialState = {
   adminResourceCategories: [],

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import './about-me.pcss';
-import personalPhoto from '../../../../../assets/images/me.png';
-import github from '../../../../../assets/images/github.png';
-import linkedin from '../../../../../assets/images/linkedin.png';
-import gmail from '../../../../../assets/images/gmail.png';
+import personalPhoto from '../../../../assets/images/me.png';
+import github from '../../../../assets/images/github.png';
+import linkedin from '../../../../assets/images/linkedin.png';
+import gmail from '../../../../assets/images/gmail.png';
 
 const AboutMe = () => (
   <div className="about-me-wrapper">

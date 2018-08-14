@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import './header.pcss';
-import logo from '../../../../assets/images/logo.svg';
+import logo from '../../../assets/images/logo.svg';
 
 const headerRoutes = [
   { path: '/', label: 'Home' },

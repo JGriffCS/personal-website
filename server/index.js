@@ -25,7 +25,7 @@ const pool = mysql.createPool({
 app.use('/api/admin/*', authentication({ jwt, secret: config.secret }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '..', '..', 'dist'))); // serves the index.html
+app.use(express.static(path.join(__dirname, '..', 'dist'))); // serves the index.html
 app.listen(3000); // listens on port 3000 -> http://localhost:3000/
 
 app.post('/api/authenticate', require('./routes/admin/authenticate.js')({ pool, jwt, secret: config.secret }));
@@ -40,5 +40,5 @@ app.get('/api/admin/resource_site_categories', require('./routes/admin/resource-
 app.get('/api/admin/resource_sites/:type_id', require('./routes/admin/resource-sites/get.js')({ pool }));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', '..', 'dist', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));
 });

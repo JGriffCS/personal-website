@@ -1,9 +1,9 @@
 import React from 'react';
 
-import giltLogo from '../../../../../assets/images/Gilt.jpg';
-import missionLogo from '../../../../../assets/images/Mission Logo smaller.jpg';
-import tpmLogo from '../../../../../assets/images/the-proven-method-squarelogo.png';
-import cofLogo from '../../../../../assets/images/COF.png';
+import giltLogo from '../../../../assets/images/Gilt.jpg';
+import missionLogo from '../../../../assets/images/Mission Logo smaller.jpg';
+import tpmLogo from '../../../../assets/images/the-proven-method-squarelogo.png';
+import cofLogo from '../../../../assets/images/COF.png';
 
 import './work-experience.pcss';
 
