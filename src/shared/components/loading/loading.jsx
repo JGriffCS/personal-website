@@ -17,10 +17,14 @@ const Loading = (props) => {
 };
 
 Loading.propTypes = {
-  error: PropTypes.object.isRequired, /* eslint-disable-line react/forbid-prop-types */
+  error: PropTypes.object, /* eslint-disable-line react/forbid-prop-types */
   pastDelay: PropTypes.bool.isRequired,
   retry: PropTypes.func.isRequired,
   timedOut: PropTypes.bool.isRequired,
+};
+
+Loading.defaultProps = {
+  error: null,
 };
 
 export default Loading;
