@@ -18,10 +18,6 @@ const pool = mysql.createPool({
   database: config.database.name,
 });
 
-// conn.connect((err) => {
-//   if (err) throw err;
-// });
-
 app.use('/api/admin/*', authentication({ jwt, secret: config.secret }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
