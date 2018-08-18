@@ -1,5 +1,4 @@
 const express = require('express');
-const favicon = require('serve-favicon');
 const path = require('path');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
@@ -19,7 +18,6 @@ const pool = mysql.createPool({
   database: config.database.name,
 });
 
-app.use(favicon(path.join(__dirname, '..', 'dist', 'favicon.ico')));
 app.use('/api/admin/*', authentication({ jwt, secret: config.secret }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
