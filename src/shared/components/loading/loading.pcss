@@ -1,1 +1,17 @@
+.loading-container {
+  @add-mixin title_font;
 
+  align-items: center;
+  color: env(--color-primary);
+  display: flex;
+  font-size: 30px;
+  height: calc(100vh - 90px);
+  justify-content: center;
+  text-align: center;
+
+  & .loading-image-container {
+    & img {
+      width: 100px;
+    }
+  }
+}
