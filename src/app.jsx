@@ -9,10 +9,10 @@ import Footer from './shared/components/footer/footer';
 
 import './app.pcss';
 
-import Blog from './public/containers/Blog/index';
+import BlogWrapper from './public/components/blog/wrapper/blog-wrapper';
 
 const Home = Loadable({
-  loader: () => import('./public/containers/home'),
+  loader: () => import('./public/components/home/wrapper/home-wrapper'),
   loading: Loading,
 });
 const Login = Loadable({
@@ -33,7 +33,7 @@ export default () => (
       <div className="body-container">
         <Route exact path="/" component={Home} />
         <Layout>
-          <Route path="/blog" component={Blog} />
+          <Route path="/blog" component={BlogWrapper} />
           <Route path="/login" component={Login} />
           <Route path="/admin" component={Admin} />
         </Layout>
