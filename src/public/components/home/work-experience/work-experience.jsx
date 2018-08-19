@@ -9,8 +9,10 @@ import './work-experience.pcss';
 
 const WorkExperience = () => (
   <div className="work-experience-section">
-    The descriptions below are condensed and intended as a brief overview.
-    For a complete resume please reach out to me.
+    <span className="disclaimer">
+      The following is a brief overview of each position.
+      For a full résumé please reach out to me <a href="mailto:jgriffcs@gmail.com" target="_blank" rel="noopener noreferrer">here</a>.
+    </span>
     <div className="position">
       <div className="position-info">
         <h3>
