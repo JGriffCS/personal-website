@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 
 import axios from 'axios';
 
-import Dashboard from './containers/dashboard';
+import Dashboard from './containers/home';
 import Breadcrumbs from '../shared/components/breadcrumbs/breadcrumbs';
+import BlogManagement from './containers/blog-management';
 import ResourceSites from './containers/resource-sites';
 
 import './index.pcss';
@@ -40,6 +41,7 @@ class Admin extends React.Component {
 
     const breadcrumbs = [
       { id: 0, path: this.props.match.path, name: 'Dashboard' },
+      { id: 'blog', path: `${this.props.match.path}/blog`, name: 'Blog Management' },
       ...this.state.routes,
     ];
 
@@ -47,6 +49,7 @@ class Admin extends React.Component {
       <div className="admin-container">
         <Breadcrumbs routes={breadcrumbs} />
         <Route exact path={this.props.match.path} component={Dashboard} />
+        <Route exact path={`${this.props.match.path}/blog`} component={BlogManagement} />
         {
           this.state.routes.map(route => (
             <Route

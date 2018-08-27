@@ -4,15 +4,15 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import AddResourceCategory from '../components/dashboard/add-resource-category/add-resource-category';
-import DashboardItem from '../components/dashboard/dashboard-item/dashboard-item';
-import DashboardSection from '../components/dashboard/dashboard-section/dashboard-section';
+import AddResourceCategory from '../components/home/add-resource-category/add-resource-category';
+import DashboardItem from '../components/shared/dashboard-item/dashboard-item';
+import DashboardSection from '../components/shared/dashboard-section/dashboard-section';
 import withDeleteFunctionality from '../components/shared/removable-item/removable-item';
 
 import { initAdminResourceCategories, removeAdminResourceCategory } from '../actions/admin-resource-categories';
 
 const ResourceCategory = withDeleteFunctionality(DashboardItem);
-class Dashboard extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
 
@@ -42,7 +42,8 @@ class Dashboard extends React.Component {
         <div>
           <h3>Admin Functions</h3>
           <DashboardSection>
-            <DashboardItem path="todos" icon="delete" name="Todos" match={this.props.match} />
+            <DashboardItem path="todos" icon="assignment" name="Todos" match={this.props.match} />
+            <DashboardItem path="blog" icon="rss_feed" name="Blog Management" match={this.props.match} />
           </DashboardSection>
         </div>
         <div>
@@ -67,7 +68,7 @@ class Dashboard extends React.Component {
   }
 }
 
-Dashboard.propTypes = {
+Home.propTypes = {
   resourceCategories: PropTypes.arrayOf(PropTypes.shape({
     icon: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -88,4 +89,4 @@ export default connect(
     initAdminResourceCategories,
     removeAdminResourceCategory,
   }, dispatch),
-)(Dashboard);
+)(Home);
