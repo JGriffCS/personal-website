@@ -10,8 +10,8 @@ const BlogManagement = ({ match }) => (
     <Route exact path={match.path}>
       <DashboardSection>
         <DashboardItem path="add-post" icon="note_add" name="New Post" match={match} />
-        <DashboardItem path="edit-posts" icon="edit" name="Edit Posts" match={match} />
-        <DashboardItem path="add-tags" icon="playlist_add" name="Add Tags" match={match} />
+        <DashboardItem path="edit-posts" icon="edit" name="Manage Posts" match={match} />
+        <DashboardItem path="add-tags" icon="playlist_add" name="Manage Tags" match={match} />
       </DashboardSection>
     </Route>
   </div>
