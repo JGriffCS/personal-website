@@ -17,7 +17,7 @@ const Footer = () => (
         <img src={nodeLogo} alt="Node" title="Node" />
       </div>
       <div className="copyright">
-        © 2018 Joshua Griffiths
+        © 2019 Joshua Griffiths
       </div>
     </div>
   </div>
