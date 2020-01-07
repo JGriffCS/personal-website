@@ -9,7 +9,7 @@ import adminResourceCategories from './admin/reducers/admin-resource-categories'
 import adminResourceSites from './admin/reducers/admin-resource-sites';
 
 import App from './app';
-import { State } from './admin/constants/state-typings';
+import { State } from './admin/constants/state-types';
 
 const initialState: State = {
   adminResourceCategories: [],
