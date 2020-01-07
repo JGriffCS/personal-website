@@ -30,6 +30,7 @@
       "pcss": "always"
     }],
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
-    "max-len": ["warn", { "code": 120, "tabWidth":  2 }]
+    "max-len": ["warn", { "code": 120, "tabWidth":  2 }],
+    "@typescript-eslint/camelcase": ["off"]
   }
 }
