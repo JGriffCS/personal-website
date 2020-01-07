@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: {
     polyfill: 'babel-polyfill',
-    app: './src/index.jsx',
+    app: './src/index.tsx',
     vendor: ['react', 'react-dom', 'react-loadable', 'redux'],
   },
   output: {
@@ -39,6 +39,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        exclude: '/node_modules/',
+        use: 'awesome-typescript-loader',
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
@@ -61,6 +66,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 };

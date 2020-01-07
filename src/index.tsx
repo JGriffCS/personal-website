@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -9,10 +9,11 @@ import adminResourceCategories from './admin/reducers/admin-resource-categories'
 import adminResourceSites from './admin/reducers/admin-resource-sites';
 
 import App from './app';
+import { State } from './admin/constants/state-typings';
 
-const initialState = {
+const initialState: State = {
   adminResourceCategories: [],
-  adminResourceSites: {},
+  adminResourceSites: [],
 };
 
 const reducers = combineReducers({
