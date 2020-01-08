@@ -1,22 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
+import * as React from 'react';
+import axios, { AxiosResponse } from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { addAdminResourceCategory } from '../../../actions/admin-resource-categories';
 import Modal from '../../../../shared/components/modal/modal';
+import { ResourceCategory } from '../../../constants/state-types';
+import { AddResourceCategoryAction } from '../../../constants/action-types';
 
 import './add-resource-category.pcss';
 
-class AddResourceCategory extends React.Component {
-  constructor(props) {
-    super(props);
+interface Props {
+  addAdminResourceCategory: (category: ResourceCategory) => AddResourceCategoryAction;
+}
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.saveCategory = this.saveCategory.bind(this);
+interface State {
+  alert?: Alert;
+  icon: string;
+  modalOpen: boolean;
+  name: string;
+  path: string;
+}
+
+interface Alert {
+  type: string;
+  message: string;
+}
+
+class AddResourceCategory extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
 
     this.state = {
       alert: null,
@@ -27,35 +40,35 @@ class AddResourceCategory extends React.Component {
     };
   }
 
-  openModal() {
+  openModal = (): void => {
     this.setState({
       modalOpen: true,
     });
-  }
+  };
 
-  closeModal() {
+  closeModal = (): void => {
     this.setState({
       modalOpen: false,
     });
-  }
+  };
 
-  handleInputChange(event) {
+  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
 
     this.setState({
       [name]: value,
       alert: null,
     });
-  }
+  };
 
-  saveCategory() {
+  saveCategory = (): void => {
     const body = {
       path: this.state.path,
       name: this.state.name,
       icon: this.state.icon,
     };
 
-    axios.post('/api/admin/resource_site_categories', body).then((resp) => {
+    axios.post('/api/admin/resource_site_categories', body).then((resp: AxiosResponse<Array<ResourceCategory>>) => {
       this.props.addAdminResourceCategory(resp.data[0]);
       this.closeModal();
     }).catch((err) => {
@@ -68,9 +81,9 @@ class AddResourceCategory extends React.Component {
         },
       });
     });
-  }
+  };
 
-  render() {
+  render(): React.ReactNode {
     return (
       <React.Fragment>
         <div className="add-btn-container">
@@ -119,10 +132,6 @@ class AddResourceCategory extends React.Component {
     );
   }
 }
-
-AddResourceCategory.propTypes = {
-  addAdminResourceCategory: PropTypes.func.isRequired,
-};
 
 export default connect(
   null,

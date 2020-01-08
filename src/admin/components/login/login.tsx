@@ -1,19 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
+import * as jwtDecode from 'jwt-decode';
+import { RouteComponentProps } from 'react-router-dom';
 
 import loginService from '../../services/login.service';
 import Alert from '../../../shared/components/alert/alert';
 
 import './login.pcss';
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
+interface State {
+  username: string;
+  password: string;
+  error?: string;
+}
 
-    this.inputChange = this.inputChange.bind(this);
-    this.login = this.login.bind(this);
+class Login extends React.Component<RouteComponentProps, State> {
+  constructor(props: RouteComponentProps) {
+    super(props);
 
     this.state = {
       username: '',
@@ -22,7 +25,7 @@ class Login extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     // If token is still valid, redirect from the login page
     const token = localStorage.getItem('id_token');
     if (token) {
@@ -33,15 +36,16 @@ class Login extends React.Component {
     }
   }
 
-  inputChange(e) {
+  inputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { target } = e;
 
+    // TODO: This is kind of silly at this point. Probably better to just bind the name and stop using dynamic keys
     this.setState({
       [target.name]: target.value,
-    });
-  }
+    } as Pick<State, keyof State>);
+  };
 
-  login(e) {
+  login = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     loginService.login(this.state.username, this.state.password).then((resp) => {
@@ -51,9 +55,9 @@ class Login extends React.Component {
     }, (err) => {
       this.setState({ error: err.message });
     });
-  }
+  };
 
-  render() {
+  render(): React.ReactNode {
     return (
       <div className="login-container">
         <div className="login-header">
@@ -75,11 +79,5 @@ class Login extends React.Component {
     );
   }
 }
-
-Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-};
 
 export default Login;
